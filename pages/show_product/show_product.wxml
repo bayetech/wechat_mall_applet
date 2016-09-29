@@ -1,0 +1,11 @@
+<view>
+  <text>{{name}}</text>
+  <image src="/images/product_show_{{id}}.png" mode="aspectFill"/>
+
+  <view wx:if="{{ address.length > 0 }}">
+    <text bindtap="bindTapAddress">address</text>
+  </view>
+  <view wx:else>
+    <text bindtap="bindTapAddress">address</text>
+  </view>
+</view>

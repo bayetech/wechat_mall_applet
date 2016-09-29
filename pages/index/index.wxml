@@ -1,0 +1,12 @@
+<view>
+  <scroll-view scroll-y="true" height="100%">
+    <block wx:for="{{items}}" wx:for-item="item">
+      <navigator url="../show_product/show_product?id={{item.id}}">
+        <view bindtap="bindViewTap">
+          <image class="" src="{{item.url}}" background-size="cover"></image>
+          <text> {{item.name}} </text>
+        </view>
+      </navigator>
+    </block>
+  </scroll-view>
+</view>

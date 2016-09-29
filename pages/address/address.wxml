@@ -1,0 +1,12 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+  <view class="section">
+    <view class="section_title">详细地址</view>
+    <input name="input" placeholder="输入地址信息" />
+  </view>
+
+  <view class="btn-area">
+    <button formType="submit">Submit</button>
+    <button formType="reset">Reset</button>
+  </view>
+</form>
