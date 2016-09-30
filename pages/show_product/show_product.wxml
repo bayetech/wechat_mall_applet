@@ -1,11 +1,31 @@
 <view>
-  <text>{{name}}</text>
-  <image src="/images/product_show_{{id}}.png" mode="aspectFill"/>
+  <text>{{product.attributes.name}}</text>
+  <image src="{{product.attributes['image-url']}}" mode="aspectFill"/>
 
-  <view wx:if="{{ address.length > 0 }}">
-    <text bindtap="bindTapAddress">address</text>
+  <view wx:if="{{ address > 0 }}"  bindtap="bindTapAddress">
+    <text>{{address}}</text>
+    <text>edit</text>
   </view>
-  <view wx:else>
-    <text bindtap="bindTapAddress">address</text>
+  <view wx:else bindtap="bindTapAddress">
+    <text>add new address</text>
+  </view>
+
+  <view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section">
+        <text class="">数量</text>
+        <input name="quantity" value="1" />
+      </view>
+      <view class="section">
+        <text type="hidden">sku:{{product.attributes.sku || '无法获取sku'}}</text>
+      </view>
+      <view class="section">
+        <text>{{product.attributes.price || '无法获取价格'}}</text>
+      </view>
+      <view class="btn-area">
+        <button formType="submit">buy it!</button>
+        <button formType="reset">Reset</button>
+      </view>
+    </form>
   </view>
 </view>

@@ -1,4 +1,15 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
+  <view>
+    省
+  </view>
+
+  <view>
+    市
+  </view>
+
+  <view>
+    区
+  </view>
 
   <view class="section">
     <view class="section_title">详细地址</view>

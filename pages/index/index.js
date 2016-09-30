@@ -1,24 +1,31 @@
 var app = getApp()
+const product = require('../../utils/product.js')
 
 Page({
-  data: { items:
-    [
-      { url: 'aaaa.jpg',
-        name: 'aaa',
-        id: 1
-      },
-      {
-        url: 'aaaa.jpg',
-        name: 'bbb',
-        id: 2
-      }
-    ]
-  },
+  data: {items: []},
 
   bindViewTap: function() {
   },
 
   onLoad: function() {
     var that = this
+
+    wx.getNetworkType({
+      success: function(res) {
+        var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
+        // if (networkType) {
+          product.getProducts().then(function(result) {
+            that.data.items = result.data
+          })
+        // } else {
+        //    cache = wx.getStorageSync('products')
+        //    if (cache) {
+        //      this.data.items = cache
+        //    } else {
+        //      this.data.items = []
+        //    }
+        // }
+      }
+    })
   }
 })
