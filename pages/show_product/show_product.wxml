@@ -1,6 +1,6 @@
 <view>
-  <text>{{product.attributes.name}}</text>
   <image src="{{product.attributes['image-url']}}" mode="aspectFill"/>
+  <text>{{product.attributes.name}}</text>
 
   <view wx:if="{{ address > 0 }}"  bindtap="bindTapAddress">
     <text>{{address}}</text>
@@ -11,16 +11,13 @@
   </view>
 
   <view>
-    <form bindsubmit="formSubmit" bindreset="formReset">
+    <form bindsubmit="formSubmit" bindreset="formReset" data-sku="{{product.attributes.sku}}">
       <view class="section">
         <text class="">数量</text>
         <input name="quantity" value="1" />
       </view>
       <view class="section">
-        <text type="hidden">sku:{{product.attributes.sku || '无法获取sku'}}</text>
-      </view>
-      <view class="section">
-        <text>{{product.attributes.price || '无法获取价格'}}</text>
+        <text>¥{{product.attributes.price || '无法获取价格'}}</text>
       </view>
       <view class="btn-area">
         <button formType="submit">buy it!</button>

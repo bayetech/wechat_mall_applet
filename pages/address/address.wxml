@@ -1,10 +1,20 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
-  <view>
-    省
+  <view class="section">
+    <view class="section__title">省</view>
+    <picker bindchange="bindPickerChange" value="{{indexSheng}}" range="{{arraySheng}}">
+      <view class="picker">
+        当前选择：{{arraySheng[indexSheng]}}
+      </view>
+    </picker>
   </view>
 
-  <view>
-    市
+  <view class="section">
+    <view class="section__title">市</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        当前选择：{{array[index]}}
+      </view>
+    </picker>
   </view>
 
   <view>

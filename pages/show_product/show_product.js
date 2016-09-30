@@ -20,7 +20,6 @@ Page({
     wx.getNetworkType({
       success: function(res) {
         var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
-        debugger
         if (networkType) {
           product.getProduct(params.id).then(function(result) {
             console.log(result)
@@ -51,6 +50,7 @@ Page({
   },
 
   formSubmit: function(e) {
+    e.detail.value['sku'] = e.target.dataset['sku']
     //  address.postBuyProduct(e.detail.value)
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },

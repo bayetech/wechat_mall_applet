@@ -4,9 +4,6 @@ const product = require('../../utils/product.js')
 Page({
   data: {items: []},
 
-  bindViewTap: function() {
-  },
-
   onLoad: function() {
     var that = this
 
