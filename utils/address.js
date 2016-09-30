@@ -3,19 +3,19 @@ const API_URL = 'http://127.0.0.1:3000'
 function postAddress (data) {
   return new Promise((resolve, reject) => {
     wx.request({
-        method: 'POST',
-        url: `${API_URL}/addresses/new`,
-        data: Object.assign({}, data),
-        header: { 'Content-Type': 'application/json' },
-        success (res) {
-          console.log('success')
-          wx.setStorageSync('addrss', res.data)
-          wx.navigateBack()
-        },
-        fail (e) {
-          console.log('error')
-          console.error(e)
-        }
+      method: 'POST',
+      url: `${API_URL}/addresses/new`,
+      data: Object.assign({}, data),
+      header: { 'Content-Type': 'application/json' },
+      success (res) {
+        console.log('success')
+        wx.setStorageSync('addrss', res.data)
+        wx.navigateBack()
+      },
+      fail (e) {
+        console.log('error')
+        console.error(e)
+      }
     })
   })
 }
@@ -34,6 +34,8 @@ function getLocation () {
     }
   })
 }
+
+
 
 module.exports = {
   postAddress (data) {

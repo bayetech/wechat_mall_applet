@@ -23,5 +23,28 @@ Page({
 
   onLoad (params) {
     //this.data.sku = params.sku
+
+  },
+
+
+  getAddressMenu: function() {
+    var that = this
+
+    wx.request({
+      method: 'POST',
+      url: `cities?province=${that.data.arraySheng[indexSheng]}`,
+      data: Object.assign({}, data),
+      header: { 'Content-Type': 'application/json' },
+      success (res) {
+        debugger
+        console.log('success')
+        wx.setStorageSync('addrss', res.data)
+        wx.navigateBack()
+      },
+      fail (e) {
+        console.log('error')
+        console.error(e)
+      }
+    })
   }
 })

@@ -17,26 +17,9 @@ Page({
     var that = this
     this.data.id = params.id
 
-    wx.getNetworkType({
-      success: function(res) {
-        var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
-        if (networkType) {
-          product.getProduct(params.id).then(function(result) {
-            console.log(result)
-            that.data.product = result.data
-            wx.setStorage({key: `product-${params.id}`, value: that.data.product})
-          })
-        } else {
-           cache = wx.getStorageSync(`product-${params.id}`)
-           if (cache) {
-             this.data.product = cache
-           } else {
-             this.data.product = {}
-           }
-        }
-      }
+    that.data.product = wx.getStorageSync('products').find(function(i){
+      return i.id === that.data.id;
     })
-
   },
 
   onReady () {
