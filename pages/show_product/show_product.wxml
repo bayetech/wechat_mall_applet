@@ -1,6 +1,25 @@
 <view>
-  <image src="{{product.attributes['image-url']}}" mode="aspectFill"/>
+  <view>
+    <image class="head-img" src="{{product.attributes['image-url']}}" mode="aspectFit" />
+  </view>
+
   <text>{{product.attributes.name}}</text>
+
+  <view>
+    <form bindsubmit="formSubmit" data-sku="{{product.attributes.sku}}">
+      <view class="section quantity">
+        <view class="quantity">数量：</view>
+        <input id="quantity" name="quantity" bindinput="bindQuantityInput" value="1" />
+      </view>
+      <view class="section">
+        <text id="price" >¥{{product.attributes.price || '无法获取价格'}}</text>
+      </view>
+      <view class="btn-area">
+        <button formType="submit" type='primary'>立即购买</button>
+        <button bindtap="bindAddToCart">加入购物车</button>
+      </view>
+    </form>
+  </view>
 
   <view wx:if="{{ address > 0 }}"  bindtap="bindTapAddress">
     <text>{{address}}</text>
@@ -10,19 +29,4 @@
     <text>add new address</text>
   </view>
 
-  <view>
-    <form bindsubmit="formSubmit" bindreset="formReset" data-sku="{{product.attributes.sku}}">
-      <view class="section">
-        <text class="">数量</text>
-        <input name="quantity" value="1" />
-      </view>
-      <view class="section">
-        <text>¥{{product.attributes.price || '无法获取价格'}}</text>
-      </view>
-      <view class="btn-area">
-        <button formType="submit">buy it!</button>
-        <button formType="reset">Reset</button>
-      </view>
-    </form>
-  </view>
 </view>

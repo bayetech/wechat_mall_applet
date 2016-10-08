@@ -1,0 +1,28 @@
+.head-img {
+  width: 100%;
+}
+
+.quantity {
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+#quantity {
+  width: 80rpx;
+  border: 1rpx solid lightskyblue;
+}
+
+#price {
+  color: #FF0000;
+}
+
+.btn-area {
+  display: flex;
+}
+
+.btn-area button {
+  width: 100%;
+  border-radius: 0;
+  border-width: 0;
+}
