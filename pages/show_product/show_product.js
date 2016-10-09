@@ -17,7 +17,6 @@ Page({
   onLoad (params) {
     var that = this
     this.data.id = params.id
-
     that.data.product = wx.getStorageSync('products').find(function(i){
       return i.id === that.data.id
     })
@@ -34,6 +33,8 @@ Page({
   },
 
   bindAddToCart (e) {
+    //var existItem = wx.getStorageSync('cartItems')
+    // TODO
     wx.setStorage({
       key: `cart-${this.data.id}`,
       data: {quantity: this.data.quantity}

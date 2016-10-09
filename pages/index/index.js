@@ -8,10 +8,11 @@ Page({
     var that = this
 
     product.getSlides().then(function(result) {
-      that.setData({'slides': result.data.data})
+      var data = getApp().store.sync(result.data)
+      that.setData({'slides': data})
       wx.setStorage({
         key:"indexSlides",
-        data:result.data
+        data:data
       })
     })
 
@@ -20,15 +21,16 @@ Page({
         var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
         if (networkType) {
           product.getProducts().then(function(result) {
-            that.data.items = result.data.data
-            wx.setStorageSync('products', result.data)
+            var data = getApp().store.sync(result.data)
+            that.setData({'items': data})
+            wx.setStorageSync('products', data)
           })
         } else {
            cache = wx.getStorageSync('products')
            if (cache) {
-             this.data.items = cache
+             that.setData({'items': cache})
            } else {
-             this.data.items = []
+             that.setData({'items': []})
            }
         }
       }
