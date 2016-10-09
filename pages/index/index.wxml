@@ -1,11 +1,10 @@
 <view>
   <scroll-view scroll-y="true" height="100%">
-    <swiper style="height:180px" indicator-dots="true"
-        autoplay="true" interval="5000" duration="1000">
+    <swiper style="height:230px;" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
       <block wx:for="{{slides}}" wx:for-item="slide">
         <swiper-item>
-          <navigator url="{{slide.url}}">
-            <image src="{{slide.img}}"/>
+          <navigator url="{{slide.attributes.url}}">
+            <image class="slide-img" src="{{slide.attributes.img}}" mode="aspectFit"/>
           </navigator>
         </swiper-item>
       </block>
@@ -14,11 +13,11 @@
     <block wx:for="{{items}}" wx:for-item="item">
       <navigator url="../show_product/show_product?id={{item.id}}">
         <view>
-          <image class="head-img" src="{{item.attributes['image-url']}}" background-size="cover"></image>
+          <image class="head-img" src="{{item.attributes['image-url']}}"  mode="aspectFit"></image>
         </view>
         <view>
           <text> {{item.attributes.name}} </text>
-          <text> {{item.attributes.price}} </text>
+          <text> ¥{{item.attributes.price}} </text>
         </view>
       </navigator>
     </block>

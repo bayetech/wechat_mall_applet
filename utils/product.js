@@ -27,7 +27,7 @@ function postBuyProduct (data) {
 function getSlides () {
   return new Promise((resolve, reject) => {
     wx.request({
-        url: `${API_URL}/slides`,
+        url: `${API_URL}/home_slides`,
         header: { 'Content-Type': 'application/json' },
         success: resolve,
         fail: reject
