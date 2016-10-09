@@ -33,11 +33,24 @@ Page({
   },
 
   bindAddToCart (e) {
-    //var existItem = wx.getStorageSync('cartItems')
-    // TODO
+    var cartItems = wx.getStorageSync('cartItems') || {data:[]}
+
+    var exist = cartItems.data.find(function(ele){
+      return ele.id === app.getCurrentPage().data.id
+    })
+
+    if (exist) {
+      exist.quantity = this.data.quantity
+    } else {
+      var model = getApp().jsonModel
+      var product = new model('product', this.data.id)
+      product.setAttribute('quantity', this.data.quantity)
+      cartItems.data.push(product)
+    }
+
     wx.setStorage({
-      key: `cart-${this.data.id}`,
-      data: {quantity: this.data.quantity}
+      key: 'cartItems',
+      data: cartItems
     })
   },
 

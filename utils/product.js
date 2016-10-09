@@ -35,9 +35,23 @@ function getSlides () {
   })
 }
 
+function postBilling (data) {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      method: 'POST',
+      url: `${API_URL}/cart/billing`,
+      data: data,
+      header: { 'Content-Type': 'application/json'},
+      success: resolve,
+      fail: reject
+    })
+  })
+}
+    
+
 module.exports = {
-  getProducts (data) {
-    return getProducts(data)
+  getProducts () {
+    return getProducts()
   },
   getProduct (data) {
     return getProducts(data)
@@ -45,5 +59,9 @@ module.exports = {
 
   getSlides () {
     return getSlides()
+  },
+
+  postBilling (data) {
+    return postBilling(data)
   }
 }

@@ -1,10 +1,7 @@
 App({
   onLaunch: function () {
-    this.store = new(this.jsonApi())
-  },
-
-  jsonApi: function() {
-    const jsonApi = require('node_modules/jsonapi-datastore/dist/jsonapi-datastore.js').JsonApiDataStore
-    return jsonApi
+    const jsonApi = require('node_modules/jsonapi-datastore/dist/jsonapi-datastore.js')
+    this.store = new(jsonApi.JsonApiDataStore)
+    this.jsonModel = jsonApi.JsonApiDataStoreModel
   }
 })
