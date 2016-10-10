@@ -3,6 +3,7 @@ const product = require('../../utils/product.js')
 
 Page({
   data: {
+    toastAddProduct: true,
     title: '',
     id: 0,
     address: '',
@@ -41,6 +42,7 @@ Page({
       product.setAttribute('quantity', this.data.quantity)
       cartItems.data.push(product)
     }
+    this.setData({ toastAddProduct:false });
 
     wx.setStorage({
       key: 'cartItems',
@@ -50,6 +52,10 @@ Page({
 
   bindQuantityInput (e) {
     this.setData({'quantity': e.detail.value})
+  },
+
+  toastChange: function(){
+    this.setData({ toastAddProduct:true });
   },
 
   // 立即购买

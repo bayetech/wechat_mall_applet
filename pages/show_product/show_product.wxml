@@ -21,4 +21,8 @@
     </form>
   </view>
 
+  <toast hidden="{{toastAddProduct}}" bindchange="toastChange" duration="1200">
+    <text style="font-size:28rpx">成功加入购物车</text>
+  </toast>
+
 </view>
