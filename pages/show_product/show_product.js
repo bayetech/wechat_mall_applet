@@ -43,7 +43,7 @@ Page({
       exist.quantity = this.data.quantity
     } else {
       var model = getApp().jsonModel
-      var product = new model('product', this.data.id)
+      var product = new model('products', this.data.id)
       product.setAttribute('quantity', this.data.quantity)
       cartItems.data.push(product)
     }

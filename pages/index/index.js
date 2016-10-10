@@ -4,6 +4,12 @@ const product = require('../../utils/product.js')
 Page({
   data: {items: [], slides: []},
 
+  bindShowProduct: function (e) {
+    wx.navigateTo({
+      url: `../show_product/show_product?id=${e.currentTarget.dataset.id}`
+    })
+  },
+
   onLoad: function() {
     var that = this
 

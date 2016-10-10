@@ -1,6 +1,40 @@
-.head-img {
-  width: 100%;
-}
 .slide-img {
   width: 100%;
+}
+
+.item {
+  height: 270rpx;
+  padding: 15rpx;
+  background-color: #fff;
+  border-top: 1px solid #e4e4e4;
+  color: #787878;
+  display:flex;
+  align-items:center;
+}
+
+.item image {
+  display: block;
+  width: 310rpx;
+}
+
+.item-right {
+  display: block;
+  margin-left: 11px;
+  flex: 1;
+}
+
+.title {
+  margin-bottom: 25px;
+}
+
+.title text {
+  font-size: 16px;
+  color: #787878;
+  white-space: pre-wrap;
+  line-height: 17px;
+}
+
+text {
+  font-size: 15px;
+  color: #444;
 }

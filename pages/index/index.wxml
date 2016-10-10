@@ -11,15 +11,17 @@
     </swiper>
 
     <block wx:for="{{items}}" wx:for-item="item">
-      <navigator url="../show_product/show_product?id={{item.id}}">
-        <view>
+      <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
+        <view class="image">
           <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
         </view>
-        <view>
-          <text> {{item.name}} </text>
-          <text> ¥{{item.price}} </text>
+        <view class="item-right">
+          <view class="title">
+            <text> {{item.name}} </text>
+          </view>
+          <text class="price"> ¥{{item.price}} </text>
         </view>
-      </navigator>
+      </view>
     </block>
   </scroll-view>
 </view>
