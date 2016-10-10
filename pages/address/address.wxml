@@ -1,24 +1,29 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="section">
     <view class="section__title">省</view>
-    <picker bindchange="bindPickerChange" value="{{indexSheng}}" range="{{arraySheng}}">
+    <picker bindchange="bindChangeProvince" value="{{indexProvince}}" range="{{arrayProvince}}">
       <view class="picker">
-        当前选择：{{arraySheng[indexSheng]}}
+        当前选择：{{arrayProvince[indexProvince]}}
       </view>
     </picker>
   </view>
 
   <view class="section">
     <view class="section__title">市</view>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <picker bindchange="bindChangeCity" value="{{indexCity}}" range="{{arrayCity}}">
       <view class="picker">
-        当前选择：{{array[index]}}
+        当前选择：{{arrayCity[indexCity]}}
       </view>
     </picker>
   </view>
 
   <view>
-    区
+    <view class="section__title">区</view>
+    <picker bindchange="bindChangeCounty" value="{{indexCounty}}" range="{{arrayCounty}}">
+      <view class="picker">
+        当前选择：{{arrayCounty[indexCounty]}}
+      </view>
+    </picker>
   </view>
 
   <view class="section">

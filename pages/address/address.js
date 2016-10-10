@@ -1,49 +1,62 @@
 const address = require('../../utils/address.js')
-const district = require('../../utils/address_data.json')
+const district = require('../../utils/address_data.js')
 
 Page({
   data: {
-    arraySheng: ['a', 'b'],
-    indexSheng: 0,
+    address: {},
+    arrayProvince: [],
+    indexProvince: 0,
+    arrayCity: [],
+    indexCity: 0,
+    arrayCounty: [],
+    indexCounty: 0
   },
 
-  bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  bindChangeProvince: function(e) {
+    var p = this.data.arrayProvince[this.data.indexProvince]
+    var currentAddress = this.data.address
+    currentAddress.province = p
     this.setData({
-      indexSheng: e.detail.value
+      indexProvince: e.detail.value,
+      arrayCity: district.cities(p),
+      address: currentAddress
+    })
+  },
+
+  bindChangeCity: function(e) {
+    var p = this.data.arrayProvince[this.data.indexProvince]
+    var c = this.data.arrayCity[this.data.indexCity]
+    var currentAddress = this.data.address
+    currentAddress.city = c
+    this.setData({
+      indexCity: e.detail.value,
+      arrayCounty: district.counties(p,c),
+      address: currentAddress
+    })
+  },
+
+  bindChangeCounty: function(e) {
+    var county = this.data.arrayCounty[this.data.indexCounty]
+    var currentAddress = this.data.address
+    currentAddress.county = county
+    this.setData({
+      indexCounty: e.detail.value,
+      address: currentAddress
     })
   },
 
   formSubmit: function(e) {
-    address.postAddress(e.detail.value)
-    console.log('form 发生了 submit 事件，携带数据为：', e.detail.value)
+    var currentAddress = this.data.address
+    currentAddress.detail = e.detail.value.input
+    this.setData({'address': currentAddress})
+    wx.setStorage({key:'address', data:currentAddress})
+    wx.navigateBack()
   },
   formReset: function(e) {
     console.log('form 发生了 reset 事件')
   },
 
   onLoad (params) {
-    //this.data.sku = params.sku
-    this.setData({'arraySheng': district.keys()})
-  },
-
-  getAddressMenu: function() {
-    var that = this
-
-    wx.request({
-      method: 'POST',
-      url: `cities?province=${that.data.arraySheng[indexSheng]}`,
-      data: Object.assign({}, data),
-      header: { 'Content-Type': 'application/json' },
-      success (res) {
-        console.log('success')
-        wx.setStorageSync('addrss', res.data)
-        wx.navigateBack()
-      },
-      fail (e) {
-        console.log('error')
-        console.error(e)
-      }
-    })
+    this.setData({'arrayProvince': district.provinces()})
   }
 })
