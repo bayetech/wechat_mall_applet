@@ -21,12 +21,4 @@
     </form>
   </view>
 
-  <view wx:if="{{ address > 0 }}"  bindtap="bindTapAddress">
-    <text>{{address}}</text>
-    <text>修改地址</text>
-  </view>
-  <view wx:else bindtap="bindTapAddress">
-    <text>add new address</text>
-  </view>
-
 </view>

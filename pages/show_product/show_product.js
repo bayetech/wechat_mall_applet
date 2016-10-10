@@ -26,12 +26,6 @@ Page({
     wx.setNavigationBarTitle({ title: this.data.title })
   },
 
-  bindTapAddress () {
-    wx.navigateTo({
-      url: '../address/address'
-    })
-  },
-
   bindAddToCart (e) {
     var cartItems = wx.getStorageSync('cartItems') || {data:[]}
 
@@ -58,6 +52,7 @@ Page({
     this.setData({'quantity': e.detail.value})
   },
 
+  // 立即购买
   formSubmit: function(e) {
     e.detail.value['sku'] = e.target.dataset['sku']
     //  address.postBuyProduct(e.detail.value)
