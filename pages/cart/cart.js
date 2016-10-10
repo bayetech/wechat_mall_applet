@@ -1,20 +1,20 @@
 Page({
   data: {
-    address: '',
+    address: 0
   },
 
-  onLoad: function() {
-    var that = this
-  },
+  // onLoad: function (params) {
+  //   debugger
+  // },
 
-  onShow () {
-    var address = wx.getStorageSync('address')
-    this.setData({'address': address})
-  },
+  // onShow: function (params) {
+  //   var address = wx.getStorageSync('address')
+  //   this.setData({'address': address})
+  // },
 
-  bindBilling () {
-    var cartItems = wx.getStorageSync('cartItems')
-  },
+  // bindBilling: function () {
+  //   var cartItems = wx.getStorageSync('cartItems')
+  // },
 
   bindTapAddress () {
     wx.navigateTo({

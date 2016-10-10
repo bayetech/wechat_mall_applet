@@ -1,8 +1,9 @@
 const address = require('../../utils/address.js')
+const district = require('../../utils/address_data.json')
 
 Page({
   data: {
-    arraySheng: provinces.keys(),
+    arraySheng: ['a', 'b'],
     indexSheng: 0,
   },
 
@@ -23,7 +24,7 @@ Page({
 
   onLoad (params) {
     //this.data.sku = params.sku
-
+    this.setData({'arraySheng': district.keys()})
   },
 
   getAddressMenu: function() {
@@ -35,7 +36,6 @@ Page({
       data: Object.assign({}, data),
       header: { 'Content-Type': 'application/json' },
       success (res) {
-        debugger
         console.log('success')
         wx.setStorageSync('addrss', res.data)
         wx.navigateBack()
