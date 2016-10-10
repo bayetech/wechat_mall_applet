@@ -20,8 +20,6 @@ function counties (province, city) {
 }
 
 module.exports = {
-  district: district,
-
   provinces () {
     return provinces()
   },
