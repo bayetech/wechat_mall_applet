@@ -26,3 +26,21 @@
   border-radius: 0;
   border-width: 0;
 }
+
+.product-name {
+  font-size: 25rpx;
+  margin: 20rpx;
+}
+
+.section.price {
+  margin: 20rpx;
+}
+
+.section.quantity {
+  margin: 20rpx;
+  font-size: 30rpx;
+}
+
+.btn-area {
+  margin-top: 70rpx;
+}

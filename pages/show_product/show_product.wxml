@@ -3,16 +3,16 @@
     <image class="head-img" src="{{product['image-url']}}" mode="aspectFit" />
   </view>
 
-  <text>{{product.name}}</text>
+  <text class="product-name">{{product.name}}</text>
 
   <view>
     <form bindsubmit="formSubmit" data-sku="{{product.sku}}">
-      <view class="section quantity">
-        <view class="quantity">数量：</view>
-        <input id="quantity" name="quantity" bindinput="bindQuantityInput" value="1" />
-      </view>
-      <view class="section">
+      <view class="section price">
         <text id="price" >¥{{product.price || '无法获取价格'}}</text>
+      </view>
+      <view class="section quantity">
+        <view>购买数量：</view>
+        <input id="quantity" name="quantity" bindinput="bindQuantityInput" value="1" />
       </view>
       <view class="btn-area">
         <button formType="submit" type='primary'>立即购买</button>
