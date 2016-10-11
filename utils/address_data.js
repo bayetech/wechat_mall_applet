@@ -12,9 +12,7 @@ function cities (province) {
 
 function counties (province, city) {
   var counties = district[province].find(function(ele){
-    var pageData = getApp().getCurrentPage().data
-    var city = pageData.arrayCity[pageData.indexCity]
-    return city !== undefined
+    return ele.city === city
   })
   return counties.county
 }

@@ -13,19 +13,23 @@ Page({
   },
 
   bindChangeProvince: function(e) {
-    var p = this.data.arrayProvince[this.data.indexProvince]
+    var p = this.data.arrayProvince[e.detail.value]
+    var arrayCity = district.cities(p)
+    var c = arrayCity[0]
     var currentAddress = this.data.address
     currentAddress.province = p
     this.setData({
       indexProvince: e.detail.value,
-      arrayCity: district.cities(p),
+      arrayCity: arrayCity,
+      arrayCounty:district.counties(p,c),
       address: currentAddress
     })
+    wx.setStorageSync('currentDistrict', [this.data.indexProvince, this.data.indexCity, this.data.indexCounty])
   },
 
   bindChangeCity: function(e) {
     var p = this.data.arrayProvince[this.data.indexProvince]
-    var c = this.data.arrayCity[this.data.indexCity]
+    var c = this.data.arrayCity[e.detail.value]
     var currentAddress = this.data.address
     currentAddress.city = c
     this.setData({
@@ -33,6 +37,7 @@ Page({
       arrayCounty: district.counties(p,c),
       address: currentAddress
     })
+    wx.setStorageSync('currentDistrict', [this.data.indexProvince, this.data.indexCity, this.data.indexCounty])
   },
 
   bindChangeCounty: function(e) {
@@ -43,6 +48,7 @@ Page({
       indexCounty: e.detail.value,
       address: currentAddress
     })
+    wx.setStorageSync('currentDistrict', [this.data.indexProvince, this.data.indexCity, this.data.indexCounty])
   },
 
   formSubmit: function(e) {
@@ -57,6 +63,20 @@ Page({
   },
 
   onLoad (params) {
-    this.setData({'arrayProvince': district.provinces()})
+    var address = wx.getStorageSync('address')
+    this.setData({'address': address})
+    var currentDistrict = wx.getStorageSync('currentDistrict') || [0, 0, 0]
+
+    var arrayProvince = district.provinces()
+    this.setData({
+      indexProvince: currentDistrict[0],
+      indexCity:     currentDistrict[1],
+      indexCounty:   currentDistrict[2],
+      arrayProvince: arrayProvince
+    })
+    var arrayCity     = district.cities(arrayProvince[currentDistrict[0]])
+    this.setData({arrayCity: arrayCity})
+    var arrayCounty   = district.counties(arrayProvince[currentDistrict[0]], arrayCity[currentDistrict[1]])
+    this.setData({arrayCounty: arrayCounty})
   }
 })

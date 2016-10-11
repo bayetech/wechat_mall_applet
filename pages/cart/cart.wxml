@@ -1,8 +1,10 @@
-<view wx:if="{{ address > 0 }}"  bindtap="bindTapAddress">
-  <text>{{address}}</text>
-  <text>修改地址</text>
+<view wx:if="{{ address }}"  bindtap="bindTapAddress">
+  <text>{{address.province}} {{address.city}} {{address.county}} {{address.detail}}</text>
+  <view>
+    <text>修改地址</text>
+  </view>
 </view>
 <view wx:else bindtap="bindTapAddress">
-  <text>add new address</text>
+  <text>填写收货地址</text>
 </view>
 

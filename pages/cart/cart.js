@@ -1,16 +1,15 @@
 Page({
   data: {
-    address: 0
+    address: null
   },
 
-  // onLoad: function (params) {
-  //   debugger
-  // },
+  onLoad: function (params) {
+  },
 
-  // onShow: function (params) {
-  //   var address = wx.getStorageSync('address')
-  //   this.setData({'address': address})
-  // },
+  onShow: function (params) {
+    var address = wx.getStorageSync('address')
+    this.setData({'address': address})
+  },
 
   // bindBilling: function () {
   //   var cartItems = wx.getStorageSync('cartItems')
