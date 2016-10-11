@@ -28,7 +28,7 @@
 
   <view class="section">
     <view class="section_title">详细地址</view>
-    <input name="input" placeholder="输入地址信息" />
+    <input name="input" placeholder="输入地址信息" value="{{detailAddress}}" />
   </view>
 
   <view class="btn-area">

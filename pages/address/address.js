@@ -3,7 +3,7 @@ const district = require('../../utils/address_data.js')
 
 Page({
   data: {
-    address: {},
+    detailAddress: '',
     arrayProvince: [],
     indexProvince: 0,
     arrayCity: [],
@@ -16,13 +16,11 @@ Page({
     var p = this.data.arrayProvince[e.detail.value]
     var arrayCity = district.cities(p)
     var c = arrayCity[0]
-    var currentAddress = this.data.address
-    currentAddress.province = p
+
     this.setData({
       indexProvince: e.detail.value,
       arrayCity: arrayCity,
-      arrayCounty:district.counties(p,c),
-      address: currentAddress
+      arrayCounty:district.counties(p,c)
     })
     wx.setStorageSync('currentDistrict', [this.data.indexProvince, this.data.indexCity, this.data.indexCounty])
   },
@@ -30,32 +28,24 @@ Page({
   bindChangeCity: function(e) {
     var p = this.data.arrayProvince[this.data.indexProvince]
     var c = this.data.arrayCity[e.detail.value]
-    var currentAddress = this.data.address
-    currentAddress.city = c
     this.setData({
       indexCity: e.detail.value,
-      arrayCounty: district.counties(p,c),
-      address: currentAddress
+      arrayCounty: district.counties(p,c)
     })
     wx.setStorageSync('currentDistrict', [this.data.indexProvince, this.data.indexCity, this.data.indexCounty])
   },
 
   bindChangeCounty: function(e) {
     var county = this.data.arrayCounty[this.data.indexCounty]
-    var currentAddress = this.data.address
-    currentAddress.county = county
     this.setData({
-      indexCounty: e.detail.value,
-      address: currentAddress
+      indexCounty: e.detail.value
     })
     wx.setStorageSync('currentDistrict', [this.data.indexProvince, this.data.indexCity, this.data.indexCounty])
   },
 
   formSubmit: function(e) {
-    var currentAddress = this.data.address
-    currentAddress.detail = e.detail.value.input
-    this.setData({'address': currentAddress})
-    wx.setStorage({key:'address', data:currentAddress})
+    this.setData({'detailAddress': e.detail.value.input})
+    wx.setStorage({key:'detailAddress', data: e.detail.value.input})
     wx.navigateBack()
   },
   formReset: function(e) {
@@ -63,8 +53,8 @@ Page({
   },
 
   onLoad (params) {
-    var address = wx.getStorageSync('address')
-    this.setData({'address': address})
+    var detailAddress = wx.getStorageSync('detailAddress')
+    this.setData({'detailAddress': detailAddress})
     var currentDistrict = wx.getStorageSync('currentDistrict') || [0, 0, 0]
 
     var arrayProvince = district.provinces()
