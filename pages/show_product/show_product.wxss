@@ -10,7 +10,7 @@
 
 #quantity {
   width: 80rpx;
-  border: 1rpx solid lightskyblue;
+  border: 1rpx solid lightgrey;
 }
 
 #price {
