@@ -1,10 +1,47 @@
-<view wx:if="{{ address }}"  bindtap="bindTapAddress">
-  <text>{{address.province}} {{address.city}} {{address.county}} {{address.detail}}</text>
-  <view>
-    <text>修改地址</text>
+<view class="address-container" wx:if="{{ address }}"  bindtap="bindTapAddress">
+  <view class="receiver">
+    收货人：<text>{{address.name}}</text>
+    <text>{{address.mobile}}</text>
+  </view>
+  <view class="address">
+    <text>{{address.province}} {{address.city}} {{address.county}} {{address.detail}}</text>
+  </view>
+  <view class="button">
+    <button type='primary'>修改地址</button>
   </view>
 </view>
 <view wx:else bindtap="bindTapAddress">
-  <text>填写收货地址</text>
+  <button class="button" type='primary'>填写收货地址</button>
 </view>
 
+<view wx:if="{{cartItems}}">
+  <block wx:for="{{cartItems}}" wx:for-item="item">
+    <view class="item" data-id="{{item.id}}">
+      <view class="image" bindtap="bindTapOnItem" data-id="{{item.id}}">
+        <image class="head-img" src="{{item.product['image-url']}}" mode="aspectFit"></image>
+      </view>
+      <view class="item-right">
+        <view class="title" bindtap="bindTapOnItem" data-id="{{item.id}}">
+          <text> {{item.product.name}} </text>
+        </view>
+        <view class="numbers">
+          <text class="price" bindtap="bindTapOnItem" data-id="{{item.id}}"> ¥{{item.product.price}} / 件 </text>
+          <view class="pull-right">
+            <text>购买数量：</text>
+            <input class="quantity" value="{{item.quantity}}" bindChange="bindChangeQuantity"></input>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+
+<view class="billing-btn">
+  <button class="button" type='warn'> 去支付 </button>
+</view>
+
+
+<modal title="删除该商品" confirm-text="我不要它了" cancel-text="别删" hidden="{{deleteModalHidden}}" bindconfirm="deleteModalChange" bindcancel="deleteModalChange">
+  是否要删除购物车中的这件商品？
+</modal>

@@ -1,0 +1,77 @@
+.button button {
+  border-radius: 0;
+}
+
+.address-container {
+  margin: 15rpx;
+}
+
+.item {
+  height: 180rpx;
+  padding: 15rpx;
+  background-color: #fff;
+  border-top: 1px solid #e4e4e4;
+  color: #787878;
+  display:flex;
+  align-items:center;
+}
+
+.item image {
+  display: block;
+  width: 300rpx;
+}
+
+.item-right {
+  display: block;
+  margin-left: 11px;
+  flex: 1;
+}
+
+.title {
+  padding-bottom: 15px;
+}
+
+.title text {
+  font-size: 16px;
+  color: #787878;
+  white-space: pre-wrap;
+  line-height: 17px;
+}
+
+text {
+  font-size: 15px;
+  color: #444;
+}
+
+.numbers {
+  display: flex;
+}
+
+.numbers text, input {
+  display: block;
+}
+
+.pull-right {
+  margin: auto;
+  font-size: 15px;
+  display: flex;
+}
+
+.numbers input {
+  border: 1rpx solid lightgrey;
+  width: 60rpx;
+}
+
+.numbers text {
+  padding: 10rpx;
+}
+
+.billing-btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.billing-btn .button {
+  border-radius: 0;
+}

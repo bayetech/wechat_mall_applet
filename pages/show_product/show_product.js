@@ -28,19 +28,22 @@ Page({
   },
 
   bindAddToCart (e) {
-    var cartItems = wx.getStorageSync('cartItems') || {data:[]}
+    var cartItems = wx.getStorageSync('cartItems') || []
 
-    var exist = cartItems.data.find(function(ele){
+    var exist = cartItems.find(function(ele){
       return ele.id === app.getCurrentPage().data.id
     })
 
     if (exist) {
       exist.quantity = this.data.quantity
     } else {
-      var model = getApp().jsonModel
-      var product = new model('products', this.data.id)
-      product.setAttribute('quantity', this.data.quantity)
-      cartItems.data.push(product)
+      // var model = getApp().jsonModel
+      // var product = new model('products', this.data.id)
+      // product.setAttribute('quantity', this.data.quantity)
+      var product = {id: this.data.id,
+                     quantity: this.data.quantity,
+                     product: this.data.product}
+      cartItems.push(product)
     }
     this.setData({ toastAddProduct:false });
 
