@@ -28,8 +28,12 @@
         <view class="numbers">
           <text class="price" bindtap="bindTapOnItem" data-id="{{item.id}}"> ¥{{item.product.price}} / 件 </text>
           <view class="pull-right">
-            <text>购买数量：</text>
-            <input class="quantity" value="{{item.quantity}}" bindChange="bindChangeQuantity"></input>
+            <view>
+              <text>购买数量：</text>
+            </view>
+            <view class="quantity">
+              <input value="{{item.quantity}}" bindChange="bindChangeQuantity"></input>
+            </view>
           </view>
         </view>
       </view>

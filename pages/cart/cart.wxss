@@ -31,6 +31,10 @@
   align-items:center;
 }
 
+.item text {
+  font-size: 14px;
+}
+
 .item image {
   display: block;
   width: 300rpx;
@@ -53,8 +57,8 @@
   line-height: 17px;
 }
 
-text {
-  font-size: 15px;
+.address-container text {
+  font-size: 17px;
   color: #444;
 }
 
@@ -89,4 +93,9 @@ text {
 
 .billing-btn .button {
   border-radius: 0;
+}
+
+.quantity input {
+  min-height: 10rpx;
+  height: 50rpx;
 }
