@@ -4,6 +4,8 @@ const district = require('../../utils/address_data.js')
 Page({
   data: {
     detailAddress: '',
+    receiverName:'',
+    receiverMobile:'',
     arrayProvince: [],
     indexProvince: 0,
     arrayCity: [],
@@ -45,7 +47,9 @@ Page({
 
   formSubmit: function(e) {
     this.setData({'detailAddress': e.detail.value.input})
-    wx.setStorage({key:'detailAddress', data: e.detail.value.input})
+    wx.setStorage({key:'detailAddress', data: e.detail.value.inputDetail})
+    wx.setStorage({key:'receiverName', data: e.detail.value.inputName})
+    wx.setStorage({key:'receiverMobile', data: e.detail.value.inputMobile})
     wx.navigateBack()
   },
   formReset: function(e) {
@@ -53,10 +57,10 @@ Page({
   },
 
   onLoad (params) {
-    var detailAddress = wx.getStorageSync('detailAddress')
-    this.setData({'detailAddress': detailAddress})
+    this.setData({'detailAddress': wx.getStorageSync('detailAddress'),
+                  'receiverName': wx.getStorageSync('receiverName'),
+                  'receiverMobile': wx.getStorageSync('receiverMobile')})
     var currentDistrict = wx.getStorageSync('currentDistrict') || [0, 0, 0]
-
     var arrayProvince = district.provinces()
     this.setData({
       indexProvince: currentDistrict[0],

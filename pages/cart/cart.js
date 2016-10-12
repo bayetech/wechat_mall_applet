@@ -16,9 +16,10 @@ Page({
     var cartItems = wx.getStorageSync("cartItems")
     this.setData({cartItems: cartItems})
 
-    var address = {}
     var detailAddress = wx.getStorageSync('detailAddress')
-    address.detail = detailAddress
+    var receiverName = wx.getStorageSync('receiverName')
+    var receiverMobile = wx.getStorageSync('receiverMobile')
+    var address = {detail: detailAddress, name: receiverName, mobile: receiverMobile}
 
     var districtIndex = wx.getStorageSync('currentDistrict') || [0,0,0]
     address.province = district.provinces()[districtIndex[0]]
@@ -29,7 +30,7 @@ Page({
   },
 
   bindChangeQuantity: function (e) {
-
+    //TODO findex, add quantity
   },
 
   // tap on item to delete cart item

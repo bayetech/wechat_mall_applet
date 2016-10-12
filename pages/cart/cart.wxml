@@ -1,7 +1,11 @@
 <view class="address-container" wx:if="{{ address }}"  bindtap="bindTapAddress">
   <view class="receiver">
-    收货人：<text>{{address.name}}</text>
-    <text>{{address.mobile}}</text>
+    <view>
+      <text>收货人：{{address.name}}</text>
+    </view>
+    <view class="right">
+      <text>{{address.mobile}}</text>
+    </view>
   </view>
   <view class="address">
     <text>{{address.province}} {{address.city}} {{address.county}} {{address.detail}}</text>
