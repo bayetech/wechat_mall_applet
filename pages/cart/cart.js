@@ -4,9 +4,9 @@ Page({
   data: {
     deleteModalHidden: true,
     wantToDeleteItem: '',
-    address:{},
-    cartItems:[],
-    amount:0
+    address: null,
+    cartItems: [],
+    amount: 0
   },
 
   onLoad: function (params) {

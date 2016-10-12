@@ -1,17 +1,24 @@
-.button button {
+.button {
   border-radius: 0;
 }
 
 .address-container {
   margin: 15rpx;
+  margin-bottom: 25rpx;
 }
 
 .receiver {
   display: flex;
 }
 
+.left {
+  width: 60%;
+}
+
 .right {
-  margin: auto;
+  width: 40%;
+  margin-left: auto;
+  text-align: right;
 }
 
 .item {

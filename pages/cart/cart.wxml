@@ -1,6 +1,6 @@
-<view class="address-container" wx:if="{{ address }}"  bindtap="bindTapAddress">
+<view class="address-container" wx:if="{{ address.detail }}"  bindtap="bindTapAddress">
   <view class="receiver">
-    <view>
+    <view class="left">
       <text>收货人：{{address.name}}</text>
     </view>
     <view class="right">
@@ -9,9 +9,6 @@
   </view>
   <view class="address">
     <text>{{address.province}} {{address.city}} {{address.county}} {{address.detail}}</text>
-  </view>
-  <view class="button">
-    <button type='primary'>修改地址</button>
   </view>
 </view>
 <view wx:else bindtap="bindTapAddress">
