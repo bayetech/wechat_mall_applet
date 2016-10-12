@@ -42,5 +42,7 @@
 }
 
 .btn-area {
-  margin-top: 70rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

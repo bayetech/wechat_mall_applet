@@ -59,12 +59,5 @@ Page({
 
   toastChange: function(){
     this.setData({ toastAddProduct:true });
-  },
-
-  // 立即购买
-  formSubmit: function(e) {
-    e.detail.value['sku'] = e.target.dataset['sku']
-    //  address.postBuyProduct(e.detail.value)
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-  },
+  }
 })

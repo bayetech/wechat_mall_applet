@@ -15,8 +15,7 @@
         <input id="quantity" name="quantity" bindinput="bindQuantityInput" value="1" />
       </view>
       <view class="btn-area">
-        <button formType="submit" type='primary'>立即购买</button>
-        <button bindtap="bindAddToCart">加入购物车</button>
+        <button bindtap="bindAddToCart" type="primary">加入购物车</button>
       </view>
     </form>
   </view>
