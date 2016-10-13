@@ -4,7 +4,7 @@
 
 .address-container {
   margin: 15rpx;
-  margin-bottom: 25rpx;
+  padding-bottom: 10rpx;
 }
 
 .receiver {
@@ -14,6 +14,10 @@
 .left {
   width: 60%;
 }
+
+.address {
+  margin-top: 15rpx
+} 
 
 .right {
   width: 40%;
@@ -71,7 +75,7 @@
 }
 
 .pull-right {
-  margin: auto;
+  margin-left: auto;
   font-size: 15px;
   display: flex;
 }

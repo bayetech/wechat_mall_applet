@@ -30,7 +30,16 @@ Page({
   },
 
   bindChangeQuantity: function (e) {
-    //TODO findex, add quantity
+    var cartItems = this.data.cartItems
+    var item = cartItems.find(function(ele){
+      return ele.id === e.currentTarget.dataset.id
+    })
+    item.quantity = e.detail.value
+    this.setData({ cartItems: cartItems })
+    wx.setStorage({
+      key: 'cartItems',
+      data: cartItems
+    })
   },
 
   // tap on item to delete cart item
