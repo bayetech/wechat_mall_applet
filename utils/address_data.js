@@ -30,7 +30,7 @@ module.exports = {
 }
 
 
-// json data use ruby:
+// # json data use ruby:
 // r = {}
 // District.provinces.each do |p|
 //   r[p] = []
