@@ -12,18 +12,6 @@ function getProducts (data) {
   })
 }
 
-function postBuyProduct (data) {
-  return new Promise((resolve, reject) => {
-    wx.request({
-        url: `${API_URL}/products/buy`,
-        data: Object.assign({}, data),
-        header: { 'Content-Type': 'application/json' },
-        success: resolve,
-        fail: reject
-    })
-  })
-}
-
 function getSlides () {
   return new Promise((resolve, reject) => {
     wx.request({
@@ -39,7 +27,7 @@ function postBilling (data) {
   return new Promise((resolve, reject) => {
     wx.request({
       method: 'POST',
-      url: `${API_URL}/cart/billing`,
+      url: `${API_URL}/carts/billings`,
       data: data,
       header: { 'Content-Type': 'application/json'},
       success: resolve,

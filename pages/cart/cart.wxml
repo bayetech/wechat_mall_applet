@@ -43,7 +43,7 @@
 
 
 <view class="billing-btn">
-  <button class="button" type='warn'> 去支付 </button>
+  <button class="button" type='warn' bindtap="bindBilling"> 去支付 </button>
 </view>
 
 

@@ -6,13 +6,11 @@ Page({
     toastAddProduct: true,
     title: '',
     id: 0,
-    address: '',
     quantity: 1,
     product: {}
   },
 
   onShow () {
-    this.setData({'address': Date.now()})
   },
 
   onLoad (params) {

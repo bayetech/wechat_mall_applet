@@ -1,4 +1,5 @@
 const district = require('../../utils/address_data.js')
+const product = require('../../utils/product.js')
 
 Page({
   data: {
@@ -16,8 +17,8 @@ Page({
     var cartItems = wx.getStorageSync("cartItems")
     this.setData({cartItems: cartItems})
 
-    var detailAddress = wx.getStorageSync('detailAddress')
-    var receiverName = wx.getStorageSync('receiverName')
+    var detailAddress  = wx.getStorageSync('detailAddress')
+    var receiverName   = wx.getStorageSync('receiverName')
     var receiverMobile = wx.getStorageSync('receiverMobile')
     var address = {detail: detailAddress, name: receiverName, mobile: receiverMobile}
 
@@ -69,9 +70,19 @@ Page({
     })
   },
 
-  // bindBilling: function () {
-  //   var cartItems = wx.getStorageSync('cartItems')
-  // },
+  bindBilling: function () {
+    var cartItems = wx.getStorageSync('cartItems')
+    if (cartItems) {
+      var cartArray = cartItems.map(function(obj){ 
+        var rObj = {};
+        rObj['id'] = obj.id;
+        rObj['quantity'] = obj.quantity;
+        return rObj;
+      });
+      product.postBilling({items: cartArray,
+                           address: this.data.address})
+    }
+  },
 
   bindTapAddress () {
     wx.navigateTo({
