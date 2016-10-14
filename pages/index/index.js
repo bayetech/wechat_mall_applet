@@ -3,7 +3,11 @@ const product = require('../../utils/product.js')
 Page({
   data: {
     items: [],
-    slides: []
+    slides: [],
+    navs: [{icon: "../../images/1.png", name: "资产"},
+           {icon: "../../images/1.png", name: "直销"},
+           {icon: "../../images/1.png", name: "严选"},
+           {icon: "../../images/1.png", name: "包装"}]
   },
 
   bindShowProduct: function (e) {

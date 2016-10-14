@@ -10,6 +10,15 @@
       </block>
     </swiper>
 
+    <view class="navs">
+      <block wx:for-items="{{navs}}">
+        <view class="nav-item" catchtap="catchTapCategory" data-type="{{item.name}}">
+          <image src="{{item.icon}}" class="nav-image"/>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+
     <block wx:for="{{items}}" wx:for-item="item">
       <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
         <view class="image">
