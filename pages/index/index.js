@@ -1,8 +1,10 @@
-var app = getApp()
 const product = require('../../utils/product.js')
 
 Page({
-  data: {items: [], slides: []},
+  data: {
+    items: [],
+    slides: []
+  },
 
   bindShowProduct: function (e) {
     wx.navigateTo({

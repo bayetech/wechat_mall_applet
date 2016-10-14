@@ -41,9 +41,6 @@ module.exports = {
   getProducts () {
     return getProducts()
   },
-  getProduct (data) {
-    return getProducts(data)
-  },
 
   getSlides () {
     return getSlides()

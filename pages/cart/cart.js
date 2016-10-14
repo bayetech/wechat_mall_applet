@@ -79,8 +79,13 @@ Page({
         rObj['quantity'] = obj.quantity;
         return rObj;
       });
-      product.postBilling({items: cartArray,
-                           address: this.data.address})
+
+      product.postBilling({
+        items: cartArray,
+        address: this.data.address
+      }).then(function(result){
+
+      })
     }
   },
 

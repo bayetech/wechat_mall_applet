@@ -7,10 +7,10 @@ Page({
     receiverName:'',
     receiverMobile:'',
     arrayProvince: [],
-    indexProvince: 0,
     arrayCity: [],
-    indexCity: 0,
     arrayCounty: [],
+    indexProvince: 0,
+    indexCity: 0,
     indexCounty: 0
   },
 
@@ -22,7 +22,7 @@ Page({
     this.setData({
       indexProvince: e.detail.value,
       arrayCity: arrayCity,
-      arrayCounty:district.counties(p,c)
+      arrayCounty: district.counties(p,c)
     })
     wx.setStorageSync('currentDistrict', [this.data.indexProvince, this.data.indexCity, this.data.indexCounty])
   },
@@ -38,7 +38,6 @@ Page({
   },
 
   bindChangeCounty: function(e) {
-    var county = this.data.arrayCounty[this.data.indexCounty]
     this.setData({
       indexCounty: e.detail.value
     })
@@ -52,25 +51,26 @@ Page({
     wx.setStorage({key:'receiverMobile', data: e.detail.value.inputMobile})
     wx.navigateBack()
   },
-  formReset: function(e) {
-    console.log('form 发生了 reset 事件')
-  },
+  // formReset: function(e) {
+  //   console.log('form 发生了 reset 事件')
+  // },
 
   onLoad (params) {
-    this.setData({'detailAddress': wx.getStorageSync('detailAddress'),
-                  'receiverName': wx.getStorageSync('receiverName'),
-                  'receiverMobile': wx.getStorageSync('receiverMobile')})
     var currentDistrict = wx.getStorageSync('currentDistrict') || [0, 0, 0]
     var arrayProvince = district.provinces()
-    this.setData({
-      indexProvince: currentDistrict[0],
-      indexCity:     currentDistrict[1],
-      indexCounty:   currentDistrict[2],
-      arrayProvince: arrayProvince
-    })
     var arrayCity     = district.cities(arrayProvince[currentDistrict[0]])
-    this.setData({arrayCity: arrayCity})
     var arrayCounty   = district.counties(arrayProvince[currentDistrict[0]], arrayCity[currentDistrict[1]])
-    this.setData({arrayCounty: arrayCounty})
+
+    this.setData({
+      indexProvince:  currentDistrict[0],
+      indexCity:      currentDistrict[1],
+      indexCounty:    currentDistrict[2],
+      arrayProvince:  arrayProvince,
+      arrayCity:      arrayCity,
+      arrayCounty:    arrayCounty,
+      detailAddress:  wx.getStorageSync('detailAddress'),
+      receiverName:   wx.getStorageSync('receiverName'),
+      receiverMobile: wx.getStorageSync('receiverMobile')
+    })
   }
 })
