@@ -20,7 +20,6 @@
     </view>
 
     <block wx:for="{{categories}}" wx:for-item="category">
-      <!-- 首个循环 -->
       <view class="separate"></view>
 
       <view>
@@ -36,8 +35,10 @@
               </view>
               <view class="item-right">
                 <view class="title"><text> {{item.name}} </text></view>
-                <view class="desc"><text> {{item.desc || '私人稻田精品礼盒'}} </text></view>
-                <view class="buy-now"><text class="inline">立即购买</text></view>
+                <view class="bottom">
+                  <view class="desc"><text> {{item.desc || '阿萨德肌肤'}} </text></view>
+                  <view class="buy-now"><text class="inline">立即购买</text></view>
+                </view>
               </view>
             </view>
           </view>              
