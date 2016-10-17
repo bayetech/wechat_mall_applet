@@ -2,10 +2,20 @@
   width: 100%;
 }
 
-.quantity {
+.line {
   display: flex;
-  height: 60rpx;
-  line-height: 60rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin: 20rpx;
+  font-size: 30rpx;
 }
 
 #quantity {
@@ -13,12 +23,14 @@
   border: 1rpx solid lightgrey;
 }
 
-#price {
-  color: #FF0000;
+.price {
+  margin-left: 20rpx;
+  width: 50%;
+  margin-right: auto; 
 }
 
-.btn-area {
-  display: flex;
+#price {
+  color: #FF0000;
 }
 
 .btn-area button {
@@ -30,15 +42,6 @@
 .product-name {
   font-size: 25rpx;
   margin: 20rpx;
-}
-
-.section.price {
-  margin: 20rpx;
-}
-
-.section.quantity {
-  margin: 20rpx;
-  font-size: 30rpx;
 }
 
 .btn-area {

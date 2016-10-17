@@ -19,18 +19,32 @@
       </block>
     </view>
 
-    <block wx:for="{{items}}" wx:for-item="item">
-      <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
-        <view class="image">
-          <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
+    <block wx:for="{{categories}}" wx:for-item="category">
+      <!-- 首个循环 -->
+      <view class="separate"></view>
+
+      <view>
+        <view class="category-title">
+          <view class="icon"><image src="../../images/1.png"></image></view>
+          <view><text class="name">新品上市</text></view>
         </view>
-        <view class="item-right">
-          <view class="title">
-            <text> {{item.name}} </text>
-          </view>
-          <text class="price"> ¥{{item.price}} </text>
-        </view>
+        <block wx:for="{{items}}" wx:for-item="item">
+          <view wx:if="{{category === item['category-id']}}">
+            <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
+              <view class="image">
+                <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
+              </view>
+              <view class="item-right">
+                <view class="title"><text> {{item.name}} </text></view>
+                <view class="desc"><text> {{item.desc || '私人稻田精品礼盒'}} </text></view>
+                <!--<text class="price"> ¥{{item.price}} </text>-->
+                <view class="buy-now"><text class="inline">立即购买</text></view>
+              </view>
+            </view>
+          </view>              
+        </block>
       </view>
+
     </block>
   </scroll-view>
 </view>

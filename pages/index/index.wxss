@@ -22,9 +22,29 @@
 
 .nav-item text {
   padding-top: 20rpx;
+  font-size: 25rpx;
+}
+
+.category-title {
+  display: flex;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  margin-left: 20rpx;
+}
+
+.category-title .name {
+  font-size: 30rpx;
+}
+
+.category-title .icon image {
+  width: 45rpx;
+  height: 45rpx;
+  margin-right: 15rpx;
 }
 
 .item {
+  margin-right: 30rpx;
+  margin-left: 25rpx;
   height: 270rpx;
   padding: 15rpx;
   background-color: #fff;
@@ -41,22 +61,49 @@
 
 .item-right {
   display: block;
-  margin-left: 11px;
   flex: 1;
+  text-align: right;
+  height: 180rpx;
 }
 
-.title {
-  margin-bottom: 25px;
+.item-right .desc {
+  margin-top: 25rpx;
+  font-size: 30rpx;
+}
+
+.item-right .title {
+  margin-bottom: 5rpx;
 }
 
 .title text {
-  font-size: 16px;
-  color: #787878;
-  white-space: pre-wrap;
+  font-size: 50rpx;
+  color: black;
+  white-space: pre-line;
   line-height: 17px;
 }
 
 text {
-  font-size: 15px;
   color: #444;
+}
+
+.buy-now {
+  margin-top: 45rpx;
+  display: inline-block;
+  padding: 10rpx 20rpx 10rpx 20rpx;
+  border: 1rpx solid red;
+  font-size: 30rpx;
+}
+
+.buy-now text {
+  color: red;
+}
+
+
+.buy-now .inline {
+  display: inline-block
+}
+
+.separate {
+  height: 10rpx;
+  background-color: #eee;
 }

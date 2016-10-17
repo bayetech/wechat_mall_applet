@@ -2,6 +2,7 @@ const product = require('../../utils/product.js')
 
 Page({
   data: {
+    categories: [2,6,7],
     items: [],
     slides: [],
     navs: [{icon: "../../images/1.png", name: "资产"},

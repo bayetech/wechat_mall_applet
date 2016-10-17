@@ -7,12 +7,14 @@
 
   <view>
     <form bindsubmit="formSubmit" data-sku="{{product.sku}}">
-      <view class="section price">
-        <text id="price" >¥{{product.price || '无法获取价格'}}</text>
-      </view>
-      <view class="section quantity">
-        <view>购买数量：</view>
-        <input id="quantity" name="quantity" bindinput="bindQuantityInput" value="1" />
+      <view class="line">
+        <view class="section price">
+          <text id="price" >¥{{product.price || '无法获取价格'}}</text>
+        </view>
+        <view class="section quantity">
+          <view>购买数量：</view>
+          <input id="quantity" name="quantity" bindinput="bindQuantityInput" value="1" />
+        </view>
       </view>
       <view class="btn-area">
         <button bindtap="bindAddToCart" type="primary">加入购物车</button>
