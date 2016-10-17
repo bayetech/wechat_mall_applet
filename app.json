@@ -4,7 +4,8 @@
     "pages/show_product/show_product",
     "pages/address/address",
     "pages/cart/cart",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/category/category"
   ],
   "window":{
     "backgroundTextStyle":"light",

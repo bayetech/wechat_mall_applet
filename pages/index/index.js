@@ -2,18 +2,24 @@ const product = require('../../utils/product.js')
 
 Page({
   data: {
-    categories: [2,6,7],
+    categories: [2,7,9],
     items: [],
     slides: [],
-    navs: [{icon: "../../images/1.png", name: "资产"},
-           {icon: "../../images/1.png", name: "直销"},
-           {icon: "../../images/1.png", name: "严选"},
-           {icon: "../../images/1.png", name: "包装"}]
+    navs: [{icon: "../../images/1.png", name: "资产", key: '1'},
+           {icon: "../../images/1.png", name: "直销", key: '2'},
+           {icon: "../../images/1.png", name: "严选", key: '3'},
+           {icon: "../../images/1.png", name: "包装", key: '4'}]
   },
 
   bindShowProduct: function (e) {
     wx.navigateTo({
       url: `../show_product/show_product?id=${e.currentTarget.dataset.id}`
+    })
+  },
+
+  catchTapCategory: function (e) {
+    wx.navigateTo({
+      url: `../category/category?type=${e.currentTarget.dataset.type}`
     })
   },
 

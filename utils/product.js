@@ -35,7 +35,18 @@ function postBilling (data) {
     })
   })
 }
-    
+
+function getCategories (data) {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: `${API_URL}/products?category=${data}`,
+      header: { 'Content-Type': 'application/json'},
+      success: resolve,
+      fail: reject
+    })
+  })
+}
+
 
 module.exports = {
   getProducts () {
@@ -48,5 +59,9 @@ module.exports = {
 
   postBilling (data) {
     return postBilling(data)
+  },
+
+  getCategories (data) {
+    return getCategories(data)
   }
 }
