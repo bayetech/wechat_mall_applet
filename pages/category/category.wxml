@@ -1,0 +1,5 @@
+<scroll-view scroll-y="true" height="100%">
+  <block wx:for="{{items}}" wx:for-item="item">
+    
+  </block>
+</scroll-view>

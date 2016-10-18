@@ -7,6 +7,9 @@ Page({
 
   onLoad: function(params) {
     var that = this
+    wx.setNavigationBarTitle({
+      title: params.type
+    })
     product.getCategories(params.type).then(function(result) {
       var data = getApp().store.sync(result.data)
       that.setData({'items': data})

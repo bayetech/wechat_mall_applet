@@ -2,13 +2,17 @@ const product = require('../../utils/product.js')
 
 Page({
   data: {
-    categories: [2,7,9],
     items: [],
     slides: [],
-    navs: [{icon: "../../images/1.png", name: "资产", key: '1'},
-           {icon: "../../images/1.png", name: "直销", key: '2'},
-           {icon: "../../images/1.png", name: "严选", key: '3'},
-           {icon: "../../images/1.png", name: "包装", key: '4'}]
+    navs: [{icon: "../../images/1.png", name: "资产"},
+           {icon: "../../images/1.png", name: "直销"},
+           {icon: "../../images/1.png", name: "严选"},
+           {icon: "../../images/1.png", name: "包装"}],
+
+    popularity_products: [],
+    new_products: [],
+    hot_products: [],
+    promotions: []
   },
 
   bindShowProduct: function (e) {
@@ -41,7 +45,13 @@ Page({
         if (networkType) {
           product.getProducts().then(function(result) {
             var data = getApp().store.sync(result.data)
-            that.setData({'items': data})
+            that.setData({
+              items: data,
+              popularity_products: data.filter(product => product.flag === '最热'),
+              new_products:        data.filter(product => product.flag === '新品'),
+              hot_products:        data.filter(product => product.flag === '火爆'),
+              promotions:          data.filter(product => product.flag === '促销'),
+            })
             wx.setStorageSync('products', data)
           })
         } else {

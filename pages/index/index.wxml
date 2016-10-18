@@ -12,39 +12,73 @@
 
     <view class="navs">
       <block wx:for-items="{{navs}}">
-        <view class="nav-item" catchtap="catchTapCategory" data-type="{{item.key}}">
+        <view class="nav-item" catchtap="catchTapCategory" data-type="{{item.name}}">
           <image src="{{item.icon}}" class="nav-image"/>
           <text>{{item.name}}</text>
         </view>
       </block>
     </view>
 
-    <block wx:for="{{categories}}" wx:for-item="category">
-      <view class="separate"></view>
 
-      <view>
-        <view class="category-title">
-          <view class="icon"><image src="../../images/1.png"></image></view>
-          <view><text class="name">{{category}}</text></view>
-        </view>
-        <block wx:for="{{items}}" wx:for-item="item">
-          <view wx:if="{{category === item['category-id']}}">
-            <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
-              <view class="image">
-                <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
-              </view>
-              <view class="item-right">
-                <view class="title"><text> {{item.name}} </text></view>
-                <view class="bottom">
-                  <view class="desc"><text> {{item.desc || '阿萨德肌肤'}} </text></view>
-                  <view class="buy-now"><text class="inline">立即购买</text></view>
-                </view>
-              </view>
-            </view>
-          </view>              
-        </block>
+    <view class="separate"></view>
+    <view>
+      <view class="category-title">
+        <view class="icon"><image src="../../images/1.png"></image></view>
+        <view><text class="name">最热</text></view>
       </view>
+      <block wx:for="{{popularity_products}}" wx:for-item="item">
+        <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
+          <view class="image">
+            <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
+          </view>
+        </view>              
+      </block>
+    </view>
 
-    </block>
+    <view class="separate"></view>
+    <view>
+      <view class="category-title">
+        <view class="icon"><image src="../../images/1.png"></image></view>
+        <view><text class="name">新品</text></view>
+      </view>
+      <block wx:for="{{new_products}}" wx:for-item="item">
+        <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
+          <view class="image">
+            <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
+          </view>
+        </view>              
+      </block>
+    </view>
+
+    <view class="separate"></view>
+    <view>
+      <view class="category-title">
+        <view class="icon"><image src="../../images/1.png"></image></view>
+        <view><text class="name">火爆</text></view>
+      </view>
+      <block wx:for="{{hot_products}}" wx:for-item="item">
+        <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
+          <view class="image">
+            <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
+          </view>
+        </view>              
+      </block>
+    </view>
+
+    <view class="separate"></view>
+    <view>
+      <view class="category-title">
+        <view class="icon"><image src="../../images/1.png"></image></view>
+        <view><text class="name">促销</text></view>
+      </view>
+      <block wx:for="{{promotions}}" wx:for-item="item">
+        <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
+          <view class="image">
+            <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
+          </view>
+        </view>              
+      </block>
+    </view>
+
   </scroll-view>
 </view>

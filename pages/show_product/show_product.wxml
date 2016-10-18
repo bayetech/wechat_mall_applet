@@ -6,10 +6,10 @@
   <text class="product-name">{{product.name}}</text>
 
   <view>
-    <form bindsubmit="formSubmit" data-sku="{{product.sku}}">
+    <form>
       <view class="line">
         <view class="section price">
-          <text id="price" >¥{{product.price || '无法获取价格'}}</text>
+          <text id="price">¥{{product.price || '无法获取价格'}}</text>
         </view>
         <view class="section quantity">
           <view>购买数量：</view>
