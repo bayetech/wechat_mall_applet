@@ -12,7 +12,7 @@ Page({
       that.setData({'items': data})
       wx.setStorage({
         key:`cate_${params.type}`,
-        data:data
+        data: data
       })
     })
   }
