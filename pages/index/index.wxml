@@ -28,9 +28,7 @@
       </view>
       <block wx:for="{{popularity_products}}" wx:for-item="item">
         <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
-          <view class="image">
-            <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
-          </view>
+          <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
         </view>
       </block>
     </view>
@@ -43,9 +41,7 @@
       </view>
       <block wx:for="{{new_products}}" wx:for-item="item">
         <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
-          <view class="image">
-            <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
-          </view>
+          <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
         </view>
       </block>
     </view>
@@ -58,9 +54,7 @@
       </view>
       <block wx:for="{{hot_products}}" wx:for-item="item">
         <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
-          <view class="image">
-            <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
-          </view>
+          <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
         </view>
       </block>
     </view>
@@ -73,9 +67,7 @@
       </view>
       <block wx:for="{{promotions}}" wx:for-item="item">
         <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
-          <view class="image">
-            <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
-          </view>
+          <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
         </view>
       </block>
     </view>

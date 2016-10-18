@@ -51,6 +51,10 @@
   align-items: center;
 }
 
+image.head-img {
+  width: 100%;
+}
+
 text {
   color: #444;
 }
