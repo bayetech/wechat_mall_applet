@@ -17,21 +17,21 @@
     "color": "#dddddd",
     "selectedColor": "#3cc51f",
     "borderStyle": "white",
-    "backgroundColor": "#fefefe",
+    "backgroundColor": "#323232",
     "list": [{
       "pagePath": "pages/index/index",
-      "iconPath": "images/1.png",
-      "selectedIconPath": "images/1.png",
+      "iconPath": "images/ba.png",
+      "selectedIconPath": "images/ba_active.png",
       "text": "首页"
     },{
       "pagePath": "pages/cart/cart",
-      "iconPath": "images/1.png",
-      "selectedIconPath": "images/1.png",
+      "iconPath": "images/cart.png",
+      "selectedIconPath": "images/cart_active.png",
       "text": "购物车"
     },{
       "pagePath": "pages/mine/mine",
-      "iconPath": "images/1.png",
-      "selectedIconPath": "images/1.png",
+      "iconPath": "images/profile.png",
+      "selectedIconPath": "images/profile_active.png",
       "text": "我的"
     }]
   }
