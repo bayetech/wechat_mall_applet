@@ -1,5 +1,7 @@
 <scroll-view scroll-y="true" height="100%">
   <block wx:for="{{items}}" wx:for-item="item">
-    
+    <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
+      <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
+    </view>
   </block>
 </scroll-view>

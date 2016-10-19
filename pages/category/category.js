@@ -12,11 +12,15 @@ Page({
     })
     product.getCategories(params.type).then(function(result) {
       var data = getApp().store.sync(result.data)
-      that.setData({'items': data})
+      that.setData({items: data})
       wx.setStorage({
-        key:`cate_${params.type}`,
+        key: `cate_${params.type}`,
         data: data
       })
+    }, function(fail) {
+      var key = `cate_${params.type}`
+      var data = wx.getStorage(key)
+      wx.setData({items: data})
     })
   }
 })
