@@ -49,7 +49,7 @@ Page({
       data: cartItems
     })
 
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../cart/cart'
     })
 
