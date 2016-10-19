@@ -4,10 +4,10 @@ Page({
   data: {
     items: [],
     slides: [],
-    navs: [{icon: "../../images/asset.png", name: "资产"},
+    navs: [{icon: "../../images/asset.png",       name: "资产"},
            {icon: "../../images/direct_sale.png", name: "直销"},
-           {icon: "../../images/recommend.png", name: "严选"},
-           {icon: "../../images/packing.png", name: "包装"}],
+           {icon: "../../images/recommend.png",   name: "严选"},
+           {icon: "../../images/packing.png",     name: "包装"}],
 
     popularity_products: [],
     new_products: [],

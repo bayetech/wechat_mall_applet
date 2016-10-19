@@ -44,7 +44,7 @@ Page({
   },
 
   // tap on item to delete cart item
-  bindTapOnItem: function (e) {
+  catchTapOnItem: function (e) {
     this.setData({
       deleteModalHidden: false,
       wantToDeleteItem: e.currentTarget.dataset.id

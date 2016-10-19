@@ -17,17 +17,17 @@
 
 <view wx:if="{{cartItems}}">
   <block wx:for="{{cartItems}}" wx:for-item="item">
-    <view class="item" data-id="{{item.id}}">
-      <view class="image" bindtap="bindTapOnItem" data-id="{{item.id}}">
+    <view class="item" catchtap="catchTapOnItem" data-id="{{item.id}}">
+      <view class="image" data-id="{{item.id}}">
         <image class="head-img" src="{{item.product['image-url']}}" mode="aspectFit"></image>
       </view>
       <view class="item-right">
-        <view class="title" bindtap="bindTapOnItem" data-id="{{item.id}}">
+        <view class="title" data-id="{{item.id}}">
           <text> {{item.product.name}} </text>
         </view>
         <view class="numbers">
           <view>
-            <text class="price" bindtap="bindTapOnItem" data-id="{{item.id}}"> ¥{{item.product.price}} / 件 </text>
+            <text class="price" data-id="{{item.id}}"> ¥{{item.product.price}} / 件 </text>
           </view>
           <view class="pull-right">
             <view>

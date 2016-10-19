@@ -9,10 +9,7 @@
 
 .receiver {
   display: flex;
-}
-
-.left {
-  width: 60%;
+  justify-content: space-between;
 }
 
 .address {
@@ -20,7 +17,6 @@
 } 
 
 .right {
-  width: 40%;
   margin-left: auto;
   text-align: right;
 }
