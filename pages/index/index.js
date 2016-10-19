@@ -50,7 +50,6 @@ Page({
               popularity_products: data.filter(product => product.flag === '最热'),
               new_products:        data.filter(product => product.flag === '新品'),
               hot_products:        data.filter(product => product.flag === '火爆'),
-              promotions:          data.filter(product => product.flag === '促销'),
             })
             wx.setStorageSync('products', data)
           })

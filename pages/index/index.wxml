@@ -59,18 +59,5 @@
       </block>
     </view>
 
-    <view class="separate"></view>
-    <view>
-      <view class="category-title">
-        <view class="icon"><image src="../../images/1.png"></image></view>
-        <view><text class="name">促销</text></view>
-      </view>
-      <block wx:for="{{promotions}}" wx:for-item="item">
-        <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
-          <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
-        </view>
-      </block>
-    </view>
-
   </scroll-view>
 </view>
