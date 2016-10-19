@@ -30,7 +30,6 @@ Page({
     var thisItem  = this.data.items.find(function(ele){
       return ele.id === e.currentTarget.dataset.id
     })
-    debugger
 
     var exist = cartItems.find(function(ele){
       return ele.id === that.data.id
