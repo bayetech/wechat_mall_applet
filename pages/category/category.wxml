@@ -1,7 +1,7 @@
 <scroll-view scroll-y="true" height="100%">
   <view class="item-container">
     <block wx:for="{{items}}" wx:for-item="item">
-      <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
+      <view class="item" bindtap="bindTapProduct" data-id="{{item.id}}">
         <image class="head-img" src="{{item['image-url']}}" mode="scaleToFill"></image>    
         <view class="first-line">
           <text class="name">{{item.name}}</text>

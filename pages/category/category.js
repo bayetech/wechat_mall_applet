@@ -24,7 +24,7 @@ Page({
     })
   },
 
-  bindShowProduct: function(e) {
+  bindTapProduct: function(e) {
     var that = this
     var cartItems = wx.getStorageSync('cartItems') || []
     var thisItem  = this.data.items.find(function(ele){
@@ -32,11 +32,11 @@ Page({
     })
 
     var exist = cartItems.find(function(ele){
-      return ele.id === that.data.id
+      return ele.id === thisItem.id
     })
 
     if (exist) {
-      exist.quantity = '1'
+      exist.quantity = parseInt(exist.quantity) + 1
     } else {
       cartItems.push({
         id: thisItem.id,

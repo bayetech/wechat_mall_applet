@@ -34,7 +34,7 @@ Page({
     })
 
     if (exist) {
-      exist.quantity = this.data.quantity
+      exist.quantity = parseInt(exist.quantity) + 1
     } else {
       cartItems.push({
         id: this.data.id,
