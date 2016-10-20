@@ -31,7 +31,7 @@
           </view>
           <view class="pull-right">
             <view>
-              <text>购买数量：</text>
+              <text>数量：</text>
             </view>
             <view class="quantity">
               <input value="{{item.quantity}}" bindinput="bindChangeQuantity" data-id="{{item.id}}"></input>

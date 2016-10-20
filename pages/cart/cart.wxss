@@ -26,13 +26,13 @@
   padding: 15rpx;
   background-color: #fff;
   border-top: 1px solid #e4e4e4;
-  color: #787878;
+  color: #333;
   display:flex;
   align-items:center;
 }
 
 .item text {
-  font-size: 14px;
+  font-size: 28rpx;
 }
 
 .item image {
@@ -42,23 +42,23 @@
 
 .item-right {
   display: block;
-  margin-left: 11px;
+  margin-left: 20rpx;
   flex: 1;
 }
 
 .title {
-  padding-bottom: 15px;
+  padding-bottom: 30rpx;
 }
 
 .title text {
-  font-size: 16px;
-  color: #787878;
+  font-size: 28rpx;
+  color: #333;
   white-space: pre-wrap;
-  line-height: 17px;
+  line-height: 34rpx;
 }
 
 .address-container text {
-  font-size: 17px;
+  font-size: 34rpx;
   color: #444;
 }
 
@@ -73,7 +73,7 @@
 
 .pull-right {
   margin-left: auto;
-  font-size: 15px;
+  font-size: 28rpx;
   display: flex;
 }
 
