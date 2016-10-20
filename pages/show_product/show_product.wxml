@@ -1,6 +1,6 @@
 <view>
   <view>
-    <image class="head-img" src="{{product['image-url']}}" mode="aspectFit" />
+    <image class="head-img" src="{{product['image-url']}}" mode="aspectFill" />
   </view>
 
   <text class="product-name">{{product.name}}</text>

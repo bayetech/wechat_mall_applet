@@ -3,7 +3,7 @@
       <block wx:for="{{slides}}" wx:for-item="slide">
         <swiper-item>
           <navigator url="{{slide.url}}">
-            <image class="slide-img" src="{{slide.img}}" mode="aspectFit"/>
+            <image class="slide-img" src="{{slide.img}}" mode="aspectFill"/>
           </navigator>
         </swiper-item>
       </block>
@@ -27,7 +27,7 @@
       </view>
       <block wx:for="{{popularity_products}}" wx:for-item="item">
         <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
-          <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
+          <image class="head-img" src="{{item['image-url']}}" mode="aspectFill"></image>
         </view>
       </block>
     </view>
@@ -40,7 +40,7 @@
       </view>
       <block wx:for="{{new_products}}" wx:for-item="item">
         <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
-          <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
+          <image class="head-img" src="{{item['image-url']}}" mode="aspectFill"></image>
         </view>
       </block>
     </view>
@@ -53,7 +53,7 @@
       </view>
       <block wx:for="{{hot_products}}" wx:for-item="item">
         <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
-          <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>
+          <image class="head-img" src="{{item['image-url']}}" mode="aspectFill"></image>
         </view>
       </block>
     </view>
