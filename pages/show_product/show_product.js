@@ -16,12 +16,13 @@ Page({
     })
 
     this.setData({
-      id:id,
-      product:product
+      id: id,
+      product: product,
+      title: product.name
     })
   },
 
-  onReady () {
+  onReady() {
     wx.setNavigationBarTitle({ title: this.data.title })
   },
 
