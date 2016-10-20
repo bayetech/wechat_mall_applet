@@ -10,7 +10,7 @@ Page({
     wx.setNavigationBarTitle({
       title: params.type
     })
-    product.getCategories(params.type).then(function(result) {
+    product.getCategories(params.type, function(result) {
       var data = getApp().store.sync(result.data)
       that.setData({items: data})
       wx.setStorage({

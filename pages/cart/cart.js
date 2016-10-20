@@ -83,7 +83,7 @@ Page({
       product.postBilling({
         items: cartArray,
         address: this.data.address
-      }).then(function(result){
+      }, function(result){
 
       })
     }

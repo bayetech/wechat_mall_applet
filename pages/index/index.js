@@ -30,7 +30,7 @@ Page({
   onLoad: function() {
     var that = this
 
-    product.getSlides().then(function(result) {
+    product.getSlides(function(result) {
       var data = getApp().store.sync(result.data)
       that.setData({'slides': data})
       wx.setStorage({
@@ -43,7 +43,7 @@ Page({
       success: function(res) {
         var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
         if (networkType) {
-          product.getProducts().then(function(result) {
+          product.getProducts(function(result) {
             var data = getApp().store.sync(result.data)
             that.setData({
               items: data,

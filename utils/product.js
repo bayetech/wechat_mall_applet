@@ -1,67 +1,58 @@
 const API_URL = 'http://localhost:3000'
 
-function getProducts (data) {
-  data = data ? `/${data}` : ''
-  return new Promise((resolve, reject) => {
-    wx.request({
-        url: `${API_URL}/products${data}`,
-        header: { 'Content-Type': 'application/json' },
-        success: resolve,
-        fail: reject
-    })
+function getProducts (resolve) {
+  wx.request({
+    url: `${API_URL}/products`,
+    header: { 'Content-Type': 'application/json' },
+    success: resolve,
+    fail: function(){}
   })
 }
 
-function getSlides () {
-  return new Promise((resolve, reject) => {
-    wx.request({
-        url: `${API_URL}/home_slides`,
-        header: { 'Content-Type': 'application/json' },
-        success: resolve,
-        fail: reject
-    })
+function getSlides (resolve) {
+  wx.request({
+    url: `${API_URL}/home_slides`,
+    header: { 'Content-Type': 'application/json' },
+    success: resolve,
+    fail: function(){}
   })
 }
 
-function postBilling (data) {
-  return new Promise((resolve, reject) => {
-    wx.request({
-      method: 'POST',
-      url: `${API_URL}/carts/billings`,
-      data: data,
-      header: { 'Content-Type': 'application/json'},
-      success: resolve,
-      fail: reject
-    })
+function postBilling (data, resolve) {
+  wx.request({
+    method: 'POST',
+    url: `${API_URL}/carts/billings`,
+    data: data,
+    header: { 'Content-Type': 'application/json'},
+    success: resolve,
+    fail: function(){}
   })
 }
 
-function getCategories (data) {
-  return new Promise((resolve, reject) => {
-    wx.request({
-      url: `${API_URL}/products/category?type=${data}`,
-      header: { 'Content-Type': 'application/json'},
-      success: resolve,
-      fail: reject
-    })
+function getCategories (data, resolve, reject) {
+  wx.request({
+    url: `${API_URL}/products/category?type=${data}`,
+    header: { 'Content-Type': 'application/json'},
+    success: resolve,
+    fail: reject
   })
 }
 
 
 module.exports = {
-  getProducts () {
-    return getProducts()
+  getProducts (resolve) {
+    return getProducts(resolve)
   },
 
-  getSlides () {
-    return getSlides()
+  getSlides (resolve) {
+    return getSlides(resolve)
   },
 
-  postBilling (data) {
-    return postBilling(data)
+  postBilling (data, resolve) {
+    return postBilling(data, resolve)
   },
 
-  getCategories (data) {
-    return getCategories(data)
+  getCategories (data, resolve, reject) {
+    return getCategories(data, resolve, reject)
   }
 }
