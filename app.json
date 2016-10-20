@@ -11,7 +11,7 @@
     "backgroundColor": "#f2f2f2",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "巴爷供销社",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
