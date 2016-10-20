@@ -22,6 +22,14 @@
     </form>
   </view>
 
+  <view class="desc-container">
+    <block wx:for="{{product.desc}}" wx:for-item="desc">
+      <view class="desc-image-view">
+        <image class="desc-image" src="{{desc}}" mode="aspectFit"/>
+      </view>
+    </block>
+  </view>
+
   <toast hidden="{{toastAddProduct}}" bindchange="toastChange" duration="1200">
     <text style="font-size:28rpx">成功加入购物车</text>
   </toast>

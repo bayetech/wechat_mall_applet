@@ -49,3 +49,7 @@
   bottom: 0;
   width: 100%;
 }
+
+.desc-image {
+  width: 100%;
+}
