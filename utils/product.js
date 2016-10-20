@@ -31,7 +31,7 @@ function postBilling (data, resolve) {
 
 function getCategories (data, resolve, reject) {
   wx.request({
-    url: `${API_URL}/products/category?type=${data}`,
+    url: `${API_URL}/products?type=${data}`,
     header: { 'Content-Type': 'application/json'},
     success: resolve,
     fail: reject
