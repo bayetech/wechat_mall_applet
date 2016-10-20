@@ -2,13 +2,14 @@ const product = require('../../utils/product.js')
 
 Page({
   data: {
+    title: '',
     items: []
   },
 
   onLoad: function(params) {
     var that = this
-    wx.setNavigationBarTitle({
-      title: params.type
+    this.setData({
+      title: '巴爷供销社 - ' + params.type
     })
     product.getCategories(params.type, function(result) {
       var data = getApp().store.sync(result.data)
@@ -22,6 +23,10 @@ Page({
       var data = wx.getStorage(key)
       wx.setData({items: data})
     })
+  },
+
+  onReady() {
+    wx.setNavigationBarTitle({ title: this.data.title })
   },
 
   bindTapProduct: function(e) {
