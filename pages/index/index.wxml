@@ -1,4 +1,3 @@
-<view>
   <scroll-view scroll-y="true" height="100%">
     <swiper style="height:230px;" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
       <block wx:for="{{slides}}" wx:for-item="slide">
@@ -60,4 +59,3 @@
     </view>
 
   </scroll-view>
-</view>
