@@ -50,6 +50,12 @@
   width: 100%;
 }
 
+.desc-container {
+  border-top: 1rpx solid lightgrey;
+  margin-top: 40rpx;
+  margin-bottom: 90rpx;
+}
+
 .desc-image {
   width: 100%;
 }
