@@ -17,6 +17,8 @@ Page({
     var cartItems = wx.getStorageSync("cartItems")
     this.setData({cartItems: cartItems})
 
+    this.changeCartAmount()
+
     var detailAddress  = wx.getStorageSync('detailAddress')
     var receiverName   = wx.getStorageSync('receiverName')
     var receiverMobile = wx.getStorageSync('receiverMobile')
@@ -41,6 +43,7 @@ Page({
       key: 'cartItems',
       data: cartItems
     })
+    this.changeCartAmount()
   },
 
   // tap on item to delete cart item
@@ -68,6 +71,7 @@ Page({
     this.setData({
       deleteModalHidden: true
     })
+    this.changeCartAmount()
   },
 
   bindBilling: function () {
@@ -87,6 +91,14 @@ Page({
 
       })
     }
+  },
+
+  changeCartAmount: function () {
+    var amount = 0
+    this.data.cartItems.forEach(function(entry){
+      amount += entry.quantity * entry.product.price
+    })
+    this.setData({amount: amount})
   },
 
   bindTapAddress () {
