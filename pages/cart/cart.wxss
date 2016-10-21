@@ -50,7 +50,7 @@
 }
 
 .title {
-  padding-bottom: 30rpx;
+  height: 100%;
 }
 
 .title text {
