@@ -1,6 +1,6 @@
 # 简介
 
-这是一个巴爷商城的微信小应用版本，是(巴爷微信商城)[https://wechat.bayekeji.com]的简单版本。
+这是一个巴爷商城的微信小应用版本，是[巴爷微信商城](https://wechat.bayekeji.com)的简单版本。
 
 # 功能
 
