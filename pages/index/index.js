@@ -6,7 +6,7 @@ Page({
     slides: [],
     navs: [{icon: "../../images/asset.png",       name: "资产"},
            {icon: "../../images/direct_sale.png", name: "直销"},
-           {icon: "../../images/recommend.png",   name: "严选"},
+           {icon: "../../images/our_select.png",  name: "甄选"},
            {icon: "../../images/packing.png",     name: "包装"}],
 
     popularity_products: [],
