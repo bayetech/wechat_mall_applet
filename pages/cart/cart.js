@@ -15,7 +15,7 @@ Page({
 
   onShow: function (params) {
     var cartItems = wx.getStorageSync("cartItems")
-    this.setData({cartItems: cartItems})
+    this.setData({cartItems: cartItems || []})
 
     this.changeCartAmount()
 
@@ -77,7 +77,7 @@ Page({
   bindBilling: function () {
     var cartItems = wx.getStorageSync('cartItems')
     if (cartItems) {
-      var cartArray = cartItems.map(function(obj){ 
+      var cartArray = cartItems.map(function(obj){
         var rObj = {};
         rObj['id'] = obj.id;
         rObj['quantity'] = obj.quantity;
