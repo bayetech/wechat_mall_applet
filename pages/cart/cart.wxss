@@ -100,6 +100,14 @@
   border-radius: 0;
 }
 
+.billing-btn view {
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  padding-left: 15rpx;
+  background-color: white;
+  font-size: 30rpx;
+}
+
 .quantity input {
   min-height: 10rpx;
   height: 50rpx;
