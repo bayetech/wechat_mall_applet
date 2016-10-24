@@ -15,11 +15,10 @@
 
 .address {
   margin-top: 15rpx
-} 
+}
 
-.right {
-  margin-left: auto;
-  text-align: right;
+.items-container {
+  margin-bottom: 180rpx;
 }
 
 .item {

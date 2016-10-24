@@ -1,9 +1,9 @@
 <view class="address-container" wx:if="{{ address.detail }}"  bindtap="bindTapAddress">
   <view class="receiver">
-    <view class="left">
+    <view>
       <text>收货人：{{address.name}}</text>
     </view>
-    <view class="right">
+    <view>
       <text>{{address.mobile}}</text>
     </view>
   </view>
@@ -15,7 +15,7 @@
   <button class="button" type='primary'>填写收货地址</button>
 </view>
 
-<view wx:if="{{cartItems}}">
+<view wx:if="{{cartItems}}" class="items-container">
   <block wx:for="{{cartItems}}" wx:for-item="item">
     <view class="item" data-id="{{item.id}}">
       <view class="image" catchtap="catchTapOnItem" data-id="{{item.id}}">
