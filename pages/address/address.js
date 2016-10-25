@@ -60,7 +60,7 @@ Page({
       })
       return
     }
-    if (!receiverMobile.match(/^1[3-9][0-9]\d{8}/)) {
+    if (!receiverMobile.match(/^1[3-9][0-9]\d{8}$/)) {
       this.setData({
         msg: '手机号格式不正确，仅支持国内手机号码',
         errorHidden: false
