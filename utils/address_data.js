@@ -17,6 +17,27 @@ function counties (province, city) {
   return counties.county
 }
 
+function findProvince (name) {
+  var index = procinces().findIndex(function(ele){
+    return ele === name
+  })
+  return index
+}
+
+function findCity (p, name) {
+  var index = cities(p).findIndex(function(ele){
+    return ele === name
+  });
+  return index
+}
+
+function findCounty (p, c, name) {
+  var index = counties(p,c).findIndex(function(ele){
+    return ele === name
+  });
+  return index
+}
+
 module.exports = {
   provinces () {
     return provinces()
@@ -26,6 +47,16 @@ module.exports = {
   },
   counties (p,c) {
     return counties(p,c)
+  },
+
+  findProvince (name) {
+    return findProvince(name)
+  },
+  findCity (p, name) {
+    return findCity(p, name)
+  },
+  findCounty (p, c, name) {
+    return findCounty(p, c, name)
   }
 }
 

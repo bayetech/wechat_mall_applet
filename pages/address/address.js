@@ -11,7 +11,10 @@ Page({
     arrayCounty: [],
     indexProvince: 0,
     indexCity: 0,
-    indexCounty: 0
+    indexCounty: 0,
+
+    errorHidden: true,
+    msg: '不能为空'
   },
 
   bindChangeProvince: function(e) {
@@ -45,15 +48,33 @@ Page({
   },
 
   formSubmit: function(e) {
-    this.setData({'detailAddress': e.detail.value.input})
-    wx.setStorage({key:'detailAddress', data: e.detail.value.inputDetail})
-    wx.setStorage({key:'receiverName', data: e.detail.value.inputName})
-    wx.setStorage({key:'receiverMobile', data: e.detail.value.inputMobile})
+    // this.setData({'detailAddress': e.detail.value.inputDetail})
+    wx.setStorage({key:'detailAddress', data: e.detail.value.inputDetail.trim()})
+
+    var receiverName = e.detail.value.inputName.trim()
+    var receiverMobile = e.detail.value.inputMobile.trim()
+    if (!(receiverName && receiverMobile)) {
+      this.setData({
+        msg: '收货人姓名和手机号不能为空',
+        errorHidden: false
+      })
+      return
+    }
+    if (!receiverMobile.match(/^1[3-9][0-9]\d{8}/)) {
+      this.setData({
+        msg: '手机号格式不正确，仅支持国内手机号码',
+        errorHidden: false
+      })
+      return
+    }
+    wx.setStorage({key:'receiverName', data: receiverName})
+    wx.setStorage({key:'receiverMobile', data: receiverMobile})
     wx.navigateBack()
   },
-  // formReset: function(e) {
-  //   console.log('form 发生了 reset 事件')
-  // },
+
+  confirmError: function(){
+    this.setData({errorHidden: true})
+  },
 
   onLoad (params) {
     var currentDistrict = wx.getStorageSync('currentDistrict') || [0, 0, 0]
