@@ -1,5 +1,6 @@
 const district = require('../../utils/address_data.js')
-const product = require('../../utils/product.js')
+const order = require('../../utils/order.js')
+
 
 Page({
   data: {
@@ -22,7 +23,7 @@ Page({
     var detailAddress  = wx.getStorageSync('detailAddress')
     var receiverName   = wx.getStorageSync('receiverName')
     var receiverMobile = wx.getStorageSync('receiverMobile')
-    var address = {detail: detailAddress, name: receiverName, mobile: receiverMobile}
+    var address = {detail_address: detailAddress, name: receiverName, mobile: receiverMobile}
 
     var districtIndex = wx.getStorageSync('currentDistrict') || [0,0,0]
     address.province = district.provinces()[districtIndex[0]]
@@ -77,17 +78,24 @@ Page({
   bindBilling: function () {
     var cartItems = wx.getStorageSync('cartItems')
     if (cartItems) {
-      var cartArray = cartItems.map(function(obj){
+      var order_items_attributes = cartItems.map(function(obj){
         var rObj = {};
-        rObj['id'] = obj.id;
-        rObj['quantity'] = obj.quantity;
-        return rObj;
-      });
+        rObj['product_id'] = parseInt(obj.id)
+        rObj['quantity'] = parseInt(obj.quantity)
+        // rObj['external_content'] = ""
+        return rObj
+      })
 
-      product.postBilling({
-        items: cartArray,
-        address: this.data.address
-      }, function(result){
+      var order_attrs = this.data.address
+      order_attrs['order_items_attributes'] = order_items_attributes
+      order_attrs['type'] = "Order"
+
+      var params = {
+        payment: {
+          orders_attributes: [order_attrs]
+        }
+      }
+      order.postBilling(params, function(result){
 
       })
     }
