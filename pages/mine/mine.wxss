@@ -1,16 +1,45 @@
 .userinfo {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 95rpx;
+  height: 95rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
   color: #444;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}
+
+.separate {
+  height: 10rpx;
+  background-color: #f2f2f2;
+}
+
+.zichan {
+  display: flex;
+  flex-direction: column;
+}
+
+.zichan .first-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.zichan .second-line {
+  display: flex;
+  flex-direction: row;
+}
+
+.zichan .third-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
