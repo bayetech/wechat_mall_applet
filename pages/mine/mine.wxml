@@ -1,4 +1,3 @@
-
 <view class="userinfo">
   <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
   <text class="userinfo-nickname">{{userInfo.nickName}}</text>
@@ -12,21 +11,23 @@
     <view>查看全部资产》</view>
   </view>
   <view class="second-line">
-    <swiper>
-      <block wx:for="{{zichan_slides}}" wx:for-item="slide">
-        <swiper-item>
-          <image class="slide-img" src="{{slide.url}}"/>
-          <view class="desc">
-            <text>{{slide.title}}</text>
-            <text>{{slide.amount}}</text>
-            <text>{{slide.inventory}}</text>
+    <scroll-view scroll-x="true">
+      <view class="long-view">
+        <block wx:for="{{zichan_slides}}" wx:for-item="slide">
+          <view class="item">
+            <image class="slide-img" src="{{slide.image}}"/>
+            <view class="desc">
+              <view class="desc-line"><text>{{slide.name}}</text></view>
+              <view class="desc-line asset-count"><text>{{slide['asset-count']}}</text></view>
+              <view class="desc-line"><text>{{slide.inventory}}</text></view>
+            </view>
           </view>
-        </swiper-item>
-      </block>
-    </swiper>
+        </block>
+      </view>
+    </scroll-view>
   </view>
-  <view class="third-line">
+  <!--<view class="third-line">
     <view>巴爷定制</view>
     <view>》</view>
-  </view>
+  </view>-->
 </view>

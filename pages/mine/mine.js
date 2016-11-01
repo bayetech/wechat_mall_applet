@@ -17,7 +17,7 @@ Page({
       that.setData({userInfo:userInfo})
     })
 
-    profile.getSlides(function(result) {
+    profile.getZichanSlides({}, function(result) {
       var data = getApp().store.sync(result.data)
       that.setData({'zichan_slides': data})
       wx.setStorage({

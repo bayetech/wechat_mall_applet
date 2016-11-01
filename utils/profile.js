@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:3000'
 
-function getZichanSlides (resolve) {
+function getZichanSlides (data, resolve) {
   wx.request({
     url: `${API_URL}/profiles/zichan_sildes`,
     data: data,
@@ -11,7 +11,7 @@ function getZichanSlides (resolve) {
 }
 
 module.exports = {
-  getZichanSlides (resolve) {
-    return getZichanSlides(resolve)
+  getZichanSlides (data, resolve) {
+    return getZichanSlides(data, resolve)
   }
 }
