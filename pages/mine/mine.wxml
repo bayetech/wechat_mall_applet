@@ -8,7 +8,7 @@
 <view class="zichan">
   <view class="first-line">
     <view>巴爷资产</view>
-    <view>查看全部资产》</view>
+    <view></view>
   </view>
   <view class="second-line">
     <scroll-view scroll-x="true">
