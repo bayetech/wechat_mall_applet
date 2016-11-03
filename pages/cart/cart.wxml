@@ -16,7 +16,7 @@
 </view>
 
 <view class="items-container">
-  <block wx:for="{{cartItems}}" wx:for-item="item">
+  <block wx:for="{{cartItems}}" wx:for-item="item" wx:key="id">
     <view class="item" data-id="{{item.id}}">
       <view class="image" catchtap="catchTapOnItem" data-id="{{item.id}}">
         <image class="head-img" src="{{item.product['image-url']}}" mode="aspectFit"></image>

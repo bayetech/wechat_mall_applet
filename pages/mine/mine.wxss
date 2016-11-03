@@ -1,10 +1,34 @@
+.mine-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 130rpx;
+  background-size: auto, auto;
+  background: url(https://bayewechat.oss-cn-shanghai.aliyuncs.com/rassets/revision/icon-bg1-31089b3b52ad92a9bf410ade08221b538a7bfd69ef65303eca4d227731972a33.png) no-repeat;
+  padding-top: 15px;
+  padding-bottom: 15rpx;
+}
+
+.xunzhang {
+  margin-right: 70rpx;
+}
+
+.xunzhang image {
+  width: 110rpx;
+  height: 120rpx;
+}
+
+.xunzhang .rank {
+  position: relative;
+  top: -88rpx;
+  left: 29rpx;
+  font-size: 25rpx;
+}
+
 .userinfo {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  background: url(https://bayewechat.oss-cn-shanghai.aliyuncs.com/rassets/revision/icon-bg1-31089b3b52ad92a9bf410ade08221b538a7bfd69ef65303eca4d227731972a33.png) no-repeat;
-  padding: 12px 0 12px;
-  background-size: cover;
 }
 
 .userinfo-avatar {

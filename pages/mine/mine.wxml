@@ -1,6 +1,12 @@
-<view class="userinfo">
-  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-  <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view class='mine-header'>
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class='xunzhang'>
+    <image src="{{xunZhang}}" mode="aspectFit"></image>
+    <view class="rank"><text>{{baye_rank || '八爷'}}</text></view>
+  </view>
 </view>
 
 <view class="separate"></view>
@@ -13,7 +19,7 @@
   <view class="second-line">
     <scroll-view scroll-x="true">
       <view class="long-view">
-        <block wx:for="{{zichan_slides}}" wx:for-item="slide">
+        <block wx:for="{{zichan_slides}}" wx:for-item="slide" wx:key="id">
           <view class="item">
             <image class="slide-img" src="{{slide.image}}"/>
             <view class="desc">
