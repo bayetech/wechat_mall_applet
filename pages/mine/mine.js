@@ -18,6 +18,10 @@ Page({
     var that = this
     app.getUserInfo(function(userInfo){
       that.setData({userInfo:userInfo})
+      app.getCustomerInfo(function(currentCustomer){
+        var baye_rank = currentCustomer.baye_rank
+        that.setData({baye_rank: baye_rank})
+      })
     })
 
     profile.getZichanSlides({}, function(result) {

@@ -5,7 +5,7 @@
   </view>
   <view class='xunzhang'>
     <image src="{{xunZhang}}" mode="aspectFit"></image>
-    <view class="rank"><text>{{baye_rank || '八爷'}}</text></view>
+    <view class="rank"><text>{{baye_rank}}</text></view>
   </view>
 </view>
 
