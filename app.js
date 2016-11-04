@@ -28,27 +28,6 @@ App({
     }
   },
 
-  getCustomerInfo: function (cb) {
-    var that = this
-    wx.request({
-      url: 'http://localhost:3000/sessions/new',
-      header: { 'Content-Type': 'application/json'},
-      data: {
-        code: 'sadjfskdf',
-        mobile: '13054277777',
-        name: 'test'
-      },
-      success: function(res) {
-        that.globalData.currentCustomer = res.data.customer
-        that.globalData.token = res.data.token
-        typeof cb == "function" && cb(that.globalData.currentCustomer)
-      },
-      fail: function(res) {
-      }
-    })
-  },
-  
-
   globalData:{
     userInfo: null,
     currentCustomer: null

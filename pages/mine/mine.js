@@ -18,18 +18,18 @@ Page({
     var that = this
     app.getUserInfo(function(userInfo){
       that.setData({userInfo:userInfo})
-      app.getCustomerInfo(function(currentCustomer){
+      profile.getCustomerInfo(function(currentCustomer){
         var baye_rank = currentCustomer.baye_rank
         that.setData({baye_rank: baye_rank})
-      })
-    })
 
-    profile.getZichanSlides({}, function(result) {
-      var data = getApp().store.sync(result.data)
-      that.setData({'zichan_slides': data})
-      wx.setStorage({
-        key:"zichan_slides",
-        data:data
+        profile.getZichanSlides(function(result) {
+          var data = getApp().store.sync(result.data)
+          that.setData({'zichan_slides': data})
+          wx.setStorage({
+            key:"zichan_slides",
+            data:data
+          })
+        })
       })
     })
   },
