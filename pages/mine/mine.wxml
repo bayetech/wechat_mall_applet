@@ -13,29 +13,44 @@
 
 <view class="separate"></view>
 
-<view class="zichan">
-  <view class="first-line">
-    <view>巴爷资产</view>
-    <view></view>
+<view wx:if="{{needBindMobile}}">
+  <view class="check mobile">
+    <text>绑定手机号：</text>
+    <input></input>
+    <button bindtap="bindGetPassCode">获取验证码</button>
   </view>
-  <view class="second-line">
-    <scroll-view scroll-x="true">
-      <view class="long-view">
-        <block wx:for="{{zichan_slides}}" wx:for-item="slide" wx:key="id">
-          <view class="item">
-            <image class="slide-img" src="{{slide.image}}"/>
-            <view class="desc">
-              <view class="desc-line"><text>{{slide.name}}</text></view>
-              <view class="desc-line asset-count"><text>{{slide['asset-count']}}</text></view>
-              <view class="desc-line"><text>{{slide.inventory}}</text></view>
+  <view class="check code">
+    <text>输入验证码：</text>
+    <input></input>
+    <button bindtap="bindSubmitMobile">提交</button>
+  </view>
+  
+</view>
+<view wx:else>
+  <view class="zichan">
+    <view class="first-line">
+      <view>巴爷资产</view>
+      <view></view>
+    </view>
+    <view class="second-line">
+      <scroll-view scroll-x="true">
+        <view class="long-view">
+          <block wx:for="{{zichan_slides}}" wx:for-item="slide" wx:key="id">
+            <view class="item">
+              <image class="slide-img" src="{{slide.image}}"/>
+              <view class="desc">
+                <view class="desc-line"><text>{{slide.name}}</text></view>
+                <view class="desc-line asset-count"><text>{{slide['asset-count']}}</text></view>
+                <view class="desc-line"><text>{{slide.inventory}}</text></view>
+              </view>
             </view>
-          </view>
-        </block>
-      </view>
-    </scroll-view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    <!--<view class="third-line">
+      <view>巴爷定制</view>
+      <view>》</view>
+    </view>-->
   </view>
-  <!--<view class="third-line">
-    <view>巴爷定制</view>
-    <view>》</view>
-  </view>-->
 </view>

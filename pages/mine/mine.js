@@ -4,6 +4,8 @@ const profile = require('../../utils/profile.js')
 
 Page({
   data: {
+    needBindMobile: true,
+
     userInfo: null,
     zichan_slides: [],
     xunZhang: 'https://bayewechat.oss-cn-shanghai.aliyuncs.com/rassets/revision/' +
@@ -18,19 +20,29 @@ Page({
     var that = this
     app.getUserInfo(function(userInfo){
       that.setData({userInfo:userInfo})
-      profile.getCustomerInfo(function(currentCustomer){
-        var baye_rank = currentCustomer.baye_rank
-        that.setData({baye_rank: baye_rank})
+    })
+  },
 
-        profile.getZichanSlides(function(result) {
-          var data = getApp().store.sync(result.data)
-          that.setData({'zichan_slides': data})
-          wx.setStorage({
-            key:"zichan_slides",
-            data:data
-          })
+  bindGetPassCode: function() {
+
+  },
+
+  bindSubmitMobile: function(e) {
+    var mobile = this.detail
+
+    profile.getCustomerInfo(this.data.currentMobile, function(currentCustomer){
+      var baye_rank = currentCustomer.baye_rank
+      that.setData({baye_rank: baye_rank})
+
+      profile.getZichanSlides(function(result) {
+        var data = getApp().store.sync(result.data)
+        that.setData({'zichan_slides': data})
+        wx.setStorage({
+          key:"zichan_slides",
+          data:data
         })
       })
     })
   },
+
 })

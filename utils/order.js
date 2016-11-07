@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000'
+const API_URL = 'https://rapi.bayekeji.com'
 
 function postBilling (data, resolve) {
   wx.request({

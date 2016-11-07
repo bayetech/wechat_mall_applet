@@ -127,3 +127,47 @@
   margin-bottom: 20rpx;
 }*/
 
+.check {
+  height: 72rpx;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.check text {
+  margin-left: 15rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  width: auto;
+}
+
+.check input {
+  width: auto;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  border: 1rpx solid #66B2FF;
+  padding-left: 10rpx;
+}
+
+.check button {
+  width: 230rpx;
+  margin-left: 10rpx;
+  margin-right: 0;
+  font-size: 30rpx;
+}
+
+.check-code {
+  font-size: 30rpx;
+  display: flex;
+}
+
+.check-code text {
+
+}
+.check-code text {
+
+}
+.check-code text {
+
+}
