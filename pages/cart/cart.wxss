@@ -38,6 +38,7 @@
 .item image {
   display: block;
   width: 300rpx;
+  max-height: 180rpx;
 }
 
 .item-right {
