@@ -14,17 +14,20 @@
 <view class="separate"></view>
 
 <view wx:if="{{needBindMobile}}">
-  <view class="check mobile">
-    <text>绑定手机号：</text>
-    <input></input>
-    <button bindtap="bindGetPassCode">获取验证码</button>
-  </view>
-  <view class="check code">
-    <text>输入验证码：</text>
-    <input></input>
-    <button bindtap="bindSubmitMobile">提交</button>
-  </view>
-  
+  <form bindsubmit="bindGetPassCode">
+    <view class="check mobile">
+      <text>绑定手机号：</text>
+      <input name="mobile"></input>
+      <button formType="submit">获取验证码</button>
+    </view>
+  </form>
+  <form bindsubmit="bindSubmitMobile">
+    <view class="check code">
+      <text>输入验证码：</text>
+      <input name="code"></input>
+      <button formType="submit">提交</button>
+    </view>
+  </form>
 </view>
 <view wx:else>
   <view class="zichan">

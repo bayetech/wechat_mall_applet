@@ -10,15 +10,13 @@ function getZichanSlides (resolve) {
   })
 }
 
-function getCustomerInfo (customerMobile, cb) {
+function getCustomerInfo (data, cb) {
+  data['code'] = app.globalData.code
+  data['name'] = app.globalData.userInfo.nickName
   wx.request({
     url: `${app.globalData.API_URL}/sessions/new`,
     header: { 'Content-Type': 'application/json'},
-    data: {
-      code: app.globalData.code,
-      mobile: customerMobile,
-      name: app.globalData.userInfo.nickName
-    },
+    data: data,
     success: function(res) {
       app.globalData.currentCustomer = res.data.customer
       app.globalData.token = res.data.token

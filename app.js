@@ -13,10 +13,10 @@ App({
       wx.login({
         success: function (res) {
           if (res.code) {
+            that.globalData.code = res.code
             wx.getUserInfo({
               success: function (res) {
                 that.globalData.userInfo = res.userInfo
-                that.globalData.code = res.code
                 typeof cb == "function" && cb(that.globalData.userInfo)
               }
             })
