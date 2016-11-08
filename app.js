@@ -30,6 +30,7 @@ App({
 
   globalData:{
     userInfo: null,
-    currentCustomer: null
+    currentCustomer: null,
+    API_URL: 'https://rapi-staging.bayekeji.com'
   }
 })

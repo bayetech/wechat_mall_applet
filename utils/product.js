@@ -1,8 +1,8 @@
-const API_URL = 'https://rapi.bayekeji.com'
+const app = getApp()
 
 function getProducts (resolve) {
   wx.request({
-    url: `${API_URL}/products`,
+    url: `${app.globalData.API_URL}/products`,
     header: { 'Content-Type': 'application/json' },
     success: resolve,
     fail: function(){}
@@ -11,7 +11,7 @@ function getProducts (resolve) {
 
 function getSlides (resolve) {
   wx.request({
-    url: `${API_URL}/home_slides`,
+    url: `${app.globalData.API_URL}/home_slides`,
     header: { 'Content-Type': 'application/json' },
     success: resolve,
     fail: function(){}
@@ -20,7 +20,7 @@ function getSlides (resolve) {
 
 function getCategories (data, resolve, reject) {
   wx.request({
-    url: `${API_URL}/products?type=${data}`,
+    url: `${app.globalData.API_URL}/products?type=${data}`,
     header: { 'Content-Type': 'application/json'},
     success: resolve,
     fail: reject

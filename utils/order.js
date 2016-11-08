@@ -1,9 +1,9 @@
-const API_URL = 'https://rapi.bayekeji.com'
+const app = getApp()
 
 function postBilling (data, resolve) {
   wx.request({
     method: 'POST',
-    url: `${API_URL}/orders`,
+    url: `${app.globalData.API_URL}/orders`,
     data: data,
     header: { 'Content-Type': 'application/json'},
     success: resolve,

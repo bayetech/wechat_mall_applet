@@ -1,9 +1,9 @@
-const API_URL = 'https://rapi.bayekeji.com'
+const app = getApp()
 
 function postAddress (data) {
   wx.request({
     method: 'POST',
-    url: `${API_URL}/addresses/new`,
+    url: `${app.globalData.API_URL}/addresses/new`,
     data: Object.assign({}, data),
     header: { 'Content-Type': 'application/json' },
     success (res) {

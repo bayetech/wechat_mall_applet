@@ -1,9 +1,8 @@
-const API_URL = 'https://rapi.bayekeji.com'
 const app = getApp()
 
 function getZichanSlides (resolve) {
   wx.request({
-    url: `${API_URL}/profiles/zichan_sildes`,
+    url: `${app.globalData.API_URL}/profiles/zichan_sildes`,
     data: {token: app.globalData.token},
     header: { 'Content-Type': 'application/json'},
     success: resolve,
@@ -13,7 +12,7 @@ function getZichanSlides (resolve) {
 
 function getCustomerInfo (customerMobile, cb) {
   wx.request({
-    url: `${API_URL}/sessions/new`,
+    url: `${app.globalData.API_URL}/sessions/new`,
     header: { 'Content-Type': 'application/json'},
     data: {
       code: app.globalData.code,
@@ -32,7 +31,7 @@ function getCustomerInfo (customerMobile, cb) {
 
 function getPassCode (mobile) {
   wx.request({
-    url: `${API_URL}/profile/send_pass_code`,
+    url: `${app.globalData.API_URL}/profile/send_pass_code`,
     header: { 'Content-Type': 'application/json'},
     data: {
       mobile: mobile
