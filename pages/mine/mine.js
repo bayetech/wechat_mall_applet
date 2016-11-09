@@ -29,7 +29,7 @@ Page({
 
   bindSubmitMobile: function(e) {
     var mobile = this.data.mobile
-    var data   = {mobile_code: this.data.mobile, code: e.detail.value.code}
+    var data   = {mobile: this.data.mobile, mobile_code: e.detail.value.code}
 
     profile.getCustomerInfo(data, function(currentCustomer){
       var baye_rank = currentCustomer.baye_rank

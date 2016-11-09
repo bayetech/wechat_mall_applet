@@ -20,6 +20,10 @@ function getCustomerInfo (data, cb) {
     success: function(res) {
       app.globalData.currentCustomer = res.data.customer
       app.globalData.token = res.data.token
+      wx.setStorage({
+        key: 'userToken',
+        data: res.data.token
+      })
       typeof cb == "function" && cb(app.globalData.currentCustomer)
     },
     fail: function(res) {
@@ -46,8 +50,8 @@ module.exports = {
   getZichanSlides (resolve) {
     return getZichanSlides(resolve)
   },
-  getCustomerInfo (resolve) {
-    return getCustomerInfo(resolve)
+  getCustomerInfo (data, resolve) {
+    return getCustomerInfo(data, resolve)
   },
   getPassCode (mobile) {
     return getPassCode(mobile)
