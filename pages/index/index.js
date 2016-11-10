@@ -39,29 +39,30 @@ Page({
       })
     })
 
-    wx.getNetworkType({
-      success: function(res) {
-        var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
-        if (networkType) {
-          product.getProducts(function(result) {
-            var data = getApp().store.sync(result.data)
-            that.setData({
-              items: data,
-              popularity_products: data.filter(product => product.flag === '最热'),
-              new_products:        data.filter(product => product.flag === '新品'),
-              hot_products:        data.filter(product => product.flag === '火爆'),
-            })
-            wx.setStorageSync('products', data)
-          })
-        } else {
-           cache = wx.getStorageSync('products')
-           if (cache) {
-             that.setData({'items': cache})
-           } else {
-             that.setData({'items': []})
-           }
-        }
-      }
+    product.getProducts(function(result) {
+      var data = getApp().store.sync(result.data)
+      that.setData({
+        items: data,
+        popularity_products: data.filter(product => product.flag === '最热'),
+        new_products:        data.filter(product => product.flag === '新品'),
+        hot_products:        data.filter(product => product.flag === '火爆'),
+      })
+      wx.setStorageSync('products', data)
     })
+
+    // wx.getNetworkType({
+    //   success: function(res) {
+    //     var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
+    //     if (networkType) {
+    //     } else {
+    //        cache = wx.getStorageSync('products')
+    //        if (cache) {
+    //          that.setData({'items': cache})
+    //        } else {
+    //          that.setData({'items': []})
+    //        }
+    //     }
+    //   }
+    // })
   }
 })
