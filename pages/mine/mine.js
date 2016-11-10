@@ -18,6 +18,12 @@ Page({
 
   onLoad: function() {
     var that = this
+    var token = wx.getStorageSync('userToken')
+    if (token) {
+      that.setData({needBindMobile: false})
+      var data = {token: token}
+      profile.getCustomerInfo(data, that.infoCallback)
+    }
     app.getUserInfo(function(userInfo){
       that.setData({userInfo:userInfo})
     })
@@ -25,25 +31,28 @@ Page({
 
   bindGetPassCode: function(e) {
     this.setData({mobile: e.detail.value.mobile})
+    profile.getPassCode(this.data.mobile)
   },
 
   bindSubmitMobile: function(e) {
-    var mobile = this.data.mobile
-    var data   = {mobile: this.data.mobile, mobile_code: e.detail.value.code}
+    var data = {mobile: this.data.mobile, mobile_code: e.detail.value.code, name: app.globalData.userInfo.nickName}
+    profile.getCustomerInfo(data, this.infoCallback)
+  },
 
-    profile.getCustomerInfo(data, function(currentCustomer){
-      var baye_rank = currentCustomer.baye_rank
-      that.setData({baye_rank: baye_rank})
+  infoCallback: function(currentCustomer) {
+    var that = this
+    var baye_rank = currentCustomer.baye_rank
+    that.setData({baye_rank: baye_rank})
 
-      profile.getZichanSlides(function(result) {
-        var data = getApp().store.sync(result.data)
-        that.setData({'zichan_slides': data})
-        wx.setStorage({
-          key:"zichan_slides",
-          data:data
-        })
+    profile.getZichanSlides(function(result) {
+      debugger
+      var data = getApp().store.sync(result.data)
+      that.setData({'zichan_slides': data})
+      wx.setStorage({
+        key:"zichan_slides",
+        data:data
       })
     })
-  },
+  }
 
 })

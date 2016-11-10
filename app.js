@@ -3,6 +3,7 @@ App({
     const jsonApi = require('utils/jsonapi-datastore/dist/jsonapi-datastore.js')
     this.store = new(jsonApi.JsonApiDataStore)
     this.jsonModel = jsonApi.JsonApiDataStoreModel
+    this.globalData.code = wx.getStorageSync('code')
   },
 
   getUserInfo: function (cb) {
@@ -14,6 +15,7 @@ App({
         success: function (res) {
           if (res.code) {
             that.globalData.code = res.code
+            wx.setStorageSync('code', res.code)
             wx.getUserInfo({
               success: function (res) {
                 that.globalData.userInfo = res.userInfo

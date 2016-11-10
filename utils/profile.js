@@ -12,7 +12,6 @@ function getZichanSlides (resolve) {
 
 function getCustomerInfo (data, cb) {
   data['code'] = app.globalData.code
-  data['name'] = app.globalData.userInfo.nickName
   wx.request({
     url: `${app.globalData.API_URL}/sessions/new`,
     header: { 'Content-Type': 'application/json'},
@@ -33,7 +32,7 @@ function getCustomerInfo (data, cb) {
 
 function getPassCode (mobile) {
   wx.request({
-    url: `${app.globalData.API_URL}/profile/send_pass_code`,
+    url: `${app.globalData.API_URL}/profiles/get_mobile_passcode`,
     header: { 'Content-Type': 'application/json'},
     data: {
       mobile: mobile
