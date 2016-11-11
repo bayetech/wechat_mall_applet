@@ -10,7 +10,10 @@ Page({
     zichan_slides: [],
     xunZhang: 'https://bayewechat.oss-cn-shanghai.aliyuncs.com/rassets/revision/' +
               'icon-medal-0-0c9193833e3a24dead6c39ba969c2e71eea1ba88b8ce88c3b76cd2b08804280d.png',
-    baye_rank: null
+    baye_rank: null,
+    disableGetMobileCode: false,
+    disableSubmitMobileCode: false,
+    getCodeButtonText: '获取验证码'
   },
 
   onShow: function() {
@@ -29,8 +32,39 @@ Page({
   },
 
   bindGetPassCode: function(e) {
-    this.setData({mobile: e.detail.value.mobile})
-    profile.getPassCode(this.data.mobile)
+    var that = this
+    this.setData({
+      mobile: e.detail.value.mobile,
+    })
+    profile.getPassCode(this.data.mobile, function(res) {
+      if (res.data.code === 20001) {
+        wx.showToast({
+          title: `${res.data.message}`,
+          icon: 'success',
+          duration: 2000
+        })
+        // var i = 60
+        // setInterval(function(){
+        //   i--
+        //   if (i<0) {
+        //     that.setData({
+        //       getCodeButtonText: '获取验证码',
+        //       disableGetMobileCode: false
+        //       })
+        //   } else {
+        //     that.setData({
+        //       getCodeButtonText: i,
+        //     })
+        //   }
+        // },1000);
+      } else {
+        wx.showToast({
+          title: `${res.data.message}`,
+          icon: 'fail',
+          duration: 2000
+        })
+      }
+    })
   },
 
   bindSubmitMobile: function(e) {

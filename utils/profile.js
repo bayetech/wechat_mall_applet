@@ -17,7 +17,16 @@ function getCustomerInfo (data, cb) {
     header: { 'Content-Type': 'application/json'},
     data: data,
     success: function(res) {
-      if (res.data.msg === 'Need Mobile') {
+      if (res.data.code === 4) {
+        return
+      } else if (res.data.code === 5) {
+        wx.showModal({
+          title: '错误',
+          content: `${res.data.msg}`,
+          showCancel: false,
+          success: function(res) {
+          }
+        })
         return
       }
       var pages = getCurrentPages()
@@ -35,16 +44,14 @@ function getCustomerInfo (data, cb) {
   })
 }
 
-function getPassCode (mobile) {
+function getPassCode (mobile, cb) {
   wx.request({
     url: `${app.globalData.API_URL}/profiles/get_mobile_passcode`,
     header: { 'Content-Type': 'application/json'},
     data: {
       mobile: mobile
     },
-    success: function(res) {
-      
-    },
+    success: cb,
     fail: function(res) {
     }
   })
@@ -57,7 +64,7 @@ module.exports = {
   getCustomerInfo (data, resolve) {
     return getCustomerInfo(data, resolve)
   },
-  getPassCode (mobile) {
-    return getPassCode(mobile)
+  getPassCode (mobile, cb) {
+    return getPassCode(mobile, cb)
   }
 }
