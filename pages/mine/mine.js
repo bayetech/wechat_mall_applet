@@ -44,7 +44,6 @@ Page({
     that.setData({baye_rank: baye_rank})
 
     profile.getZichanSlides(function(result) {
-      debugger
       var data = getApp().store.sync(result.data)
       that.setData({'zichan_slides': data})
       wx.setStorage({
