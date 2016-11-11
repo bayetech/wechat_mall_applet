@@ -17,6 +17,11 @@ function getCustomerInfo (data, cb) {
     header: { 'Content-Type': 'application/json'},
     data: data,
     success: function(res) {
+      if (res.data.msg === 'Need Mobile') {
+        return
+      }
+      var pages = getCurrentPages()
+      pages[pages.length-1].setData({needBindMobile: false})
       app.globalData.currentCustomer = res.data.customer
       app.globalData.token = res.data.token
       wx.setStorage({

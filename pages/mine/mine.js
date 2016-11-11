@@ -20,12 +20,11 @@ Page({
     var that = this
     var token = wx.getStorageSync('userToken')
     if (token) {
-      that.setData({needBindMobile: false})
       var data = {token: token}
       profile.getCustomerInfo(data, that.infoCallback)
     }
     app.getUserInfo(function(userInfo){
-      that.setData({userInfo:userInfo})
+      that.setData({userInfo: userInfo})
     })
   },
 
