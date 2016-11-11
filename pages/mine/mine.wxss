@@ -163,7 +163,10 @@
   font-size: 30rpx;
   display: flex;
 }
-
+.check input {
+  min-width: 230rpx;
+  width: 290rpx;
+}
 .check-code text {
 
 }
