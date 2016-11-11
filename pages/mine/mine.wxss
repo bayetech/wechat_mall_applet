@@ -23,6 +23,8 @@
   top: -88rpx;
   left: 29rpx;
   font-size: 25rpx;
+  width: 50rpx;
+  text-align: center;
 }
 
 .userinfo {
