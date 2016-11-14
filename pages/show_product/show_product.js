@@ -2,7 +2,6 @@ const product = require('../../utils/product.js')
 
 Page({
   data: {
-    toastAddProduct: true,
     title: '',
     id: 0,
     quantity: 1,
@@ -43,7 +42,11 @@ Page({
         product: this.data.product
       })
     }
-    this.setData({ toastAddProduct:false });
+    wx.showToast({
+      title: '成功加入购物车',
+      icon: 'success',
+      duration: 1200
+    })
     wx.setStorage({
       key: 'cartItems',
       data: cartItems
@@ -53,8 +56,4 @@ Page({
   bindQuantityInput (e) {
     this.setData({'quantity': e.detail.value})
   },
-
-  toastChange: function(){
-    this.setData({ toastAddProduct:true });
-  }
 })

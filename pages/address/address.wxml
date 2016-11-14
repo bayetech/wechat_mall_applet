@@ -46,7 +46,3 @@
     <!--<button formType="reset">清空表单</button>-->
   </view>
 </form>
-
-<modal title="错误提示" confirm-text="确定" no-cancel hidden="{{errorHidden}}" bindconfirm="confirmError">
-  {{msg}}
-</modal>

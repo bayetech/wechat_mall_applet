@@ -12,9 +12,6 @@ Page({
     indexProvince: 0,
     indexCity: 0,
     indexCounty: 0,
-
-    errorHidden: true,
-    msg: '不能为空'
   },
 
   bindChangeProvince: function(e) {
@@ -54,26 +51,16 @@ Page({
     var receiverName = e.detail.value.inputName.trim()
     var receiverMobile = e.detail.value.inputMobile.trim()
     if (!(receiverName && receiverMobile)) {
-      this.setData({
-        msg: '收货人姓名和手机号不能为空',
-        errorHidden: false
-      })
+      this.errorModal('收货人姓名和手机号不能为空')
       return
     }
     if (!receiverMobile.match(/^1[3-9][0-9]\d{8}$/)) {
-      this.setData({
-        msg: '手机号格式不正确，仅支持国内手机号码',
-        errorHidden: false
-      })
+      this.errorModal('手机号格式不正确，仅支持国内手机号码')
       return
     }
     wx.setStorage({key:'receiverName', data: receiverName})
     wx.setStorage({key:'receiverMobile', data: receiverMobile})
     wx.navigateBack()
-  },
-
-  confirmError: function(){
-    this.setData({errorHidden: true})
   },
 
   onLoad (params) {
@@ -92,6 +79,13 @@ Page({
       detailAddress:  wx.getStorageSync('detailAddress'),
       receiverName:   wx.getStorageSync('receiverName'),
       receiverMobile: wx.getStorageSync('receiverMobile')
+    })
+  },
+
+  errorModal: function(content) {
+    wx.showModal({
+      title: '出现错误',
+      content: content
     })
   }
 })

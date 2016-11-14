@@ -4,7 +4,6 @@ const order = require('../../utils/order.js')
 
 Page({
   data: {
-    deleteModalHidden: true,
     wantToDeleteItem: '',
     address: null,
     cartItems: [],
@@ -49,30 +48,32 @@ Page({
 
   // tap on item to delete cart item
   catchTapOnItem: function (e) {
+    var that = this
     this.setData({
-      deleteModalHidden: false,
       wantToDeleteItem: e.currentTarget.dataset.id
     })
-  },
 
-  deleteModalChange: function (e) {
-    var that = this
-    if (e.type === "confirm") {
-      var cartItems = that.data.cartItems
-      var index = cartItems.findIndex(function(ele){
-        return ele.id === that.data.wantToDeleteItem
-      })
-      cartItems.splice(index, 1)
-      this.setData({ cartItems: cartItems })
-      wx.setStorage({
-        key: 'cartItems',
-        data: cartItems
-      })
-    }
-    this.setData({
-      deleteModalHidden: true
+    wx.showModal({
+      title: '删除商品',
+      content: '是否要删除购物车中的这件商品？',
+      confirmText: '删除',
+      cancelText: '别删',
+      success: function(res) {
+        if (res.confirm) {
+          var cartItems = that.data.cartItems
+          var index = cartItems.findIndex(function(ele){
+            return ele.id === that.data.wantToDeleteItem
+          })
+          cartItems.splice(index, 1)
+          that.setData({ cartItems: cartItems })
+          wx.setStorage({
+            key: 'cartItems',
+            data: cartItems
+          })
+          that.changeCartAmount()
+        }
+      }
     })
-    this.changeCartAmount()
   },
 
   bindBilling: function () {
