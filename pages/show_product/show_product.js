@@ -9,10 +9,11 @@ Page({
   },
 
   onLoad (params) {
+    var allProducts = wx.getStorageSync('products')
     var id = params.id
-    var product = wx.getStorageSync('products').find(function(i){
+    var product = wx.getStorageSync('products').filter(function(i){
       return i.id === id
-    })
+    })[0]
 
     this.setData({
       id: id,
@@ -29,9 +30,9 @@ Page({
     var that = this
     var cartItems = wx.getStorageSync('cartItems') || []
 
-    var exist = cartItems.find(function(ele){
+    var exist = cartItems.filter(function(ele){
       return ele.id === that.data.id
-    })
+    })[0]
 
     if (exist) {
       exist.quantity = parseInt(exist.quantity) + 1

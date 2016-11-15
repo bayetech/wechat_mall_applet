@@ -35,9 +35,9 @@ Page({
 
   bindChangeQuantity: function (e) {
     var cartItems = this.data.cartItems
-    var item = cartItems.find(function(ele){
+    var item = cartItems.filter(function(ele){
       return ele.id === e.currentTarget.dataset.id
-    })
+    })[0]
     item.quantity = e.detail.value
     this.setData({ cartItems: cartItems })
     wx.setStorage({
