@@ -32,13 +32,15 @@ Page({
   bindTapProduct: function(e) {
     var that = this
     var cartItems = wx.getStorageSync('cartItems') || []
-    var thisItem  = this.data.items.find(function(ele){
+    var thisItem  = this.data.items.filter(function(ele){
       return ele.id === e.currentTarget.dataset.id
-    })
+    })[0]
 
-    var exist = cartItems.find(function(ele){
-      return ele.id === thisItem.id
-    })
+    if (thisItem) {
+      var exist = cartItems.filter(function(ele){
+        return ele.id === thisItem.id
+      })[0]
+    }
 
     if (exist) {
       exist.quantity = parseInt(exist.quantity) + 1

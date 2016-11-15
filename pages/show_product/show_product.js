@@ -11,7 +11,7 @@ Page({
   onLoad (params) {
     var allProducts = wx.getStorageSync('products')
     var id = params.id
-    var product = wx.getStorageSync('products').filter(function(i){
+    var product = allProducts.filter(function(i){
       return i.id === id
     })[0]
 
