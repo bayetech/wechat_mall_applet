@@ -1,5 +1,6 @@
 const district = require('../../utils/address_data.js')
 const order = require('../../utils/order.js')
+const pay = require('../../utils/pay.js')
 
 
 Page({
@@ -97,7 +98,7 @@ Page({
         }
       }
       order.postBilling(params, function(result){
-
+        pay.pay(result.data.hash)
       })
     }
   },
