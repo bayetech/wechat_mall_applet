@@ -1,6 +1,7 @@
 const app = getApp()
 
 function postBilling (data, resolve) {
+  data['token'] = app.globalData.token
   wx.request({
     method: 'POST',
     url: `${app.globalData.API_URL}/orders`,
