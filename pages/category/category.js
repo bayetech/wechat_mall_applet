@@ -55,10 +55,10 @@ Page({
       key: 'cartItems',
       data: cartItems
     })
-
-    wx.navigateTo({
-      url: '../cart/cart'
+    wx.showToast({
+      title: '成功加入购物车',
+      icon: 'success',
+      duration: 1000
     })
-
   }
 })

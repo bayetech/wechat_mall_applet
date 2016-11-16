@@ -40,7 +40,9 @@
         <view class="long-view">
           <block wx:for="{{zichan_slides}}" wx:for-item="slide" wx:key="id">
             <view class="item">
-              <image class="slide-img" src="{{slide.image}}"/>
+              <view class="image">
+                <image class="slide-img" src="{{slide.image}}"/>
+              </view>
               <view class="desc">
                 <view class="desc-line"><text>{{slide.name}}</text></view>
                 <view class="desc-line asset-count"><text>{{slide['asset-count']}}</text></view>

@@ -20,8 +20,8 @@
 
 .xunzhang .rank {
   position: relative;
-  top: -88rpx;
-  left: 29rpx;
+  top: -47px;
+  left: 30rpx;
   font-size: 25rpx;
   width: 50rpx;
   text-align: center;
@@ -81,25 +81,27 @@
 
 .zichan .second-line .item {
   width: 560rpx;
-  height: 250rpx;
+  height: 137px;
   margin-left: 20rpx;
+}
+
+.zichan .second-line .item .image{
+  height: 137px;
 }
 
 .zichan .second-line .desc {
   position: relative;
-  top: -255rpx;
+  top: -137px;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 560rpx;
+  height: 137px;
   background-color: rgba(0,0,0,0.3);
   border-radius: 5px;
   text-align: center;
   color: #fff;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   font-size: 25rpx;
 }
 
@@ -116,7 +118,7 @@
 .slide-img {
   border-radius: 5px;
   width: 560rpx;
-  height: 250rpx;
+  height: 137px;
 }
 
 /*.zichan .third-line {
