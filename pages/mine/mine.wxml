@@ -6,7 +6,7 @@
   <view wx:if="{{baye_rank}}">
     <view class='xunzhang'>
       <image src="{{xunZhang}}" mode="aspectFit"></image>
-      <view class="rank"><text>{{baye_rank || ''}}</text></view>
+      <view class="rank"><text>{{baye_rank ? baye_rank : ''}}</text></view>
     </view>
   </view>
 </view>

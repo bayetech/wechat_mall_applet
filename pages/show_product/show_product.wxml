@@ -9,7 +9,7 @@
     <form>
       <view class="line">
         <view class="section price">
-          <text id="price">¥{{product.price || '无法获取价格'}}</text>
+          <text id="price">¥{{product.price}}</text>
         </view>
         <view class="section quantity">
           <view>购买数量：</view>

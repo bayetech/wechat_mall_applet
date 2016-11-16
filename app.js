@@ -1,6 +1,8 @@
+const jsonApi = require('utils/jsonapi-datastore/dist/jsonapi-datastore.js')
+require('utils/polyfill.js')
+
 App({
   onLaunch: function () {
-    const jsonApi = require('utils/jsonapi-datastore/dist/jsonapi-datastore.js')
     this.store = new(jsonApi.JsonApiDataStore)
     this.jsonModel = jsonApi.JsonApiDataStoreModel
     this.globalData.code = wx.getStorageSync('code')
