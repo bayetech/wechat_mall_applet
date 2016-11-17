@@ -17,14 +17,14 @@
   <form bindsubmit="bindGetPassCode">
     <view class="check mobile">
       <text>绑定手机号：</text>
-      <input name="mobile"></input>
+      <input type="digit" name="mobile"></input>
       <button formType="submit" disabled="{{disableGetMobileCode}}">{{getCodeButtonText}}</button>
     </view>
   </form>
   <form bindsubmit="bindSubmitMobile">
     <view class="check code">
       <text>输入验证码：</text>
-      <input name="code"></input>
+      <input type="digit" name="code"></input>
       <button formType="submit" disabled="{{disableSubmitMobileCode}}">提交</button>
     </view>
   </form>
