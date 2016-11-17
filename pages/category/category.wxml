@@ -2,7 +2,7 @@
   <view class="item-container">
     <block wx:for="{{items}}" wx:for-item="item" wx:key="id">
       <view class="item" bindtap="bindTapProduct" data-id="{{item.id}}">
-        <image class="head-img" src="{{item['image-url']}}" mode="scaleToFill"></image>    
+        <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>    
         <view class="first-line">
           <text class="name">{{item.name}}</text>
         </view>
