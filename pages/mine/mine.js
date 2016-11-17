@@ -12,7 +12,7 @@ Page({
               'icon-medal-0-0c9193833e3a24dead6c39ba969c2e71eea1ba88b8ce88c3b76cd2b08804280d.png',
     baye_rank: null,
     disableGetMobileCode: false,
-    disableSubmitMobileCode: false,
+    disableSubmitMobileCode: true,
     getCodeButtonText: '获取验证码'
   },
 
@@ -36,6 +36,7 @@ Page({
     this.setData({
       mobile: e.detail.value.mobile,
     })
+    that.setData({disableGetMobileCode: true})
     profile.getPassCode(this.data.mobile, function(res) {
       if (res.data.code === 20001) {
         wx.showToast({
@@ -43,21 +44,9 @@ Page({
           icon: 'success',
           duration: 2000
         })
-        // var i = 60
-        // setInterval(function(){
-        //   i--
-        //   if (i<0) {
-        //     that.setData({
-        //       getCodeButtonText: '获取验证码',
-        //       disableGetMobileCode: false
-        //       })
-        //   } else {
-        //     that.setData({
-        //       getCodeButtonText: i,
-        //     })
-        //   }
-        // },1000);
+        that.countDownPassCode()
       } else {
+        that.setData({disableGetMobileCode: false})
         wx.showToast({
           title: `${res.data.message}`,
           icon: 'fail',
@@ -65,6 +54,28 @@ Page({
         })
       }
     })
+  },
+
+  countDownPassCode: function() {
+    var pages = getCurrentPages()
+    var i = 60
+    var intervalId = setInterval(function(){
+      i--
+      if (i<=0) {
+        pages[pages.length-1].setData({
+          disableGetMobileCode: false,
+          disableSubmitMobileCode: false,
+          getCodeButtonText: '获取验证码'
+        })
+        clearInterval(intervalId)
+      } else {
+        pages[pages.length-1].setData({
+          getCodeButtonText: i,
+          disableGetMobileCode: true,
+          disableSubmitMobileCode: false
+        })
+      }
+    },1000);
   },
 
   bindSubmitMobile: function(e) {
