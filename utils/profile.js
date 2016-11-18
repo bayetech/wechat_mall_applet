@@ -46,7 +46,7 @@ function getCustomerInfo (data, cb) {
 
 function getPassCode (mobile, cb) {
   wx.request({
-    url: `${app.globalData.API_URL}/profiles/get_mobile_passcode`,
+    url: `${app.globalData.API_URL}/send_validation_code/send_message`,
     header: { 'Content-Type': 'application/json'},
     data: {
       mobile: mobile
