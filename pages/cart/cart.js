@@ -23,7 +23,7 @@ Page({
     var detailAddress  = wx.getStorageSync('detailAddress')
     var receiverName   = wx.getStorageSync('receiverName')
     var receiverMobile = wx.getStorageSync('receiverMobile')
-    var address = {detail_address: detailAddress, name: receiverName, mobile: receiverMobile}
+    var address = {detail_address: detailAddress, customer_name: receiverName, customer_mobile: receiverMobile}
 
     var districtIndex = wx.getStorageSync('currentDistrict') || [0,0,0]
     address.province = district.provinces()[districtIndex[0]]
@@ -82,21 +82,17 @@ Page({
     if (cartItems) {
       var order_items_attributes = cartItems.map(function(obj){
         var rObj = {};
-        rObj['product_id'] = parseInt(obj.id)
+        rObj['product_uid'] = obj.uid
         rObj['quantity'] = parseInt(obj.quantity)
+        rObj['shippment_type'] = '包邮'
         // rObj['external_content'] = ""
         return rObj
       })
 
-      var order_attrs = this.data.address
-      order_attrs['order_items_attributes'] = order_items_attributes
-      order_attrs['type'] = "Order"
+      var params = this.data.address
+      params['order_from'] = 'from_applet'
+      params['order_items'] = order_items_attributes
 
-      var params = {
-        payment: {
-          orders_attributes: [order_attrs]
-        }
-      }
       order.postBilling(params, function(result){
         pay.pay(result.data.hash)
       })
