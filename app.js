@@ -35,6 +35,7 @@ App({
   globalData:{
     userInfo: null,
     currentCustomer: null,
-    API_URL: 'https://rapi-staging.bayekeji.com'
+    API_URL: 'http://localhost:3000'
+    // API_URL: 'https://rapi-staging.bayekeji.com'
   }
 })
