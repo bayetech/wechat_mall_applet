@@ -39,7 +39,7 @@
       <scroll-view scroll-x="true">
         <view class="long-view">
           <block wx:for="{{zichan_slides}}" wx:for-item="slide" wx:key="id">
-            <view class="item">
+            <view class="item" bindtap="bindShowAsset" data-id="{{slide.id}}">
               <view class="image">
                 <image class="slide-img" src="{{slide.image}}"/>
               </view>

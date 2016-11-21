@@ -19,6 +19,12 @@ Page({
   onShow: function() {
   },
 
+  bindShowAsset: function (e) {
+    wx.navigateTo({
+      url: `../my_assets/index?id=${e.currentTarget.dataset.id}`
+    })
+  },
+
   onLoad: function() {
     var that = this
     var token = wx.getStorageSync('userToken')

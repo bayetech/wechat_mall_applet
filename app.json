@@ -5,7 +5,8 @@
     "pages/address/address",
     "pages/cart/cart",
     "pages/mine/mine",
-    "pages/category/category"
+    "pages/category/category",
+    "pages/my_assets/index"
   ],
   "window":{
     "backgroundColor": "#f2f2f2",
