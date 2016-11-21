@@ -4,7 +4,7 @@ function postBilling (data, resolve) {
   data['token'] = app.globalData.token
   wx.request({
     method: 'POST',
-    url: `${app.globalData.API_URL}/orders`,
+    url: `${app.globalData.API_URL}/orders/create_applet_order`,
     data: data,
     header: { 'Content-Type': 'application/json'},
     success: resolve,

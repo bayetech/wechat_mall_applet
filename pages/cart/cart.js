@@ -82,7 +82,7 @@ Page({
     if (cartItems) {
       var order_items_attributes = cartItems.map(function(obj){
         var rObj = {};
-        rObj['product_uid'] = obj.uid
+        rObj['product_uid'] = obj.product.uid
         rObj['quantity'] = parseInt(obj.quantity)
         rObj['shippment_type'] = '包邮'
         // rObj['external_content'] = ""
