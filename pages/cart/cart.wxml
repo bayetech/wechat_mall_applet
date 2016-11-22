@@ -1,10 +1,10 @@
-<view class="address-container" wx:if="{{ address.detail_address && address.name && address.mobile }}"  bindtap="bindTapAddress">
+<view class="address-container" wx:if="{{ address.detail_address && address.customer_name && address.customer_mobile }}"  bindtap="bindTapAddress">
   <view class="receiver">
     <view>
-      <text>收货人：{{address.name}}</text>
+      <text>收货人：{{address.customer_name}}</text>
     </view>
     <view>
-      <text>{{address.mobile}}</text>
+      <text>{{address.customer_mobile}}</text>
     </view>
   </view>
   <view class="address">
