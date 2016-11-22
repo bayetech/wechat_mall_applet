@@ -6,7 +6,7 @@
     "pages/cart/cart",
     "pages/mine/mine",
     "pages/category/category",
-    "pages/my_assets/index"
+    "pages/my_assets/show"
   ],
   "window":{
     "backgroundColor": "#f2f2f2",

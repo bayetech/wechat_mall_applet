@@ -21,7 +21,7 @@ Page({
 
   bindShowAsset: function (e) {
     wx.navigateTo({
-      url: `../my_assets/index?id=${e.currentTarget.dataset.id}`
+      url: `../my_assets/show?id=${e.currentTarget.dataset.id}`
     })
   },
 
