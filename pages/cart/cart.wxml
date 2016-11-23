@@ -14,7 +14,13 @@
 <view wx:else bindtap="bindTapAddress">
   <button class="button" type='primary'>填写收货地址</button>
 </view>
+<view class="separate"></view>
 
+<view bindtap="bindSelectCoupon">
+  <view><text>使用优惠券</text></view>
+</view>
+
+<view class="separate"></view>
 <view class="items-container">
   <block wx:for="{{cartItems}}" wx:for-item="item" wx:key="id">
     <view class="item" data-id="{{item.id}}">

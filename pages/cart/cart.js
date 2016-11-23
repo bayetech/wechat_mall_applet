@@ -33,6 +33,12 @@ Page({
     this.setData({address: address})
   },
 
+  bindSelectCoupon: function() {
+    wx.navigateTo({
+      url: `coupon`
+    })
+  },
+
   bindChangeQuantity: function (e) {
     var cartItems = this.data.cartItems
     var item = cartItems.filter(function(ele){

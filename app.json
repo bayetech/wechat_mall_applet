@@ -4,6 +4,7 @@
     "pages/show_product/show_product",
     "pages/address/address",
     "pages/cart/cart",
+    "pages/cart/coupon",
     "pages/mine/mine",
     "pages/category/category",
     "pages/my_assets/show"
