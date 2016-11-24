@@ -1,13 +1,13 @@
-const product = require('../../utils/my_assets.js')
+const my_assets = require('../../utils/my_assets.js')
 
 Page({
   data: {
   },
 
-  onLoad: function() {
+  onLoad: function(params) {
     var that = this
 
-    product.getAsset(function(result) {
+    my_assets.getAsset(params.sku, function(result) {
       var data = getApp().store.sync(result.data)
       that.setData({'my_assets': data})
       wx.setStorage({

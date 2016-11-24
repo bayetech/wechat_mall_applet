@@ -1,9 +1,10 @@
 const app = getApp()
 
-function getAsset (data, resolve) {
+function getAsset (sku, resolve) {
   wx.request({
-    url: `${app.globalData.API_URL}/my_assets/${data}`,
+    url: `${app.globalData.API_URL}/my_assets/${sku}`,
     header: { 'Content-Type': 'application/json' },
+    data: {token: app.globalData.token},
     success: resolve,
     fail: function(){}
   })
@@ -11,7 +12,7 @@ function getAsset (data, resolve) {
 
 
 module.exports = {
-  getAsset (resolve) {
-    return getAsset(resolve)
+  getAsset(sku, resolve) {
+    return getAsset(sku, resolve)
   }
 }
