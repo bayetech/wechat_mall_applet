@@ -2,7 +2,7 @@ const app = getApp()
 
 function getZichanSlides (resolve) {
   wx.request({
-    url: `${app.globalData.API_URL}/profiles/zichan_sildes`,
+    url: `${app.globalData.API_URL}/my_assets`,
     data: {token: app.globalData.token},
     header: { 'Content-Type': 'application/json'},
     success: resolve,
