@@ -1,10 +1,8 @@
 const app = getApp()
 
 function getAsset (sku, resolve) {
-  wx.request({
+  app.request({
     url: `${app.globalData.API_URL}/my_assets/${sku}`,
-    header: { 'Content-Type': 'application/json' },
-    data: {token: app.globalData.token},
     success: resolve,
     fail: function(){}
   })

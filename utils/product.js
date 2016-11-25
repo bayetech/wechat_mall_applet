@@ -3,7 +3,6 @@ const app = getApp()
 function getProducts (resolve) {
   app.request({
     url: `${app.globalData.API_URL}/products`,
-    header: { 'Content-Type': 'application/json' },
     success: resolve,
     fail: function(){}
   })
@@ -12,7 +11,6 @@ function getProducts (resolve) {
 function getSlides (resolve) {
   app.request({
     url: `${app.globalData.API_URL}/home_slides`,
-    header: { 'Content-Type': 'application/json' },
     success: resolve,
     fail: function(){}
   })
@@ -21,7 +19,6 @@ function getSlides (resolve) {
 function getCategories (data, resolve, reject) {
   app.request({
     url: `${app.globalData.API_URL}/products?type=${data}`,
-    header: { 'Content-Type': 'application/json'},
     success: resolve,
     fail: reject
   })
