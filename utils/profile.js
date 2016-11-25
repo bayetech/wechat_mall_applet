@@ -1,9 +1,8 @@
 const app = getApp()
 
 function getZichanSlides (resolve) {
-  app.request({
+  app.authRequest({
     url: `${app.globalData.API_URL}/my_assets`,
-    data: {token: app.globalData.token},
     header: { 'Content-Type': 'application/json'},
     success: resolve,
     fail: function(){}
@@ -12,9 +11,8 @@ function getZichanSlides (resolve) {
 
 function getCustomerInfo (data, cb) {
   data['code'] = app.globalData.code
-  wx.request({
+  app.request({
     url: `${app.globalData.API_URL}/sessions/new`,
-    header: { 'Content-Type': 'application/json'},
     data: data,
     success: function(res) {
       if (res.data.code === 4) {

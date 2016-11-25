@@ -34,22 +34,20 @@ App({
 
   request: function(obj) {
     var header = obj.header || {}
-    if (!header['content-type']) {
-      header['content-type'] = 'application/json'
+    if (!header['Content-Type']) {
+      header['Content-Type'] = 'application/json'
     }
     if (!header['Authorization']) {
       header['Authorization'] = getApp().globalData.token
     }
 
+    // This must be wx.request !
     wx.request({
       url: obj.url,
       data: obj.data || {},
       method: obj.method || 'GET',
       header: header,
       success: function(res) {
-        if (res.statusCode === 401) {
-          
-        }
         typeof obj.success == "function" && obj.success(res)
       },
       fail: obj.fail || function() {},
@@ -58,7 +56,36 @@ App({
   },
 
   authRequest: function(obj) {
-    function unauthorizeCallback() {}
+    var that = this
+    if (!that.globalData.token) {
+      var token = wx.getStorageSync('userToken')
+      that.globalData.token = token
+      that.request({
+        url: `${that.globalData.API_URL}/sessions/new`,
+        data: {code: that.globalData.code},
+        success: function(res) {
+          if (!res.data.token) {
+            wx.redirectTo({
+              url: '../mine/mine',
+              success: function(res){},
+              fail: function() {},
+              complete: function() {}
+            })
+          } else {
+            that.globalData.currentCustomer = res.data.customer
+            that.globalData.token = res.data.token
+            wx.setStorage({
+              key: 'userToken',
+              data: res.data.token
+            })
+            that.request(obj)
+          }
+        },
+        fail: function(res) {}
+      })
+    } else {
+      that.request(obj)
+    }
   },
 
   globalData:{

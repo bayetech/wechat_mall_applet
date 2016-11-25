@@ -1,7 +1,7 @@
 const app = getApp()
 
 function postBilling (data, resolve) {
-  app.request({
+  app.authRequest({
     method: 'POST',
     url: `${app.globalData.API_URL}/orders/create_applet_order`,
     data: data || {},

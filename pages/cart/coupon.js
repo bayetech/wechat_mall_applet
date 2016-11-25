@@ -17,7 +17,7 @@ Page({
     // var data = wx.getStorageSync('coupons')
     // this.setData({coupons: data})
     var that = this
-    app.request({
+    app.authRequest({
       url: `${app.globalData.API_URL}/coupons`,
       method: 'GET',
       success: function(res){
