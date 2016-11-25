@@ -1,7 +1,7 @@
 const app = getApp()
 
 function getZichanSlides (resolve) {
-  wx.request({
+  app.request({
     url: `${app.globalData.API_URL}/my_assets`,
     data: {token: app.globalData.token},
     header: { 'Content-Type': 'application/json'},
@@ -45,7 +45,7 @@ function getCustomerInfo (data, cb) {
 }
 
 function getPassCode (mobile, cb) {
-  wx.request({
+  app.request({
     url: `${app.globalData.API_URL}/send_validation_code/send_message`,
     header: { 'Content-Type': 'application/json'},
     data: {
