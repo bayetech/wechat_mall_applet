@@ -1,4 +1,5 @@
 <view>
+<image src="{{my_asset['product-icon']}}"></image>
 <text>{{my_asset.product.name}}</text>
 <text>资产编号{{my_asset.no}}</text>
 <text>{{my_asset.product.unit}}</text>
@@ -9,11 +10,14 @@
   </view>
 </block>
 
-
-<block wx:for="{{my_asset['inventory-changes']}}" wx:for-item="inventory_change">
-  <view class="item">
-    <text>原因{{inventory_change.reason}}</text>
-    <text>数量{{inventory_change.quantity + ci.unit}}</text>
-  </view>
+<block wx:for="{{years}}" wx:for-item="year">
+    <text>{{year}}</text>
+    <block wx:for="{{my_asset['inventory-changes'][year]}}" wx:for-item="inventory_change">
+      <view class="item">
+        <text>原因{{inventory_change.reason}}</text>
+        <text>数量{{(inventory_change.quantity)/1000}}克</text>
+      </view>
+    </block>
 </block>
+
 </view>
