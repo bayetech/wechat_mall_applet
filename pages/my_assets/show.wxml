@@ -1,12 +1,19 @@
 <view>
-<view>show</view>
-</view>
+<text>{{my_asset.product.name}}</text>
+<text>资产编号{{my_asset.no}}</text>
+<text>{{my_asset.product.unit}}</text>
+
+<block wx:for="{{my_asset['sub-products']}}" wx:for-item="sub_product">
+  <view class="item">
+    <text>{{sub_product.name}} {{sub_product.stock}}</text>
+  </view>
+</block>
 
 
-<view class="my_assets">
-  <block wx:for-items="{{my_assets}}">
-    <view class="nav-item">
-      <text>{{item.name}}</text>
-    </view>
-  </block>
+<block wx:for="{{my_asset['inventory-changes']}}" wx:for-item="inventory_change">
+  <view class="item">
+    <text>原因{{inventory_change.reason}}</text>
+    <text>数量{{inventory_change.quantity + ci.unit}}</text>
+  </view>
+</block>
 </view>
