@@ -65,7 +65,7 @@ App({
         data: {code: that.globalData.code},
         success: function(res) {
           if (!res.data.token) {
-            wx.redirectTo({
+            wx.navigateTo({
               url: '../mine/mine',
               success: function(res){},
               fail: function() {},
