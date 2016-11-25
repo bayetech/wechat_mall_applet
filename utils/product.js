@@ -1,7 +1,7 @@
 const app = getApp()
 
 function getProducts (resolve) {
-  wx.request({
+  app.request({
     url: `${app.globalData.API_URL}/products`,
     header: { 'Content-Type': 'application/json' },
     success: resolve,
@@ -10,7 +10,7 @@ function getProducts (resolve) {
 }
 
 function getSlides (resolve) {
-  wx.request({
+  app.request({
     url: `${app.globalData.API_URL}/home_slides`,
     header: { 'Content-Type': 'application/json' },
     success: resolve,
@@ -19,7 +19,7 @@ function getSlides (resolve) {
 }
 
 function getCategories (data, resolve, reject) {
-  wx.request({
+  app.request({
     url: `${app.globalData.API_URL}/products?type=${data}`,
     header: { 'Content-Type': 'application/json'},
     success: resolve,
