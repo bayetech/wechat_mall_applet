@@ -16,7 +16,7 @@
 </view>
 <view class="separate"></view>
 
-<view class="use-coupon" bindtap="bindSelectCoupon">
+<view bindtap="bindSelectCoupon">
   <view><text>使用优惠券</text></view>
 </view>
 

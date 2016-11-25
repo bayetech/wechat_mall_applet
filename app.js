@@ -32,35 +32,6 @@ App({
     }
   },
 
-  request: function(obj) {
-    var header = obj.header || {}
-    if (!header['content-type']) {
-      header['content-type'] = 'application/json'
-    }
-    if (!header['Authorization']) {
-      header['Authorization'] = getApp().globalData.token
-    }
-
-    wx.request({
-      url: obj.url,
-      data: obj.data || {},
-      method: obj.method || 'GET',
-      header: header,
-      success: function(res) {
-        if (res.statusCode === 401) {
-          
-        }
-        typeof obj.success == "function" && obj.success(res)
-      },
-      fail: obj.fail || function() {},
-      complete: obj.complete || function() {}
-    })
-  },
-
-  authRequest: function(obj) {
-    function unauthorizeCallback() {}
-  },
-
   globalData:{
     userInfo: null,
     currentCustomer: null,

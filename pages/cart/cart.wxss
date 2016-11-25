@@ -24,7 +24,6 @@
 .item {
   height: 180rpx;
   padding: 15rpx;
-  padding-left: 10rpx;
   background-color: #fff;
   border-bottom: 1px solid #e4e4e4;
   color: #333;
@@ -116,10 +115,4 @@
 .separate {
   height: 18rpx;
   background-color: #f2f2f2;
-}
-
-.use-coupon {
-  font-size: 30rpx;
-  line-height: 55rpx;
-  margin-left: 15rpx;
 }

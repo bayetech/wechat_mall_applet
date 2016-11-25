@@ -1,7 +1,7 @@
 const app = getApp()
 
 function postAddress (data) {
-  app.request({
+  wx.request({
     method: 'POST',
     url: `${app.globalData.API_URL}/addresses/new`,
     data: Object.assign({}, data),

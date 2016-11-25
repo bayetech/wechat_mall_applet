@@ -1,10 +1,11 @@
 const app = getApp()
 
 function postBilling (data, resolve) {
-  app.request({
+  data['token'] = app.globalData.token
+  wx.request({
     method: 'POST',
     url: `${app.globalData.API_URL}/orders/create_applet_order`,
-    data: data || {},
+    data: data,
     header: { 'Content-Type': 'application/json'},
     success: resolve,
     fail: function(){}
