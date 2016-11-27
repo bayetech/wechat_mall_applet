@@ -25,7 +25,7 @@
   <view class="desc-container">
     <block wx:for="{{product.desc}}" wx:for-item="desc" wx:key="id">
       <view class="desc-image-view">
-        <image class="desc-image" src="{{desc[0]}}" style="height: {{desc[2] / desc[1] * windowWidth * pixelRatio}}rpx;" mode="aspectFit"/>
+        <image class="desc-image" src="{{desc[0]}}" style="height: {{desc[2] / desc[1] * windowWidth}}px;" mode="aspectFit"/>
       </view>
     </block>
   </view>
