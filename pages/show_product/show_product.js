@@ -1,14 +1,30 @@
 const product = require('../../utils/product.js')
-
+var app = getApp()
 Page({
   data: {
     title: '',
     id: 0,
     quantity: 1,
-    product: {}
+    product: {},
+    windowWidth: 375,
+    windowHeight: 667,
+    pixelRatio: 2
   },
 
   onLoad (params) {
+    try {
+      var res = wx.getSystemInfoSync()
+      this.setData({
+        windowWidth:  res.windowWidth,
+        windowHeight: res.windowHeight,
+        pixelRatio:   res.pixelRatio
+      })
+      app.globalData.windowWidth  = res.windowWidth
+      app.globalData.windowHeight = res.windowHeight
+      app.globalData.pixelRatio   = res.pixelRatio
+    } catch (e) {
+    }
+
     var allProducts = wx.getStorageSync('products')
     var id = params.id
     var product = allProducts.filter(function(i){

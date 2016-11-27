@@ -1,4 +1,5 @@
 const product = require('../../utils/product.js')
+var app = getApp()
 
 Page({
   data: {
@@ -31,7 +32,7 @@ Page({
     var that = this
 
     product.getSlides(function(result) {
-      var data = getApp().store.sync(result.data)
+      var data = app.store.sync(result.data)
       that.setData({'slides': data})
       wx.setStorage({
         key:"indexSlides",
@@ -40,7 +41,7 @@ Page({
     })
 
     product.getProducts(function(result) {
-      var data = getApp().store.sync(result.data)
+      var data = app.store.sync(result.data)
       that.setData({
         items: data,
         popularity_products: data.filter(product => product.flag === '最热'),

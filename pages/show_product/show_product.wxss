@@ -59,3 +59,7 @@
 .desc-image {
   width: 100%;
 }
+
+.desc-image-view {
+  margin: -10rpx;
+}
