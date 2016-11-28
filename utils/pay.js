@@ -12,7 +12,7 @@ function pay(hash, successCallback) {
   })
 }
 module.exports = {
-  pay (hash) {
-    return pay(hash)
+  pay (hash, successCallback) {
+    return pay(hash, successCallback)
   }
 }

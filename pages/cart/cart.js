@@ -84,6 +84,7 @@ Page({
   },
 
   bindBilling: function () {
+    var that = this
     var cartItems = wx.getStorageSync('cartItems')
     if (cartItems) {
       var order_items_attributes = cartItems.map(function(obj){
@@ -106,14 +107,15 @@ Page({
             success: function(res) {
               wx.showModal({
                 title: '提示',
-                content: '你已成功购买，如需查看订单，可下载‘巴爷供销社’APP',
+                content: '你已成功购买，如需查看订单，可下载 ‘巴爷供销社’ APP',
                 showCancel: false,
                 success: function(res) {
                   if (res.confirm) {
+                    that.setData({cartItems: []})
                   }
                 }
               })
-            } 
+            }
           })
         })
       })
