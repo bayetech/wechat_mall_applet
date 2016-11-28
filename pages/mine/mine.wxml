@@ -59,3 +59,12 @@
     </view>-->
   </view>
 </view>
+
+<view class="separate"></view>
+
+<view wx:if="{{!needBindMobile}}" class="profile-button-container">
+  <view class="profile-button" bindtap="bindLogout">
+    <view><image src="../../images/icon-tihuo-close.png" mode='aspectFit'></image></view>
+    <view><text>登出</text></view>
+  </view>
+</view>

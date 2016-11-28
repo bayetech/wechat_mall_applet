@@ -137,6 +137,7 @@
   justify-content: flex-start;
   font-size: 30rpx;
   margin-top: 20rpx;
+  margin-bottom: 20rpx;
 }
 
 .check text {
@@ -161,20 +162,32 @@
   font-size: 30rpx;
 }
 
-.check-code {
-  font-size: 30rpx;
-  display: flex;
-}
 .check input {
   min-width: 230rpx;
   width: 290rpx;
 }
-.check-code text {
 
+.profile-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
 }
-.check-code text {
 
+.profile-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 188rpx;
+  height: 130rpx;
 }
-.check-code text {
 
+.profile-button image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.profile-button text {
+  font-size: 25rpx;
 }

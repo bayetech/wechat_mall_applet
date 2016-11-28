@@ -96,6 +96,25 @@ Page({
     profile.getCustomerInfo(data, this.infoCallback)
   },
 
+  bindLogout: function() {
+    var that = this
+    app.request({
+      url: `${app.globalData.API_URL}/sessions/logout`,
+      data: {code: app.globalData.code},
+      method: 'POST',
+      success: function(res) {
+        if (res.statusCode === 200) {
+          wx.removeStorage({ key: 'token' })
+          app.globalData.currentCustomer = null
+          app.globalData.token = null
+          that.setData({needBindMobile: true})
+        }
+      },
+      fail: function() {},
+      complete: function() {}
+    })
+  },
+
   infoCallback: function(currentCustomer) {
     var that = this
     var baye_rank = currentCustomer.baye_rank
