@@ -100,7 +100,22 @@ Page({
       params['order_items'] = order_items_attributes
 
       order.postBilling(params, function(result){
-        pay.pay(result.data.hash)
+        pay.pay(result.data.hash, function(){
+          wx.removeStorage({
+            key: 'cartItems',
+            success: function(res) {
+              wx.showModal({
+                title: '提示',
+                content: '你已成功购买，如需查看订单，可下载‘巴爷供销社’APP',
+                showCancel: false,
+                success: function(res) {
+                  if (res.confirm) {
+                  }
+                }
+              })
+            } 
+          })
+        })
       })
     }
   },

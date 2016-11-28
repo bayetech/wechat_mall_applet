@@ -1,4 +1,4 @@
-function pay(hash) {
+function pay(hash, successCallback) {
   wx.requestPayment({
     'appId':     hash.appId,
     'timeStamp': hash.timeStamp,
@@ -6,8 +6,7 @@ function pay(hash) {
     'package':   hash.package,
     'signType':  hash.signType,
     'paySign':   hash.signature,
-    'success': function(res){
-    },
+    'success': successCallback,
     'fail': function(res){
     }
   })
