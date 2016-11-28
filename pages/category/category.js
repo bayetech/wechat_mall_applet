@@ -1,9 +1,11 @@
 const product = require('../../utils/product.js')
+var app = getApp()
 
 Page({
   data: {
     title: '',
-    items: []
+    items: [],
+    accountType: ''
   },
 
   onLoad: function(params) {
@@ -23,6 +25,13 @@ Page({
       var data = wx.getStorage(key)
       wx.setData({items: data})
     })
+  },
+
+  onShow() {
+    if (app.globalData.currentCustomer) {
+      var accountType = app.globalData.currentCustomer.account_type
+      this.setData({accountType: accountType})
+    }
   },
 
   onReady() {

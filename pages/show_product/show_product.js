@@ -8,7 +8,8 @@ Page({
     product: {},
     windowWidth: 375,
     windowHeight: 667,
-    pixelRatio: 2
+    pixelRatio: 2,
+    accountType: '' 
   },
 
   onLoad (params) {
@@ -36,6 +37,13 @@ Page({
       product: product,
       title: product.name
     })
+  },
+
+  onShow() {
+    if (app.globalData.currentCustomer) {
+      var accountType = app.globalData.currentCustomer.account_type
+      this.setData({accountType: accountType})
+    }
   },
 
   onReady() {

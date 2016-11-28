@@ -7,7 +7,12 @@
           <text class="name">{{item.name}}</text>
         </view>
         <view class="second-line">
-          <text>¥{{item.price}}</text>
+          <view wx:if="{{ accountType === '巴爷' }}">
+            <text>¥{{item['baye-price']}}</text>
+          </view>
+          <view wx:else>
+            <text>¥{{item['member-price']}}</text>
+          </view>
           <text>加入购物车</text>
         </view>
       </view>

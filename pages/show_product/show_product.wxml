@@ -9,7 +9,12 @@
     <form>
       <view class="line">
         <view class="section price">
-          <text id="price">¥{{product.price}}</text>
+          <view wx:if="{{ accountType === '巴爷' }}">
+            <text id="price">¥{{product['baye-price']}}</text>
+          </view>
+          <view wx:else>
+            <text id="price">¥{{product['member-price']}}</text>
+          </view>
         </view>
         <view class="section quantity">
           <view>购买数量：</view>

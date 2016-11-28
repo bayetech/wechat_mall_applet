@@ -33,7 +33,12 @@
         </view>
         <view class="numbers">
           <view>
-            <text class="price" catchtap="catchTapOnItem" data-id="{{item.id}}"> ¥{{item.product.price}} / 件 </text>
+            <view wx:if="{{ accountType === '巴爷' }}">
+              <text class="price" catchtap="catchTapOnItem" data-id="{{item.id}}">¥{{item.product['baye-price']}} / 件 </text>
+            </view>
+            <view wx:else>
+              <text class="price" catchtap="catchTapOnItem" data-id="{{item.id}}">¥{{item.product['member-price']}} / 件 </text>
+            </view>
           </view>
           <view class="pull-right">
             <view>

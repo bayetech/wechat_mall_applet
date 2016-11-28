@@ -1,20 +1,25 @@
 const district = require('../../utils/address_data.js')
 const order = require('../../utils/order.js')
 const pay = require('../../utils/pay.js')
-
+var app = getApp()
 
 Page({
   data: {
     wantToDeleteItem: '',
     address: null,
     cartItems: [],
-    amount: 0
+    amount: 0,
+    accountType: ''
   },
 
   onLoad: function (params) {
   },
 
   onShow: function (params) {
+    if (app.globalData.currentCustomer) {
+      var accountType = app.globalData.currentCustomer.account_type
+      this.setData({accountType: accountType})
+    }
     var cartItems = wx.getStorageSync("cartItems")
     this.setData({cartItems: cartItems || []})
 
@@ -85,6 +90,9 @@ Page({
 
   bindBilling: function () {
     var that = this
+    if (!this.addressValid()) {
+      return
+    }
     var cartItems = wx.getStorageSync('cartItems')
     if (cartItems) {
       var order_items_attributes = cartItems.map(function(obj){
@@ -122,11 +130,32 @@ Page({
     }
   },
 
+  addressValid: function() {
+    var address = this.data.address
+    var valid = address && address.detail_address && address.customer_name && address.customer_mobile
+    if (!valid) {
+      wx.showModal({
+        title: '提示',
+        content: '请填写收货地址',
+        showCancel: false,
+        success: function(res) {}
+      })
+    }
+    return valid
+  },
+
   changeCartAmount: function () {
     var amount = 0
-    this.data.cartItems.forEach(function(entry){
-      amount += entry.quantity * entry.product.price
-    })
+    if (this.data.accountType === '巴爷') {
+      this.data.cartItems.forEach(function(entry){
+        amount += entry.quantity * entry.product['baye-price']
+      })
+    } else {
+      this.data.cartItems.forEach(function(entry){
+        amount += entry.quantity * entry.product['member-price']
+      })
+    }
+    
     this.setData({amount: amount})
   },
 
