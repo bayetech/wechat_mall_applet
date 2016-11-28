@@ -16,11 +16,11 @@
 </view>
 <view class="separate"></view>
 
-<view class="use-coupon" bindtap="bindSelectCoupon">
+<!--<view class="use-coupon" bindtap="bindSelectCoupon">
   <view><text>使用优惠券</text></view>
 </view>
 
-<view class="separate"></view>
+<view class="separate"></view>-->
 <view class="items-container">
   <block wx:for="{{cartItems}}" wx:for-item="item" wx:key="id">
     <view class="item" data-id="{{item.id}}">
