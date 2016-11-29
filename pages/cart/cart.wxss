@@ -119,7 +119,15 @@
 }
 
 .use-coupon {
-  font-size: 30rpx;
-  line-height: 55rpx;
+  font-size: 33rpx;
+  line-height: 70rpx;
   margin-left: 15rpx;
+  margin-right: 15rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.use-coupon .red {
+  color: red;
 }

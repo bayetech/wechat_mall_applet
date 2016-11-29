@@ -9,7 +9,8 @@ Page({
     address: null,
     cartItems: [],
     amount: 0,
-    accountType: ''
+    accountType: '',
+    coupon: null
   },
 
   onLoad: function (params) {
@@ -39,8 +40,10 @@ Page({
   },
 
   bindSelectCoupon: function() {
+    var product_ids = this.data.cartItems.map(function(ele){return ele.id})
+    var products_order_quantities = this.data.cartItems.map(function(ele){return ele.quantity})
     wx.navigateTo({
-      url: `coupon`
+      url: `coupon?product_ids=${product_ids}&products_order_quantities=${products_order_quantities}`
     })
   },
 
@@ -107,8 +110,18 @@ Page({
       var params = this.data.address
       params['order_from'] = 'from_applet'
       params['order_items'] = order_items_attributes
+      params['coupon_code'] = this.data.coupon.code
 
       order.postBilling(params, function(result){
+        if (result.statusCode === 403) {
+          wx.showModal({
+            title: '出错',
+            content: result.data.msg,
+            showCancel: false,
+            success: function(res) {}
+          })
+        }
+
         pay.pay(result.data.hash, function(){
           wx.removeStorage({
             key: 'cartItems',

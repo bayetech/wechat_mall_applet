@@ -1,10 +1,7 @@
 <view>
   <block wx:for="{{coupons}}" wx:for-item="coupon" wx:key="id">
-    <view class="coupon-container">
-      <view class="left-image" wx:if="{{coupon.overdue}}" bindtap="">
-        <image src="../../images/coupon-gray.png" mode="aspectFit"></image>
-      </view>
-      <view class="left-image" wx:else>
+    <view class="coupon-container" data-id="{{coupon.id}}" bindtap="bindUseCoupon">
+      <view class="left-image">
         <image src="{{coupon['left-image']}}" mode="aspectFit"></image>
       </view>
       <view class="mall_coupon_ab">
@@ -14,9 +11,6 @@
           <view class="grey"><text>{{coupon.title}}</text></view>
           <view class="grey"><text>{{coupon['product-category-title']}}</text></view>
           <view class="grey"><text>• 有效期至: {{coupon['end-time']}}</text></view>
-        </view>
-        <view class="" wx:if="{{coupon.overdue}}" bindtap="">
-          <image src="../../images/out.png"  mode="aspectFit"></image>
         </view>
       </view>
     </view>
