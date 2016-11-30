@@ -30,17 +30,19 @@ Page({
 
   onLoad: function() {
     var that = this
-    if (app.globalData.token) {
-      profile.getCustomerInfo({}, that.infoCallback)
-    } else {
-      var token = wx.getStorageSync('userToken')
-      if (token) {
-        app.globalData.token = token
-        profile.getCustomerInfo({}, that.infoCallback)
-      }
-    }
+
     app.getUserInfo(function(userInfo){
       that.setData({userInfo: userInfo})
+
+      if (app.globalData.token) {
+        profile.getCustomerInfo({}, that.infoCallback)
+      } else {
+        var token = wx.getStorageSync('userToken')
+        if (token) {
+          app.globalData.token = token
+          profile.getCustomerInfo({}, that.infoCallback)
+        }
+      }
     })
   },
 
