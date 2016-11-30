@@ -115,13 +115,14 @@ Page({
       }
 
       order.postBilling(params, function(result){
-        if (result.statusCode === 403) {
+        if (result.statusCode === '403') {
           wx.showModal({
             title: '出错',
             content: result.data.msg,
             showCancel: false,
             success: function(res) {}
           })
+          return
         }
 
         pay.pay(result.data.hash, function(){
