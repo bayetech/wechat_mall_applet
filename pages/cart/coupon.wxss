@@ -33,7 +33,6 @@
   flex-direction: column;
   align-items: flex-end;
   height: 190rpx;
-  align-content: space-around;
   justify-content: space-around;
   margin-right: 30rpx;
   font-size: 35rpx;
