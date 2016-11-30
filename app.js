@@ -65,11 +65,15 @@ App({
         data: {code: that.globalData.code},
         success: function(res) {
           if (!res.data.token) {
-            wx.navigateTo({
-              url: '../mine/mine',
-              success: function(res){},
-              fail: function() {},
-              complete: function() {}
+            wx.showModal({
+              title: '未登录',
+              content: '请前往 “我的” 页面绑定手机号',
+              showCancel: false,
+              success: function(res) {
+                if (getCurrentPages().length > 1) {
+                  wx.navigateBack()
+                }
+              }
             })
           } else {
             that.globalData.currentCustomer = res.data.customer

@@ -38,7 +38,7 @@
 
   <view class="detail-address">
     <view class="section_title">手机号：</view>
-    <input name="inputMobile" placeholder="联系手机" value="{{receiverMobile}}" />
+    <input name="inputMobile" type="digit" placeholder="联系手机" value="{{receiverMobile}}" />
   </view>
 
   <view class="btn-area">

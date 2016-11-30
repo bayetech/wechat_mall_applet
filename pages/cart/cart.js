@@ -97,53 +97,61 @@ Page({
       return
     }
     var cartItems = wx.getStorageSync('cartItems')
-    if (cartItems) {
-      var order_items_attributes = cartItems.map(function(obj){
-        var rObj = {};
-        rObj['product_uid'] = obj.product.uid
-        rObj['quantity'] = parseInt(obj.quantity)
-        rObj['shippment_type'] = '包邮'
-        // rObj['external_content'] = ""
-        return rObj
+    if (!cartItems || cartItems.length === 0) {
+      wx.showModal({
+        title: '未选购商品',
+        content: '您需要将商品加入购物车后才能支付',
+        showCancel: false,
+        success: function(res) {}
       })
+      return
+    }
 
-      var params = this.data.address
-      params['order_from'] = 'from_applet'
-      params['order_items'] = order_items_attributes
-      if (this.data.coupon) {
-        params['coupon_code'] = this.data.coupon.code
+    var order_items_attributes = cartItems.map(function(obj){
+      var rObj = {};
+      rObj['product_uid'] = obj.product.uid
+      rObj['quantity'] = parseInt(obj.quantity)
+      rObj['shippment_type'] = '包邮'
+      // rObj['external_content'] = ""
+      return rObj
+    })
+
+    var params = this.data.address
+    params['order_from'] = 'from_applet'
+    params['order_items'] = order_items_attributes
+    if (this.data.coupon) {
+      params['coupon_code'] = this.data.coupon.code
+    }
+
+    order.postBilling(params, function(result){
+      if (result.statusCode === '403') {
+        wx.showModal({
+          title: '出错',
+          content: result.data.msg,
+          showCancel: false,
+          success: function(res) {}
+        })
+        return
       }
 
-      order.postBilling(params, function(result){
-        if (result.statusCode === '403') {
-          wx.showModal({
-            title: '出错',
-            content: result.data.msg,
-            showCancel: false,
-            success: function(res) {}
-          })
-          return
-        }
-
-        pay.pay(result.data.hash, function(){
-          wx.removeStorage({
-            key: 'cartItems',
-            success: function(res) {
-              wx.showModal({
-                title: '提示',
-                content: '你已成功购买，如需查看订单，可下载 ‘巴爷供销社’ APP',
-                showCancel: false,
-                success: function(res) {
-                  if (res.confirm) {
-                    that.setData({cartItems: []})
-                  }
+      pay.pay(result.data.hash, function(){
+        wx.removeStorage({
+          key: 'cartItems',
+          success: function(res) {
+            wx.showModal({
+              title: '提示',
+              content: '你已成功购买，如需查看订单，可下载 ‘巴爷供销社’ APP',
+              showCancel: false,
+              success: function(res) {
+                if (res.confirm) {
+                  that.setData({cartItems: []})
                 }
-              })
-            }
-          })
+              }
+            })
+          }
         })
       })
-    }
+    })
   },
 
   addressValid: function() {
