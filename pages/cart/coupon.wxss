@@ -18,13 +18,11 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  top: -100rpx;
+  top: -56rpx;
 }
 
 .mall_coupon_ab .value {
   text-align: center;
-  height: 225rpx;
-  line-height: 200rpx;
   width: 35%;
   font-size: 56rpx;
   color: #fff;
@@ -34,10 +32,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  height: 190rpx;
+  align-content: space-around;
+  justify-content: space-around;
   margin-right: 30rpx;
   font-size: 35rpx;
-  line-height: 47rpx;
-  height: 225rpx;
 }
 
 .mall_coupon_more .grey {
