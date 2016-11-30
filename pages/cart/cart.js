@@ -110,7 +110,9 @@ Page({
       var params = this.data.address
       params['order_from'] = 'from_applet'
       params['order_items'] = order_items_attributes
-      params['coupon_code'] = this.data.coupon.code
+      if (this.data.coupon) {
+        params['coupon_code'] = this.data.coupon.code
+      }
 
       order.postBilling(params, function(result){
         if (result.statusCode === 403) {
