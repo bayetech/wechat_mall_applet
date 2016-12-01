@@ -98,14 +98,14 @@ Page({
     profile.getCustomerInfo(data, this.infoCallback)
   },
 
-  bindLogout: function() {
+  bindLogout: function(e) {
     var that = this
     app.request({
       url: `${app.globalData.API_URL}/sessions/logout`,
       data: {code: app.globalData.code},
       method: 'POST',
       success: function(res) {
-        if (res.statusCode === 200) {
+        if (res.statusCode === '200') {
           wx.removeStorage({ key: 'token' })
           app.globalData.currentCustomer = null
           app.globalData.token = null
