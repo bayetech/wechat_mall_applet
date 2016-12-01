@@ -65,6 +65,11 @@
 
 
 <view class="billing-btn">
-  <view>总计：¥{{amount}}元</view>
+  <view wx:if="{{coupon}}">
+    <view>总计：¥{{amount}}元 {{'-' + coupon['coupon-value'] + '元优惠券' }}</view>
+  </view>
+  <view wx:else>
+    <view>总计：¥{{amount}}元</view>
+  </view>
   <button class="button" type='warn' bindtap="bindBilling"> 去支付 </button>
 </view>
