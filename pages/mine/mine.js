@@ -22,12 +22,6 @@ Page({
   onShow: function() {
   },
 
-  bindShowAsset: function (e) {
-    wx.navigateTo({
-      url: `../my_assets/show?sku=${e.currentTarget.dataset.sku}`
-    })
-  },
-
   onLoad: function() {
     var that = this
 

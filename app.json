@@ -6,8 +6,7 @@
     "pages/cart/cart",
     "pages/cart/coupon",
     "pages/mine/mine",
-    "pages/category/category",
-    "pages/my_assets/show"
+    "pages/category/category"
   ],
   "window":{
     "backgroundColor": "#f2f2f2",
