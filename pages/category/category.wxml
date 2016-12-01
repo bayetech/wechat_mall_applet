@@ -1,19 +1,20 @@
 <scroll-view scroll-y="true" height="100%">
   <view class="item-container">
     <block wx:for="{{items}}" wx:for-item="item" wx:key="id">
-      <view class="item" bindtap="bindTapProduct" data-id="{{item.id}}">
-        <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>    
-        <view class="first-line">
-          <text class="name">{{item.name}}</text>
-        </view>
-        <view class="second-line">
-          <view wx:if="{{ accountType === '巴爷' }}">
-            <text>¥{{item['baye-price']}}</text>
+      <view class="item">
+        <view class="item-block" bindtap="bindTapProduct" data-id="{{item.id}}">
+          <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>    
+          <view class="first-line">
+            <text class="name">{{item.name}}</text>
           </view>
-          <view wx:else>
-            <text>¥{{item['member-price']}}</text>
+          <view class="second-line">
+            <view wx:if="{{ accountType === '巴爷' }}">
+              <text>¥{{item['baye-price']}}</text>
+            </view>
+            <view wx:else>
+              <text>¥{{item['member-price']}}</text>
+            </view>
           </view>
-          <text>加入购物车</text>
         </view>
       </view>
     </block>

@@ -1,33 +1,42 @@
 .item-container {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 100rpx;
+  width: 100%;
 }
 
 .item {
-  width: 335rpx;
-  margin-bottom: 80rpx;
-  display: flex;
   flex-direction: column;
-  font-size: 30rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
+  width: 50%
+}
+
+.item-block {
+  display: block;
+  background-color: white;
+  margin: 1px 1px 0 0;
+  padding: 15rpx 15rpx 15rpx;
+  height: 485rpx;
 }
 
 .item image {
-  width: 335rpx;
+  width: 100%;
   height: 335rpx;
   margin-bottom: 20rpx;
 }
 
 .item .first-line {
   font-size: 25rpx;
+  line-height:30rpx; 
   margin-bottom: 20rpx;
+  text-align: center;
 }
 
 .item .second-line {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  color: red;
+}
+
+page {
+  background-color: #f1f1f1;
 }
