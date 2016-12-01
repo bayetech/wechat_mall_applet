@@ -2,8 +2,9 @@
   <view class="section">
     <view class="section__title">省：</view>
     <picker bindchange="bindChangeProvince" value="{{indexProvince}}" range="{{arrayProvince}}">
-      <view class="picker">
-        {{arrayProvince[indexProvince]}}
+      <view class="picker-view">
+        <view><text>{{arrayProvince[indexProvince]}}</text></view>
+        <view><image class="select-icon" src="../../images/select.png"></image></view>
       </view>
     </picker>
   </view>
@@ -11,8 +12,9 @@
   <view class="section">
     <view class="section__title">市：</view>
     <picker bindchange="bindChangeCity" value="{{indexCity}}" range="{{arrayCity}}">
-      <view class="picker">
-        {{arrayCity[indexCity]}}
+      <view class="picker-view">
+        <view><text>{{arrayCity[indexCity]}}</text></view>
+        <view><image class="select-icon" src="../../images/select.png"></image></view>
       </view>
     </picker>
   </view>
@@ -20,8 +22,9 @@
   <view  class="section">
     <view class="section__title">区/县：</view>
     <picker bindchange="bindChangeCounty" value="{{indexCounty}}" range="{{arrayCounty}}">
-      <view class="picker">
-        {{arrayCounty[indexCounty]}}
+      <view class="picker-view">
+        <view><text>{{arrayCounty[indexCounty]}}</text></view>
+        <view><image class="select-icon" src="../../images/select.png"></image></view>
       </view>
     </picker>
   </view>

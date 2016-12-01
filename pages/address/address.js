@@ -64,7 +64,7 @@ Page({
   },
 
   onLoad (params) {
-    var currentDistrict = wx.getStorageSync('currentDistrict') || [0, 0, 0]
+    var currentDistrict = wx.getStorageSync('currentDistrict') || [1, 0, 0]
     var arrayProvince = district.provinces()
     var arrayCity     = district.cities(arrayProvince[currentDistrict[0]])
     var arrayCounty   = district.counties(arrayProvince[currentDistrict[0]], arrayCity[currentDistrict[1]])

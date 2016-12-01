@@ -19,10 +19,15 @@
 }
 
 picker {
+}
+
+.picker-view {
   border: 1rpx solid lightgrey;
+  display: flex;
+  flex-direction: row;
   padding: 15rpx;
   width: 440rpx;
-  text-align: center;
+  justify-content: space-between;
 }
 
 .detail-address {
@@ -37,4 +42,9 @@ picker {
   margin: 15rpx;
   padding: 15rpx;
   border: 1rpx solid lightgrey;
+}
+
+.select-icon {
+  height: 20rpx;
+  width: 34rpx;
 }
