@@ -124,7 +124,7 @@ Page({
     }
 
     order.postBilling(params, function(result){
-      if (result.statusCode === '403') {
+      if (parseInt(result.statusCode) === 403) {
         wx.showModal({
           title: '出错',
           content: result.data.msg,
@@ -144,7 +144,11 @@ Page({
               showCancel: false,
               success: function(res) {
                 if (res.confirm) {
-                  that.setData({cartItems: []})
+                  that.setData({
+                    cartItems: [],
+                    coupon: null
+                  })
+                  that.changeCartAmount()
                 }
               }
             })
@@ -179,7 +183,7 @@ Page({
         amount += entry.quantity * entry.product['member-price']
       })
     }
-    
+
     this.setData({amount: amount})
   },
 

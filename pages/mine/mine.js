@@ -105,7 +105,7 @@ Page({
       data: {code: app.globalData.code},
       method: 'POST',
       success: function(res) {
-        if (res.statusCode === '200') {
+        if (parseInt(res.statusCode) === 200) {
           wx.removeStorage({ key: 'token' })
           app.globalData.currentCustomer = null
           app.globalData.token = null
