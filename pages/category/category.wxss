@@ -6,12 +6,12 @@
 
 .item {
   flex-direction: column;
-  width: 50%
+  width: 50%;
+  background-color: white;
 }
 
 .item-block {
   display: block;
-  background-color: white;
   border-right: 1px solid #f1f1f1;
   border-bottom: 1px solid #f1f1f1;
   padding: 15rpx 15rpx 15rpx;
