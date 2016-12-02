@@ -50,6 +50,10 @@
   width: 410rpx;
 }
 
+.title {
+  height: 70%;
+}
+
 .title text {
   font-size: 28rpx;
   color: #333;
