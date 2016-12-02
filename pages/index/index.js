@@ -5,10 +5,10 @@ Page({
   data: {
     items: [],
     slides: [],
-    navs: [{icon: "../../images/asset.png",       name: "资产"},
-           {icon: "../../images/direct_sale.png", name: "直销"},
-           {icon: "../../images/our_select.png",  name: "甄选"},
-           {icon: "../../images/packing.png",     name: "包装"}],
+    navs: [{icon: "../../images/icon-new-list1.png", name: "资产"},
+           {icon: "../../images/icon-new-list2.png", name: "直销"},
+           {icon: "../../images/icon-new-list3.png", name: "甄选"},
+           {icon: "../../images/icon-new-list4.png", name: "管到"}],
 
     popularity_products: [],
     new_products: [],

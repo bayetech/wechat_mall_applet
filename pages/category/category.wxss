@@ -12,9 +12,10 @@
 .item-block {
   display: block;
   background-color: white;
-  margin: 1px 1px 0 0;
+  border-right: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
   padding: 15rpx 15rpx 15rpx;
-  height: 485rpx;
+  min-height: 485rpx;
 }
 
 .item image {
@@ -35,6 +36,15 @@
   flex-direction: row;
   justify-content: center;
   color: red;
+}
+
+.offline-notice {
+  margin: 60rpx 10rpx 0 10rpx;
+  padding: 40rpx 0 40rpx 0;
+  border-radius: 5rpx;
+  text-align: center;
+  background-color: white;
+  font-size: 33rpx;
 }
 
 page {

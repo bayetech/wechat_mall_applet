@@ -1,22 +1,28 @@
-<scroll-view scroll-y="true" height="100%">
-  <view class="item-container">
-    <block wx:for="{{items}}" wx:for-item="item" wx:key="id">
-      <view class="item">
-        <view class="item-block" bindtap="bindTapProduct" data-id="{{item.id}}">
-          <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>    
-          <view class="first-line">
-            <text class="name">{{item.name}}</text>
-          </view>
-          <view class="second-line">
-            <view wx:if="{{ accountType === '巴爷' }}">
-              <text>¥{{item['baye-price']}}</text>
+<view wx:if="{{items.length > 0}}">
+  <scroll-view scroll-y="true" height="100%">
+    <view class="item-container">
+      <block wx:for="{{items}}" wx:for-item="item" wx:key="id">
+        <view class="item">
+          <view class="item-block" bindtap="bindTapProduct" data-id="{{item.id}}">
+            <image class="head-img" src="{{item['image-url']}}" mode="aspectFit"></image>    
+            <view class="first-line">
+              <text class="name">{{item.name}}</text>
             </view>
-            <view wx:else>
-              <text>¥{{item['member-price']}}</text>
+            <view class="second-line">
+              <view wx:if="{{ accountType === '巴爷' }}">
+                <text>¥{{item['baye-price']}}</text>
+              </view>
+              <view wx:else>
+                <text>¥{{item['member-price']}}</text>
+              </view>
             </view>
           </view>
         </view>
-      </view>
-    </block>
-  </view>
-</scroll-view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<view wx:else>
+  <view class="offline-notice">本功能即将上线，请耐心等待</view>
+</view>
+
