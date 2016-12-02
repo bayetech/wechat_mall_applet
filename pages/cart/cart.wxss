@@ -50,10 +50,6 @@
   width: 410rpx;
 }
 
-.title {
-  height: 100%;
-}
-
 .title text {
   font-size: 28rpx;
   color: #333;
@@ -87,7 +83,7 @@
 }
 
 .numbers text {
-  padding: 10rpx;
+  padding-top: 15rpx;
 }
 
 .billing-btn {
@@ -111,6 +107,7 @@
 .quantity input {
   min-height: 10rpx;
   height: 50rpx;
+  margin-right: 20rpx;
 }
 
 .separate {
