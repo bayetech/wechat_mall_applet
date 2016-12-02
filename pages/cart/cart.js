@@ -10,13 +10,15 @@ Page({
     cartItems: [],
     amount: 0,
     accountType: '',
-    coupon: null
+    coupon: null,
+    address: {}
   },
 
   onLoad: function (params) {
   },
 
   onShow: function (params) {
+    var that = this
     if (app.globalData.currentCustomer) {
       var accountType = app.globalData.currentCustomer.account_type
       this.setData({accountType: accountType})
@@ -31,12 +33,17 @@ Page({
     var receiverMobile = wx.getStorageSync('receiverMobile')
     var address = {detail_address: detailAddress, customer_name: receiverName, customer_mobile: receiverMobile}
 
-    var districtIndex = wx.getStorageSync('currentDistrict') || [0,0,0]
+    var districtIndex = wx.getStorageSync('currentDistrict') || [1,0,0]
     address.province = district.provinces()[districtIndex[0]]
-    address.city     = district.cities(address.province)[districtIndex[1]]
-    address.county   = district.counties(address.province, address.city)[districtIndex[2]]
-
-    this.setData({address: address})
+    that.setData({address: address})
+    district.cities(address.province, function(arrayCity){
+      address.city = arrayCity[districtIndex[1]]
+      that.setData({address: address})
+      district.counties(address.province, address.city, function(arrayCounty){
+        address.county = arrayCounty[districtIndex[2]]
+        that.setData({address: address})
+      })
+    })
   },
 
   bindSelectCoupon: function() {
