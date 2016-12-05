@@ -53,11 +53,15 @@
 
 image.head-img {
   width: 100%;
-  height: 335rpx;
+  height: 377rpx;
 }
 
 text {
   color: #444;
+}
+
+.cate-container {
+  margin-bottom: 30rpx;
 }
 
 .separate {

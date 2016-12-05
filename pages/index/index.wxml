@@ -20,7 +20,7 @@
 
 
     <view class="separate"></view>
-    <view>
+    <view class="cate-container">
       <view class="category-title">
         <view class="icon"><image src="../../images/volume_small.png"></image></view>
         <view><text class="name">最热</text></view>
@@ -33,7 +33,7 @@
     </view>
 
     <view class="separate"></view>
-    <view>
+    <view class="cate-container">
       <view class="category-title">
         <view class="icon"><image src="../../images/new_small.png"></image></view>
         <view><text class="name">新品</text></view>
@@ -46,7 +46,7 @@
     </view>
 
     <view class="separate"></view>
-    <view>
+    <view class="cate-container">
       <view class="category-title">
         <view class="icon"><image src="../../images/hot_small.png"></image></view>
         <view><text class="name">火爆</text></view>
