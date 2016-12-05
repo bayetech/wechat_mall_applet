@@ -44,9 +44,9 @@ Page({
       var data = app.store.sync(result.data)
       that.setData({
         items: data,
-        popularity_products: data.filter(product => product.flag === '最热'),
-        new_products:        data.filter(product => product.flag === '新品'),
-        hot_products:        data.filter(product => product.flag === '火爆'),
+        popularity_products: data.filter(product => (product.flag === '最热' && product['promotion-url'])),
+        new_products:        data.filter(product => (product.flag === '新品' && product['promotion-url'])),
+        hot_products:        data.filter(product => (product.flag === '火爆' && product['promotion-url'])),
       })
       wx.setStorageSync('products', data)
     })
