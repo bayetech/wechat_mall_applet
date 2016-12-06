@@ -22,10 +22,10 @@
     <view class="separate"></view>
     <view class="cate-container">
       <view class="category-title">
-        <view class="icon"><image src="../../images/volume_small.png"></image></view>
-        <view><text class="name">最热</text></view>
+        <view class="icon"><image src="../../images/hot_small.png"></image></view>
+        <view><text class="name">每周爆款</text></view>
       </view>
-      <block wx:for="{{popularity_products}}" wx:for-item="item" wx:key="id">
+      <block wx:for="{{hot_products}}" wx:for-item="item" wx:key="id">
         <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
           <image class="head-img" src="{{item['promotion-url']}}" mode="aspectFit"></image>
         </view>
@@ -36,7 +36,7 @@
     <view class="cate-container">
       <view class="category-title">
         <view class="icon"><image src="../../images/new_small.png"></image></view>
-        <view><text class="name">新品</text></view>
+        <view><text class="name">新品上架</text></view>
       </view>
       <block wx:for="{{new_products}}" wx:for-item="item" wx:key="id">
         <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
@@ -48,10 +48,10 @@
     <view class="separate"></view>
     <view class="cate-container">
       <view class="category-title">
-        <view class="icon"><image src="../../images/hot_small.png"></image></view>
-        <view><text class="name">火爆</text></view>
+        <view class="icon"><image src="../../images/volume_small.png"></image></view>
+        <view><text class="name">热销商品</text></view>
       </view>
-      <block wx:for="{{hot_products}}" wx:for-item="item" wx:key="id">
+      <block wx:for="{{popularity_products}}" wx:for-item="item" wx:key="id">
         <view class="item" bindtap="bindShowProduct" data-id="{{item.id}}">
           <image class="head-img" src="{{item['promotion-url']}}" mode="aspectFit"></image>
         </view>
