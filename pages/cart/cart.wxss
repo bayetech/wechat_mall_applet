@@ -17,8 +17,8 @@
 }
 
 .items-container {
-  margin-bottom: 180rpx;
-  min-height: 900rpx;
+  padding-bottom: 200rpx;
+  min-height: 700rpx;
 }
 
 .item {
@@ -38,7 +38,7 @@
 
 .item image {
   display: block;
-  width: 300rpx;
+  width: 280rpx;
   max-height: 180rpx;
 }
 
@@ -47,7 +47,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  width: 410rpx;
+  width: 430rpx;
 }
 
 .title {
@@ -55,7 +55,7 @@
 }
 
 .title text {
-  font-size: 28rpx;
+  font-size: 29rpx;
   color: #333;
   white-space: no-wrap;
   line-height: 34rpx;
