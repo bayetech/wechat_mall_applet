@@ -60,8 +60,18 @@ App({
     if (!that.globalData.token) {
       var token = wx.getStorageSync('userToken')
       if (!token) {
-        wx.redirectTo({
-          url: '../mine/mine'
+        wx.showModal({
+          title: '未登录',
+          content: '请前往 “我的” 页面绑定手机号',
+          showCancel: false,
+          success: function(res) {
+            // 清除没用的token
+            wx.removeStorage({key: 'userToken'})
+            that.globalData.token = undefined
+            if (getCurrentPages().length > 1) {
+              wx.navigateBack()
+            }
+          }
         })
         return
       }
