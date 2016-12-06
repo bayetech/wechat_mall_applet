@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom: 100rpx;
 }
 
 .item {
@@ -11,31 +12,29 @@
 }
 
 .item-block {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-right: 1px solid #f1f1f1;
   border-bottom: 1px solid #f1f1f1;
-  padding: 15rpx 15rpx 15rpx;
-  min-height: 485rpx;
+  padding: 15rpx 15rpx 20rpx;
+  min-height: 500rpx;
 }
 
-.item image {
+.item-block image {
   width: 100%;
   height: 335rpx;
-  margin-bottom: 20rpx;
 }
 
-.item .first-line {
-  font-size: 25rpx;
-  line-height:30rpx; 
-  margin-bottom: 20rpx;
+.item-block .first-line {
+  font-size: 27rpx;
+  line-height:34rpx;
   text-align: center;
 }
 
-.item .second-line {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.item-block .second-line {
   color: red;
+  text-align: center;
 }
 
 .offline-notice {
