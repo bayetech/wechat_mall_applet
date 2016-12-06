@@ -42,6 +42,15 @@
   color: #999;
 }
 
+.no-coupon {
+  text-align: center;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  font-size: 32rpx;
+  background-color: white;
+  line-height: 80rpx;
+}
+
 page {
   background-color: #f4f4f4;
 }
