@@ -17,9 +17,9 @@ Page({
     var that = this
     var p = this.data.arrayProvince[e.detail.value]
     district.cities(p, function(arrayCity){
-      that.setData({arrayCity: arrayCity})
+      that.setData({arrayCity: arrayCity, indexCity: 0})
       district.counties(p, arrayCity[0], function(arrayCounty){
-        that.setData({arrayCounty: arrayCounty})
+        that.setData({arrayCounty: arrayCounty, indexCounty: 0})
       })
     })
 
@@ -32,7 +32,7 @@ Page({
     var p = this.data.arrayProvince[this.data.indexProvince]
     var c = this.data.arrayCity[e.detail.value]
     district.counties(p, c, function(arrayCounty){
-      that.setData({arrayCounty: arrayCounty})
+      that.setData({arrayCounty: arrayCounty, indexCounty: 0})
     })
     this.setData({indexCity: e.detail.value})
     wx.setStorageSync('currentDistrict', [this.data.indexProvince, this.data.indexCity, this.data.indexCounty])
@@ -61,6 +61,10 @@ Page({
     }
     wx.setStorage({key:'receiverName', data: receiverName})
     wx.setStorage({key:'receiverMobile', data: receiverMobile})
+    wx.setStorageSync('currentDistrict', [this.data.indexProvince, this.data.indexCity, this.data.indexCounty])
+    var pages = getCurrentPages()
+    var cartPage = pages[pages.length - 2]
+    cartPage.setData({refreshAddress: true})
     wx.navigateBack()
   },
 

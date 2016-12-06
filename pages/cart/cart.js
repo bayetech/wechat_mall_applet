@@ -5,6 +5,7 @@ var app = getApp()
 
 Page({
   data: {
+    refreshAddress: true,
     wantToDeleteItem: '',
     address: null,
     cartItems: [],
@@ -19,31 +20,35 @@ Page({
 
   onShow: function (params) {
     var that = this
+    // 判断要显示什么类型的价格
     if (app.globalData.currentCustomer) {
       var accountType = app.globalData.currentCustomer.account_type
       this.setData({accountType: accountType})
     }
+
     var cartItems = wx.getStorageSync("cartItems")
     this.setData({cartItems: cartItems || []})
 
     this.changeCartAmount()
 
-    var detailAddress  = wx.getStorageSync('detailAddress')
-    var receiverName   = wx.getStorageSync('receiverName')
-    var receiverMobile = wx.getStorageSync('receiverMobile')
-    var address = {detail_address: detailAddress, customer_name: receiverName, customer_mobile: receiverMobile}
+    if (this.data.refreshAddress) {
+      var detailAddress  = wx.getStorageSync('detailAddress')
+      var receiverName   = wx.getStorageSync('receiverName')
+      var receiverMobile = wx.getStorageSync('receiverMobile')
+      var address = {detail_address: detailAddress, customer_name: receiverName, customer_mobile: receiverMobile}
 
-    var districtIndex = wx.getStorageSync('currentDistrict') || [1,0,0]
-    address.province = district.provinces()[districtIndex[0]]
-    that.setData({address: address})
-    district.cities(address.province, function(arrayCity){
-      address.city = arrayCity[districtIndex[1]]
-      that.setData({address: address})
-      district.counties(address.province, address.city, function(arrayCounty){
-        address.county = arrayCounty[districtIndex[2]]
+      var districtIndex = wx.getStorageSync('currentDistrict') || [1,0,0]
+      address.province = district.provinces()[districtIndex[0]]
+      that.setData({address: address, refreshAddress: false})
+      district.cities(address.province, function(arrayCity){
+        address.city = arrayCity[districtIndex[1]]
         that.setData({address: address})
+        district.counties(address.province, address.city, function(arrayCounty){
+          address.county = arrayCounty[districtIndex[2]]
+          that.setData({address: address})
+        })
       })
-    })
+    }
   },
 
   bindSelectCoupon: function() {
