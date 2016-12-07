@@ -5,7 +5,7 @@
   height: 130rpx;
   background-size: auto, auto;
   background: url(https://bayewechat.oss-cn-shanghai.aliyuncs.com/rassets/revision/icon-bg1-31089b3b52ad92a9bf410ade08221b538a7bfd69ef65303eca4d227731972a33.png) no-repeat;
-  padding-top: 15px;
+  padding-top: 30rpx;
   padding-bottom: 15rpx;
 }
 
@@ -20,7 +20,7 @@
 
 .xunzhang .rank {
   position: relative;
-  top: -47px;
+  top: -94rpx;
   left: 30rpx;
   font-size: 25rpx;
   width: 50rpx;
@@ -71,6 +71,7 @@
   padding-bottom: 15rpx;
   border-top: 1rpx solid #F6F6F6;
   border-bottom: 1rpx solid #F6F6F6;
+  height: max-content;
 }
 
 .long-view {
@@ -81,20 +82,20 @@
 
 .zichan .second-line .item {
   width: 560rpx;
-  height: 137px;
+  height: 264rpx;
   margin-left: 20rpx;
 }
 
 .zichan .second-line .item .image{
-  height: 137px;
+  height: 264rpx;
 }
 
 .zichan .second-line .desc {
   position: relative;
-  top: -137px;
+  top: -262rpx;
   left: 0;
   width: 560rpx;
-  height: 137px;
+  height: 264rpx;
   background-color: rgba(0,0,0,0.3);
   border-radius: 5px;
   text-align: center;
@@ -118,7 +119,7 @@
 .slide-img {
   border-radius: 5px;
   width: 560rpx;
-  height: 137px;
+  height: 264rpx;
 }
 
 /*.zichan .third-line {
