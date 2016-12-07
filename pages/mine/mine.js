@@ -88,7 +88,7 @@ Page({
   },
 
   bindSubmitMobile: function(e) {
-    var data = {mobile: this.data.mobile, mobile_code: e.detail.value.code, name: app.globalData.userInfo.nickName}
+    var data = {mobile: this.data.mobile, mobile_code: e.detail.value.code, name: this.data.userInfo.nickName}
     profile.getCustomerInfo(data, this.infoCallback)
   },
 
