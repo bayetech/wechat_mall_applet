@@ -103,6 +103,11 @@ Page({
           wx.removeStorage({ key: 'token' })
           app.globalData.currentCustomer = null
           app.globalData.token = null
+          app.globalData.code = null
+          app.globalData.userInfo = null
+          app.getUserInfo(function(userInfo) {
+            that.setData({userInfo: userInfo})
+          })
           that.setData({needBindMobile: true})
         }
       },
