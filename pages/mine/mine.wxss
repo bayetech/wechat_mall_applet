@@ -132,41 +132,33 @@
   margin-bottom: 20rpx;
 }*/
 
+/* 绑定手机号的两个form */
 .check {
-  height: 72rpx;
   display: flex;
-  justify-content: flex-start;
-  font-size: 30rpx;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 32rpx;
+  height: 110rpx;
 }
 
 .check text {
-  margin-left: 15rpx;
-  padding-top: 20rpx;
-  padding-bottom: 20rpx;
   width: auto;
 }
 
 .check input {
-  width: auto;
-  margin-top: 10rpx;
-  margin-bottom: 10rpx;
-  border: 1rpx solid #66B2FF;
   padding-left: 10rpx;
+  border: 1rpx solid #66B2FF;
+  height: 70rpx;
+  width: 280rpx;
+  font-size: 34rpx;
 }
 
 .check button {
-  width: 230rpx;
-  margin-left: 10rpx;
-  margin-right: 0;
-  font-size: 30rpx;
+  width: 220rpx;
+  font-size: 32rpx;
 }
-
-.check input {
-  min-width: 230rpx;
-  width: 290rpx;
-}
+/*************/
 
 .profile-button-container {
   display: flex;
