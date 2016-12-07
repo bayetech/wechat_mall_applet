@@ -1,6 +1,5 @@
 .coupon-container {
-  display: flex;
-  flex-direction: column;
+  display: block;
   height: 225rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
@@ -18,7 +17,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  top: -56rpx;
+  top: -225rpx;
 }
 
 .mall_coupon_ab .value {
