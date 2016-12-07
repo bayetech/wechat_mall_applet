@@ -1,23 +1,29 @@
 .coupon-container {
   display: block;
-  height: 225rpx;
+  height: 215rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
+  margin-top: 10rpx;
 }
 
 .left-image image {
   width: 100%;
-  height: 225rpx;
+  height: 200rpx;
+}
+
+.left-image {
+  width: 100%;
+  height: 200rpx;
 }
 
 .mall_coupon_ab {
-  height: 225rpx;
+  height: 200rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  top: -225rpx;
+  top: -200rpx;
 }
 
 .mall_coupon_ab .value {
@@ -31,7 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  height: 190rpx;
+  height: 200rpx;
   justify-content: space-around;
   margin-right: 30rpx;
   font-size: 35rpx;
