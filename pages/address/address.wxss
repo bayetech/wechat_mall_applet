@@ -18,9 +18,6 @@
   padding: 15rpx;
 }
 
-picker {
-}
-
 .picker-view {
   border: 1rpx solid lightgrey;
   display: flex;
@@ -28,6 +25,7 @@ picker {
   padding: 15rpx;
   width: 440rpx;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 .detail-address {
