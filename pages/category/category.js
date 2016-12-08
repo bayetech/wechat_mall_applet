@@ -5,13 +5,15 @@ Page({
   data: {
     title: '',
     items: [],
-    accountType: ''
+    accountType: '',
+    categoryType: null
   },
 
   onLoad: function(params) {
     var that = this
     this.setData({
-      title: '巴爷供销社 - ' + params.type
+      title: '巴爷供销社 - ' + params.type,
+      categoryType: params.type
     })
     product.getCategories(params.type, function(result) {
       var data = getApp().store.sync(result.data)
@@ -40,6 +42,19 @@ Page({
 
   bindTapProduct: function(e) {
     var that = this
+
+    // 管到屏蔽
+    if (this.data.categoryType === '管到') {
+      wx.showModal({
+        title: '管到商品暂未开放',
+        content: '目前无法在小程序上购买管到商品，如有需要，可以在巴爷微信商城上进行购买。感谢您的理解，我们会尽快完善此功能。',
+        showCancel: false,
+        success: function(res) {}
+      })
+      return
+    }
+
+
     var cartItems = wx.getStorageSync('cartItems') || []
     var thisItem  = this.data.items.filter(function(ele){
       return ele.id === e.currentTarget.dataset.id
@@ -49,6 +64,18 @@ Page({
       var exist = cartItems.filter(function(ele){
         return ele.id === thisItem.id
       })[0]
+    }
+
+
+    // 管到屏蔽
+    if (thisItem && (parseInt(thisItem['category-id']) === 18)) {
+      wx.showModal({
+        title: '管到商品暂未开放',
+        content: '目前无法在小程序上购买管到商品，如有需要，可以在巴爷微信商城上进行购买。感谢您的理解，我们会尽快完善此功能。',
+        showCancel: false,
+        success: function(res) {}
+      })
+      return
     }
 
     if (exist) {

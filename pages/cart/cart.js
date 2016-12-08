@@ -128,6 +128,21 @@ Page({
       return rObj
     })
 
+
+    // 管到屏蔽
+    var guandao_item_block = cartItems.filter(function(obj){
+      return parseInt(obj.product['category-id']) === 18
+    })
+    if (guandao_item_block.length >= 1) {
+      wx.showModal({
+        title: '管到商品暂未开放',
+        content: '目前无法在小程序上购买管到商品，如有需要，可以在巴爷微信商城上进行购买。感谢您的理解，我们会尽快完善此功能。',
+        showCancel: false,
+        success: function(res) {}
+      })
+      return
+    }
+
     var params = this.data.address
     params['order_from'] = 'from_applet'
     params['order_items'] = order_items_attributes
