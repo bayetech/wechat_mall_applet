@@ -43,6 +43,10 @@ Page({
   bindTapProduct: function(e) {
     var that = this
 
+    wx.navigateTo({
+      url: `../show_product/show_product?id=${e.currentTarget.dataset.id}&type=${this.data.categoryType}`
+    })
+/*
     // 管到屏蔽
     if (this.data.categoryType === '管到') {
       wx.showModal({
@@ -96,5 +100,6 @@ Page({
       icon: 'success',
       duration: 1000
     })
+*/
   }
 })

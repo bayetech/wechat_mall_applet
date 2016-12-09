@@ -26,7 +26,12 @@ Page({
     } catch (e) {
     }
 
-    var allProducts = wx.getStorageSync('products')
+    var allProducts
+    if (params.type) {
+      allProducts = wx.getStorageSync(`cate_${params.type}`)
+    } else {
+      allProducts = wx.getStorageSync('products')
+    }
     var id = params.id
     var product = allProducts.filter(function(i){
       return i.id === id
