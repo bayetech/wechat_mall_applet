@@ -20,10 +20,10 @@
 
 .xunzhang .rank {
   position: relative;
-  top: -94rpx;
-  left: 30rpx;
-  font-size: 25rpx;
-  width: 50rpx;
+  top: -92rpx;
+  left: 0;
+  font-size: 24rpx;
+  width: 110rpx;
   text-align: center;
 }
 
