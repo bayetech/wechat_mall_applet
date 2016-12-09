@@ -104,12 +104,20 @@ Page({
   },
 
   bindBilling: function () {
+    wx.showToast({
+      title: '购买中...',
+      icon: 'loading',
+      duration: 10000
+    })
+
     var that = this
     if (!this.addressValid()) {
+      wx.hideToast()
       return
     }
     var cartItems = wx.getStorageSync('cartItems')
     if (!cartItems || cartItems.length === 0) {
+      wx.hideToast()
       wx.showModal({
         title: '未选购商品',
         content: '您需要将商品加入购物车后才能支付',
@@ -134,6 +142,7 @@ Page({
       return parseInt(obj.product['category-id']) === 18
     })
     if (guandao_item_block.length >= 1) {
+      wx.hideToast()
       wx.showModal({
         title: '管到商品暂未开放',
         content: '目前无法在小程序上购买管到商品，如有需要，可以在巴爷微信商城上进行购买。',
@@ -152,6 +161,7 @@ Page({
 
     order.postBilling(params, function(result){
       if (parseInt(result.statusCode) === 403) {
+        wx.hideToast()
         if (parseInt(result.data.code) === 4001) {
           that.setData({coupon: null})
         }
@@ -163,6 +173,7 @@ Page({
         })
         return
       }
+      wx.hideToast()
 
       pay.pay(result.data.hash, function(){
         wx.removeStorage({
