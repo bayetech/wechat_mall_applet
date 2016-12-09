@@ -152,6 +152,9 @@ Page({
 
     order.postBilling(params, function(result){
       if (parseInt(result.statusCode) === 403) {
+        if (parseInt(result.data.code) === 4001) {
+          that.setData({coupon: null})
+        }
         wx.showModal({
           title: '出错',
           content: result.data.msg,
