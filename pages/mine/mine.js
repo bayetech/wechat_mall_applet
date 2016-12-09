@@ -108,7 +108,10 @@ Page({
           app.getUserInfo(function(userInfo) {
             that.setData({userInfo: userInfo})
           })
-          that.setData({needBindMobile: true})
+          that.setData({
+            needBindMobile: true,
+            baye_rank: null
+          })
         }
       },
       fail: function() {},
