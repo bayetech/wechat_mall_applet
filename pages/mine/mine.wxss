@@ -138,7 +138,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  font-size: 32rpx;
+  font-size: 30rpx;
   height: 110rpx;
 }
 
@@ -156,7 +156,9 @@
 
 .check button {
   width: 220rpx;
-  font-size: 32rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
 }
 /*************/
 
