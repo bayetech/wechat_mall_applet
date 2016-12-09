@@ -110,7 +110,7 @@ Page({
           })
           that.setData({
             needBindMobile: true,
-            baye_rank: null
+            baye_rank: ''
           })
         }
       },

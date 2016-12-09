@@ -60,6 +60,7 @@ App({
     if (!that.globalData.token) {
       var token = wx.getStorageSync('userToken')
       if (!token) {
+        wx.hideToast()
         wx.showModal({
           title: '未登录',
           content: '请前往 “我的” 页面绑定手机号',

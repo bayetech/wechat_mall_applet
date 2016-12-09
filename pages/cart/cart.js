@@ -107,7 +107,7 @@ Page({
     wx.showToast({
       title: '购买中...',
       icon: 'loading',
-      duration: 10000
+      duration: 5000
     })
 
     var that = this
@@ -163,7 +163,7 @@ Page({
       if (parseInt(result.statusCode) === 403) {
         wx.hideToast()
         if (parseInt(result.data.code) === 4001) {
-          that.setData({coupon: null})
+          that.setData({coupon: ''})
         }
         wx.showModal({
           title: '出错',
@@ -187,7 +187,7 @@ Page({
                 if (res.confirm) {
                   that.setData({
                     cartItems: [],
-                    coupon: null
+                    coupon: ''
                   })
                   that.changeCartAmount()
                 }
