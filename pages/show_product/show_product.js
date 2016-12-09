@@ -81,9 +81,9 @@ Page({
       })
     }
     wx.showToast({
-      title: '成功加入购物车',
+      title: '成功加入',
       icon: 'success',
-      duration: 1200
+      duration: 1000
     })
     wx.setStorage({
       key: 'cartItems',
