@@ -1,9 +1,9 @@
 <view>
   <view>
-    <image class="head-img" src="{{product['image-url']}}" mode="aspectFill" />
+    <image class="head-img" src="{{product['image-url']}}" mode="aspectFit" />
   </view>
 
-  <text class="product-name">{{product.name}}</text>
+  <view class="product-name"><text>{{product.name}}</text></view>
 
   <view>
     <form>
