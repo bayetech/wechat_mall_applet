@@ -143,7 +143,7 @@ Page({
       return
     }
 
-    var params = this.data.address
+    var params = JSON.parse(JSON.stringify(this.data.address))
     params['order_from'] = 'from_applet'
     params['order_items'] = order_items_attributes
     if (this.data.coupon) {
