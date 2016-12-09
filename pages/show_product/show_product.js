@@ -57,7 +57,7 @@ Page({
     if (this.data.product && (parseInt(this.data.product['category-id']) === 18)) {
       wx.showModal({
         title: '管到商品暂未开放',
-        content: '目前无法在小程序上购买管到商品，如有需要，可以在巴爷微信商城上进行购买。感谢您的理解，我们会尽快完善此功能。',
+        content: '目前无法在小程序上购买管到商品，如有需要，可以在巴爷微信商城上进行购买。',
         showCancel: false,
         success: function(res) {}
       })
