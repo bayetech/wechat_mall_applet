@@ -43,58 +43,8 @@ Page({
   bindTapProduct: function(e) {
     var that = this
 
-    // 管到屏蔽
-    if (this.data.categoryType === '管到') {
-      wx.showModal({
-        title: '管到商品暂未开放',
-        content: '目前无法在小程序上购买管到商品，如有需要，可以在巴爷微信商城上进行购买。',
-        showCancel: false,
-        success: function(res) {}
-      })
-      return
-    }
-
-
-    var cartItems = wx.getStorageSync('cartItems') || []
-    var thisItem  = this.data.items.filter(function(ele){
-      return ele.id === e.currentTarget.dataset.id
-    })[0]
-
-    if (thisItem) {
-      var exist = cartItems.filter(function(ele){
-        return ele.id === thisItem.id
-      })[0]
-    }
-
-
-    // 管到屏蔽
-    if (thisItem && (parseInt(thisItem['category-id']) === 18)) {
-      wx.showModal({
-        title: '管到商品暂未开放',
-        content: '目前无法在小程序上购买管到商品，如有需要，可以在巴爷微信商城上进行购买。',
-        showCancel: false,
-        success: function(res) {}
-      })
-      return
-    }
-
-    if (exist) {
-      exist.quantity = parseInt(exist.quantity) + 1
-    } else {
-      cartItems.push({
-        id: thisItem.id,
-        quantity: '1',
-        product: thisItem
-      })
-    }
-    wx.setStorage({
-      key: 'cartItems',
-      data: cartItems
-    })
-    wx.showToast({
-      title: '成功加入',
-      icon: 'success',
-      duration: 1000
+    wx.navigateTo({
+      url: `../show_product/show_product?id=${e.currentTarget.dataset.id}&type=${this.data.categoryType}`
     })
   }
 })
