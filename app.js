@@ -6,6 +6,8 @@ App({
     this.store = new(jsonApi.JsonApiDataStore)
     this.jsonModel = jsonApi.JsonApiDataStoreModel
     this.globalData.code = wx.getStorageSync('code')
+
+    this.getUserInfo()
   },
 
   getUserInfo: function (cb) {
