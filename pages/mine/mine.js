@@ -5,6 +5,7 @@ const profile = require('../../utils/profile.js')
 Page({
   data: {
     needBindMobile: true,
+    useCodeToLogIn: true,
     mobile: '',
     userInfo: {
       avatarUrl: '',
@@ -86,6 +87,15 @@ Page({
   bindSubmitMobile: function(e) {
     var data = {mobile: this.data.mobile, mobile_code: e.detail.value.code, name: this.data.userInfo.nickName}
     profile.getCustomerInfo(data, this.infoCallback)
+  },
+
+  bindLoginPassword: function(e) {
+    var data = {mobile: e.detail.mobile, password: e.detail.password}
+    profile.getCustomerInfo(data, this.infoCallback)
+  },
+
+  changeLoginType: function(e) {
+    this.setData({useCodeToLogIn: !this.data.useCodeToLogIn})
   },
 
   bindLogout: function(e) {

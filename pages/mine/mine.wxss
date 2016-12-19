@@ -109,7 +109,7 @@
 
 /* 绑定手机号的两个form */
 .login-title {
-  margin: 20rpx 0 25rpx;
+  margin: 20rpx 0 35rpx;
   text-align: center;
   font-size: 30rpx;
 }
@@ -137,7 +137,7 @@
 .login .second-line {
   height: 80rpx;
   display: flex;
-  width: 600rpx;
+  width: 602rpx;
   margin-bottom: 50rpx;
 }
 
@@ -159,11 +159,25 @@
   background-color: #FFC800;
 }
 
+.login .password-second-line {
+  height: 80rpx;
+  display: flex;
+  width: 600rpx;
+  margin-bottom: 50rpx;
+}
+
+.login .password-second-line input {
+  height: 80rpx;
+  width: 600rpx;
+  border: 1rpx solid rgb(217, 217, 217);
+  padding-left: 20rpx;
+  border-radius: 5px;
+}
+
 .third-line {
   margin-left: auto;
   margin-right: auto;
   width: 600rpx;
-  margin-bottom: 20rpx;
 }
 
 .third-line button {
@@ -171,6 +185,16 @@
   font-size: 32rpx;
   background-color: #FFC800;
 }
+
+.login-type {
+  width: 600rpx;
+  margin: 60rpx auto 0 auto;
+  padding: 20rpx 0 20rpx;
+  font-size: 32rpx;
+  text-align: right;
+  text-decoration: underline;
+}
+
 /*************/
 
 .profile-button-container {
