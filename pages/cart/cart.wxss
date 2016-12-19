@@ -114,21 +114,19 @@
   width: 100%;
 }
 
+.billing-btn .total {
+  background-color: #eee;
+}
+
 .billing-btn .button {
   border-radius: 0;
 }
 
 .billing-btn view {
-  padding-top: 15rpx;
-  padding-bottom: 15rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
   padding-left: 15rpx;
-  background-color: white;
   font-size: 30rpx;
-}
-
-.separate {
-  height: 18rpx;
-  background-color: #f2f2f2;
 }
 
 .use-coupon {

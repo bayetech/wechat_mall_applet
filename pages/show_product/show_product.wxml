@@ -10,15 +10,11 @@
       <view class="line">
         <view class="section price">
           <view wx:if="{{ accountType === '巴爷' }}">
-            <text id="price">¥{{product['baye-price']}}</text>
+            <text id="price">巴爷价：¥{{product['baye-price']}}</text>
           </view>
           <view wx:else>
             <text id="price">¥{{product['member-price']}}</text>
           </view>
-        </view>
-        <view class="section quantity">
-          <view>购买数量：</view>
-          <input id="quantity" name="quantity" bindinput="bindQuantityInput" value="1" />
         </view>
       </view>
       <view class="btn-area">
@@ -26,6 +22,8 @@
       </view>
     </form>
   </view>
+
+  <view class="separate"></view>
 
   <view class="desc-container">
     <block wx:for="{{product.desc}}" wx:for-item="desc" wx:key="id">

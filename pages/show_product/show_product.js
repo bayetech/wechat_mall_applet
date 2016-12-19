@@ -81,7 +81,7 @@ Page({
     } else {
       cartItems.push({
         id: this.data.id,
-        quantity: this.data.quantity,
+        quantity: 1,
         product: this.data.product
       })
     }
@@ -94,9 +94,5 @@ Page({
       key: 'cartItems',
       data: cartItems
     })
-  },
-
-  bindQuantityInput (e) {
-    this.setData({'quantity': e.detail.value})
-  },
+  }
 })

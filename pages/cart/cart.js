@@ -89,7 +89,7 @@ Page({
 
     wx.showModal({
       title: '删除商品',
-      content: '是否要删除购物车中的这件商品？',
+      content: '是否要删除购这件商品？',
       confirmText: '删除',
       cancelText: '别删',
       success: function(res) {

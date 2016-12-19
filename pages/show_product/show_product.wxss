@@ -1,5 +1,6 @@
 .head-img {
-  width: 100%;
+  width: 750rpx;
+  height: 750rpx;
 }
 
 .line {
@@ -9,25 +10,10 @@
   padding: 10rpx 20rpx 0 20rpx;
 }
 
-.quantity {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-left: auto;
-  margin: 20rpx;
-  font-size: 30rpx;
-}
-
-#quantity {
-  width: 80rpx;
-  border: 1rpx solid lightgrey;
-}
-
 .price {
-  margin-left: 20rpx;
-  width: 50%;
-  margin-right: auto; 
+  margin-top: 40rpx;
+  margin-bottom: 50rpx;
+  text-align: center;
 }
 
 #price {
@@ -44,7 +30,7 @@
   text-align: center;
   font-size: 32rpx;
   line-height: 48rpx;
-  padding: 5rpx 20rpx 0 20rpx;
+  padding: 0 75rpx 0 75rpx;
 }
 
 .btn-area {
@@ -55,7 +41,6 @@
 
 .desc-container {
   border-top: 1rpx solid lightgrey;
-  margin-top: 40rpx;
   margin-bottom: 90rpx;
 }
 
