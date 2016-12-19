@@ -1,49 +1,24 @@
-.mine-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 130rpx;
-  background-size: auto, auto;
-  background: url(https://bayewechat.oss-cn-shanghai.aliyuncs.com/rassets/revision/icon-bg1-31089b3b52ad92a9bf410ade08221b538a7bfd69ef65303eca4d227731972a33.png) no-repeat;
-  padding-top: 30rpx;
-  padding-bottom: 15rpx;
-}
-
-.xunzhang {
-  margin-right: 70rpx;
-}
-
-.xunzhang image {
-  width: 110rpx;
-  height: 120rpx;
-}
-
-.xunzhang .rank {
-  position: relative;
-  top: -92rpx;
-  left: 0;
-  font-size: 24rpx;
-  width: 110rpx;
-  text-align: center;
-}
 
 .userinfo {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 25rpx;
+  background: linear-gradient(to bottom, #FCD33D 0%, #FFF6D7 100%);
 }
 
 .userinfo-avatar {
-  width: 85rpx;
-  height: 85rpx;
-  margin: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
+  margin-top: 20rpx;
+  margin-bottom: 25rpx;
 }
 
 .userinfo-nickname {
-  color: #fff;
+  color: #272727;
   font-size: 28rpx;
-  margin-top: 30rpx;
+  line-height: 40rpx;
 }
 
 .separate {
@@ -133,32 +108,68 @@
 }*/
 
 /* 绑定手机号的两个form */
-.check {
+.login-title {
+  margin: 20rpx 0 25rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.login {
+  font-size: 32rpx;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
-  font-size: 30rpx;
-  height: 110rpx;
 }
 
-.check text {
-  width: auto;
+.login .first-line {
+  height: 80rpx;
+  border: 1rpx solid rgb(217, 217, 217);
+  border-radius: 5px;
+  width: 600rpx;
+  margin-bottom: 20rpx;
 }
 
-.check input {
-  padding-left: 10rpx;
-  border: 1rpx solid #66B2FF;
-  height: 70rpx;
-  width: 280rpx;
-  font-size: 34rpx;
-}
-
-.check button {
-  width: 220rpx;
-  font-size: 30rpx;
+.login .first-line input {
   padding-left: 20rpx;
-  padding-right: 20rpx;
+  height: 80rpx;
+}
+
+.login .second-line {
+  height: 80rpx;
+  display: flex;
+  width: 600rpx;
+  margin-bottom: 50rpx;
+}
+
+.login .second-line input {
+  height: 80rpx;
+  width: 350rpx;
+  margin-right: 20rpx;
+  border: 1rpx solid rgb(217, 217, 217);
+  padding-left: 20rpx;
+  border-radius: 5px;
+}
+
+.login .second-line button {
+  text-align: center;
+  height: 84rpx;
+  line-height: 84rpx;
+  width: 250rpx;
+  font-size: 30rpx;
+  background-color: #FFC800;
+}
+
+.third-line {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600rpx;
+  margin-bottom: 20rpx;
+}
+
+.third-line button {
+  height: 80rpx;
+  font-size: 32rpx;
+  background-color: #FFC800;
 }
 /*************/
 

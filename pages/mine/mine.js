@@ -11,8 +11,6 @@ Page({
       nickName: ''
     },
     zichan_slides: [],
-    xunZhang: 'https://bayewechat.oss-cn-shanghai.aliyuncs.com/rassets/revision/' +
-              'icon-medal-0-0c9193833e3a24dead6c39ba969c2e71eea1ba88b8ce88c3b76cd2b08804280d.png',
     baye_rank: null,
     disableGetMobileCode: false,
     disableSubmitMobileCode: true,

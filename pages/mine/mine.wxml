@@ -1,30 +1,25 @@
-<view class='mine-header'>
-  <view class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view wx:if="{{baye_rank}}" class='xunzhang'>
-    <image src="{{xunZhang}}" mode="aspectFit"></image>
-    <view class="rank"><text>{{baye_rank ? baye_rank : ''}}</text></view>
-  </view>
+<view class="userinfo">
+  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <text class="userinfo-nickname">{{baye_rank ? baye_rank : ''}}</text>
 </view>
 
 <view class="separate"></view>
 
 <view wx:if="{{needBindMobile}}">
-  <form bindsubmit="bindGetPassCode">
-    <view class="check mobile">
-      <view><text>绑定手机号：</text></view>
-      <view><input type="digit" name="mobile"></input></view>
-      <view><button formType="submit" disabled="{{disableGetMobileCode}}">{{getCodeButtonText}}</button></view>
-    </view>
-  </form>
+  <view class="login-title">关联手机号</view>
+
   <form bindsubmit="bindSubmitMobile">
-    <view class="check code">
-      <view><text>输入验证码：</text></view>
-      <view><input type="digit" name="code"></input></view>
-      <view><button formType="submit" disabled="{{disableSubmitMobileCode}}">提交</button></view>
-    </view>
+    <form bindsubmit="bindGetPassCode">
+      <view class="login">
+        <view class="first-line"><input type="digit" name="mobile" placeholder="输入手机号"></input></view>
+        <view class="second-line">
+          <input type="digit" name="code" placeholder="四位验证码"></input>
+          <button formType="submit" disabled="{{disableGetMobileCode}}">{{getCodeButtonText}}</button>
+        </view>
+      </view>
+    </form>
+    <view class="third-line"><button formType="submit" disabled="{{disableSubmitMobileCode}}">提交</button></view>
   </form>
 </view>
 <view wx:else>
