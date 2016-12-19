@@ -75,18 +75,36 @@
   display: block;
 }
 
-.pull-right {
+.quantity {
   margin-left: auto;
-  font-size: 28rpx;
+  font-size: 26rpx;
   display: flex;
 }
 
-.numbers input {
+.quantity .op {
   border: 1rpx solid lightgrey;
-  width: 60rpx;
+  width: 70rpx;
+  font-size: 32rpx;
+  font-weight: 800;
+  line-height: 50rpx;
+  height: 50rpx;
+  text-align: center;
 }
 
-.numbers text {
+.quantity .number {
+  border-top: 1rpx solid lightgrey;
+  border-bottom: 1rpx solid lightgrey;
+  line-height: 50rpx;
+  height: 50rpx;
+  text-align: center;
+}
+
+.quantity .input {
+  width: 80rpx;
+}
+
+.numbers .price {
+  color: red;
   padding-top: 15rpx;
 }
 
@@ -106,12 +124,6 @@
   padding-left: 15rpx;
   background-color: white;
   font-size: 30rpx;
-}
-
-.quantity input {
-  min-height: 10rpx;
-  height: 50rpx;
-  margin-right: 20rpx;
 }
 
 .separate {

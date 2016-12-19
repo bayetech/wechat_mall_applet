@@ -60,17 +60,24 @@ Page({
   },
 
   bindChangeQuantity: function (e) {
+    if (e.detail.value === "") { return "" }
+
     var cartItems = this.data.cartItems
     var item = cartItems.filter(function(ele){
       return ele.id === e.currentTarget.dataset.id
     })[0]
-    item.quantity = e.detail.value
+    if (e.detail.value >= 1) {
+      item.quantity = parseInt(e.detail.value)
+    } else {
+      item.quantity = 1
+    }
     this.setData({ cartItems: cartItems })
     wx.setStorage({
       key: 'cartItems',
       data: cartItems
     })
     this.changeCartAmount()
+    return item.quantity.toString()
   },
 
   // tap on item to delete cart item
@@ -226,6 +233,33 @@ Page({
     }
 
     this.setData({amount: amount})
+  },
+
+  addQuantity: function(e) {
+    this.changeCartItemQuantity('+', e)
+  },
+
+  minusQuantity: function(e) {
+    this.changeCartItemQuantity('-', e)
+  },
+
+  changeCartItemQuantity: function(op, e) {
+    var cartItems = this.data.cartItems
+    var item = cartItems.filter(function(ele){
+      return ele.id === e.currentTarget.dataset.id
+    })[0]
+    if (op === '-' && item.quantity > 1) {
+      item.quantity -= 1
+    } else if (op === '+') {
+      item.quantity += 1
+    }
+
+    this.setData({ cartItems: cartItems })
+    wx.setStorage({
+      key: 'cartItems',
+      data: cartItems
+    })
+    this.changeCartAmount()
   },
 
   bindTapAddress () {

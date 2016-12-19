@@ -38,24 +38,23 @@
       </view>
       <view class="item-right">
         <view class="title" catchtap="catchTapOnItem" data-id="{{item.id}}">
-          <text> {{item.product.name}} </text>
+          <text>{{item.product.name}}</text>
         </view>
         <view class="numbers">
           <view>
             <view wx:if="{{ accountType === '巴爷' }}">
-              <text class="price" catchtap="catchTapOnItem" data-id="{{item.id}}">¥{{item.product['baye-price']}} / 件 </text>
+              <text class="price" catchtap="catchTapOnItem" data-id="{{item.id}}">¥{{item.product['baye-price'] * item.quantity}}</text>
             </view>
             <view wx:else>
-              <text class="price" catchtap="catchTapOnItem" data-id="{{item.id}}">¥{{item.product['member-price']}} / 件 </text>
+              <text class="price" catchtap="catchTapOnItem" data-id="{{item.id}}">¥{{item.product['member-price'] * item.quantity}}</text>
             </view>
           </view>
-          <view class="pull-right">
-            <view>
-              <text>数量：</text>
+          <view class="quantity">
+            <view class="op" bindtap="minusQuantity" data-id="{{item.id}}"><text class="text">-</text></view>
+            <view class="number">
+              <input class="input" value="{{item.quantity}}" bindinput="bindChangeQuantity" data-id="{{item.id}}"></input>
             </view>
-            <view class="quantity">
-              <input value="{{item.quantity}}" bindinput="bindChangeQuantity" data-id="{{item.id}}"></input>
-            </view>
+            <view class="op" bindtap="addQuantity" data-id="{{item.id}}"><text class="text">+</text></view>
           </view>
         </view>
       </view>
