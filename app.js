@@ -3,11 +3,16 @@ require('utils/polyfill.js')
 
 App({
   onLaunch: function () {
+    var that = this
     this.store = new(jsonApi.JsonApiDataStore)
     this.jsonModel = jsonApi.JsonApiDataStoreModel
     this.globalData.code = wx.getStorageSync('code')
 
     this.getUserInfo()
+    this.request({
+      url: `${that.globalData.API_URL}/manage_features`,
+      success: function(res) { that.globalData.featureManager = res.data }
+    })
   },
 
   getUserInfo: function (cb) {
@@ -40,7 +45,7 @@ App({
       header['Content-Type'] = 'application/json'
     }
     if (!header['Authorization']) {
-      header['Authorization'] = getApp().globalData.token
+      header['Authorization'] = this.globalData.token
     }
 
     // This must be wx.request !
@@ -115,6 +120,7 @@ App({
   },
 
   globalData:{
+    featureManager: {},
     userInfo: null,
     currentCustomer: null,
     // API_URL: 'http://localhost:3000',
