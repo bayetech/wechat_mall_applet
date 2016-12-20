@@ -12,7 +12,7 @@
     <form bindsubmit="bindSubmitMobile">
       <form bindsubmit="bindGetPassCode">
         <view class="login">
-          <view class="first-line"><input type="digit" name="mobile" placeholder="输入手机号"></input></view>
+          <view class="first-line"><input type="digit" name="mobile" bindinput="bindInputMobile" placeholder="输入手机号" value="{{mobile}}"></input></view>
           <view class="second-line">
             <input type="digit" name="code" placeholder="四位验证码"></input>
             <button formType="submit" disabled="{{disableGetMobileCode}}">{{getCodeButtonText}}</button>
@@ -26,7 +26,7 @@
   <view class="login" wx:else>
     <view class="login-title">使用密码登录</view>
     <form bindsubmit="bindLoginPassword">
-      <view class="first-line"><input type="digit" name="mobile" placeholder="输入手机号"></input></view>
+      <view class="first-line"><input type="digit" name="mobile" bindinput="bindInputMobile" placeholder="输入手机号" value="{{mobile}}"></input></view>
       <view class="password-second-line"><input type="password" name="password" placeholder="密码"></input></view>
       <view class="third-line"><button formType="submit">登录</button></view>
     </form>

@@ -84,13 +84,33 @@ Page({
     },1000);
   },
 
+  bindCheckMobile: function(mobile) {
+    if (!mobile.match(/^1[3-9][0-9]\d{8}$/)) {
+      wx.showModal({
+        title: '错误',
+        content: '手机号格式不正确，仅支持国内手机号码'
+      })
+      return false
+    }
+    return true
+  },
+
+  bindInputMobile: function(e) {
+    this.setData({
+      mobile: e.detail.value,
+    })
+  },
+
   bindSubmitMobile: function(e) {
+    if (!this.bindCheckMobile(this.data.mobile)) { return }
     var data = {mobile: this.data.mobile, mobile_code: e.detail.value.code, name: this.data.userInfo.nickName}
     profile.getCustomerInfo(data, this.infoCallback)
   },
 
   bindLoginPassword: function(e) {
-    var data = {mobile: e.detail.value.mobile, password: e.detail.value.password}
+    var mobile = e.detail.value.mobile
+    if (!this.bindCheckMobile(mobile)) { return }
+    var data = {mobile: mobile, password: e.detail.value.password}
     profile.getCustomerInfo(data, this.infoCallback)
   },
 
