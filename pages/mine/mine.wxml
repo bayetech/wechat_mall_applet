@@ -30,7 +30,7 @@
       <view class="password-second-line"><input type="password" name="password" placeholder="密码"></input></view>
       <view class="third-line"><button formType="submit">登录</button></view>
     </form>
-    <view class="login-type" bindtap="changeLoginType"><text>使用手机验证码登录</text></view>
+    <view class="login-type" bindtap="changeLoginType"><text>使用验证码绑定手机</text></view>
   </view>
 </view>
 <view wx:else>

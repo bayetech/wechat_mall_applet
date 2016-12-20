@@ -90,7 +90,7 @@ Page({
   },
 
   bindLoginPassword: function(e) {
-    var data = {mobile: e.detail.mobile, password: e.detail.password}
+    var data = {mobile: e.detail.value.mobile, password: e.detail.value.password}
     profile.getCustomerInfo(data, this.infoCallback)
   },
 

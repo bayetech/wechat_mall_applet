@@ -17,7 +17,7 @@ function getCustomerInfo (data, cb) {
     success: function(res) {
       if (res.data.code === 4) {
         return
-      } else if (res.data.code === 5) {
+      } else if (parseInt(res.statusCode) === 403) {
         wx.showModal({
           title: '错误',
           content: `${res.data.msg}`,
