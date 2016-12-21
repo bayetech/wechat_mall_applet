@@ -45,7 +45,7 @@
           <block wx:for="{{zichan_slides}}" wx:for-item="slide" wx:key="id">
             <view class="item" data-sku="{{slide.sku}}">
               <view class="image">
-                <image class="slide-img" src="{{slide.image}}"/>
+                <image class="slide-img" src="../../{{slide.image}}"/>
               </view>
               <view class="desc">
                 <view class="desc-line"><text>{{slide.name}}</text></view>

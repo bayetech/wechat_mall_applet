@@ -39,9 +39,6 @@ Page({
 
   bindGetPassCode: function(e) {
     var that = this
-    this.setData({
-      mobile: e.detail.value.mobile,
-    })
     that.setData({disableGetMobileCode: true})
     profile.getPassCode(this.data.mobile, function(res) {
       if (res.data.code === 20001) {
