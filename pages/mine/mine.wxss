@@ -137,7 +137,7 @@
 .login .second-line {
   height: 80rpx;
   display: flex;
-  width: 602rpx;
+  width: 600rpx;
   margin-bottom: 50rpx;
 }
 
