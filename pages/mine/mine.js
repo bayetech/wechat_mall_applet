@@ -98,7 +98,7 @@ Page({
     })
   },
 
-  bindSubmitMobile: function(e) {
+  bindLoginMobilecode: function(e) {
     if (!this.bindCheckMobile(this.data.mobile)) { return }
     var data = {mobile: this.data.mobile, mobile_code: e.detail.value.code, name: this.data.userInfo.nickName}
     profile.getCustomerInfo(data, this.infoCallback)

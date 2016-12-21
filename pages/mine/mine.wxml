@@ -9,7 +9,7 @@
 <view wx:if="{{needBindMobile}}">
   <view wx:if="{{useCodeToLogIn}}">
     <view class="login-title">关联手机号</view>
-    <form bindsubmit="bindSubmitMobile">
+    <form bindsubmit="bindLoginMobilecode">
       <form bindsubmit="bindGetPassCode">
         <view class="login">
           <view class="first-line"><input type="digit" name="mobile" bindinput="bindInputMobile" placeholder="输入手机号" value="{{mobile}}"></input></view>
