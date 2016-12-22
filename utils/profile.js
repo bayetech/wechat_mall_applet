@@ -13,7 +13,7 @@ function postCustomerInfo (data, cb) {
   data['code'] = app.globalData.code
   data['encrypted'] = app.globalData.encrypted
   app.request({
-    url: `${app.globalData.API_URL}/sessions/new`,
+    url: `${app.globalData.API_URL}/sessions/login`,
     method: 'POST',
     data: data,
     success: function(res) {
