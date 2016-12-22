@@ -27,6 +27,7 @@ App({
             wx.setStorageSync('code', res.code)
             wx.getUserInfo({
               success: function (res) {
+                that.globalData.encrypted = {encryptData: res.encryptData, iv: res.iv}
                 that.globalData.userInfo = res.userInfo
                 typeof cb == "function" && cb(that.globalData.userInfo)
               }
