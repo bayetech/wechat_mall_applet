@@ -11,6 +11,7 @@ function getZichanSlides (resolve) {
 
 function getCustomerInfo (data, cb) {
   data['code'] = app.globalData.code
+  data['encrypted'] = app.globalData.encrypted
   app.request({
     url: `${app.globalData.API_URL}/sessions/new`,
     data: data,
