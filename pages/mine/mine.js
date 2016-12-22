@@ -26,12 +26,12 @@ Page({
     that.setData({userInfo: app.globalData.userInfo})
 
     if (app.globalData.token) {
-      profile.getCustomerInfo({}, that.infoCallback)
+      profile.postCustomerInfo({}, that.infoCallback)
     } else {
       var token = wx.getStorageSync('userToken')
       if (token) {
         app.globalData.token = token
-        profile.getCustomerInfo({}, that.infoCallback)
+        profile.postCustomerInfo({}, that.infoCallback)
       }
     }
  
@@ -101,14 +101,14 @@ Page({
   bindLoginMobilecode: function(e) {
     if (!this.bindCheckMobile(this.data.mobile)) { return }
     var data = {mobile: this.data.mobile, mobile_code: e.detail.value.code, name: this.data.userInfo.nickName}
-    profile.getCustomerInfo(data, this.infoCallback)
+    profile.postCustomerInfo(data, this.infoCallback)
   },
 
   bindLoginPassword: function(e) {
     var mobile = e.detail.value.mobile
     if (!this.bindCheckMobile(mobile)) { return }
     var data = {mobile: mobile, password: e.detail.value.password}
-    profile.getCustomerInfo(data, this.infoCallback)
+    profile.postCustomerInfo(data, this.infoCallback)
   },
 
   changeLoginType: function(e) {

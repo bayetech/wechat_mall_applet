@@ -9,11 +9,12 @@ function getZichanSlides (resolve) {
   })
 }
 
-function getCustomerInfo (data, cb) {
+function postCustomerInfo (data, cb) {
   data['code'] = app.globalData.code
   data['encrypted'] = app.globalData.encrypted
   app.request({
     url: `${app.globalData.API_URL}/sessions/new`,
+    method: 'POST',
     data: data,
     success: function(res) {
       if (res.data.code === 4) {
@@ -60,8 +61,8 @@ module.exports = {
   getZichanSlides (resolve) {
     return getZichanSlides(resolve)
   },
-  getCustomerInfo (data, resolve) {
-    return getCustomerInfo(data, resolve)
+  postCustomerInfo (data, resolve) {
+    return postCustomerInfo(data, resolve)
   },
   getPassCode (mobile, cb) {
     return getPassCode(mobile, cb)
