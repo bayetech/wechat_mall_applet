@@ -18,6 +18,7 @@
 
 #price {
   color: #FF0000;
+  font-size: 34rpx;
 }
 
 .btn-area button {

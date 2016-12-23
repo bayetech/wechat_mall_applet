@@ -33,6 +33,7 @@
 }
 
 .item-block .second-line {
+  font-size: 32rpx;
   color: red;
   text-align: center;
 }
