@@ -4,7 +4,7 @@ var app = getApp()
 Page({
   data: {
     title: '',
-    items: [],
+    items: null,
     accountType: '',
     categoryType: null
   },

@@ -20,6 +20,7 @@
 
 
     <view class="separate"></view>
+    <view wx:if="{{hot_products[0]['promotion-url']}}">
     <view class="cate-container">
       <view class="category-title">
         <view class="icon"><image src="../../images/hot_small.png"></image></view>
@@ -31,8 +32,10 @@
         </view>
       </block>
     </view>
+    </view>
 
     <view class="separate"></view>
+    <view wx:if="{{new_products[0]['promotion-url']}}">
     <view class="cate-container">
       <view class="category-title">
         <view class="icon"><image src="../../images/new_small.png"></image></view>
@@ -44,8 +47,10 @@
         </view>
       </block>
     </view>
+    </view>
 
     <view class="separate"></view>
+    <view wx:if="{{popularity_products[0]['promotion-url']}}">
     <view class="cate-container">
       <view class="category-title">
         <view class="icon"><image src="../../images/volume_small.png"></image></view>
@@ -57,5 +62,5 @@
         </view>
       </block>
     </view>
-
+    </view>
   </scroll-view>

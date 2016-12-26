@@ -42,6 +42,8 @@ Page({
 
     product.getProducts(function(result) {
       var data = app.store.sync(result.data)
+
+if (app.globalData.featureManager.enableNewFlag) {
       that.setData({
         items: data,
         popularity_products: data.filter(product => (product.flag === '最热' && product['promotion-url'])),
@@ -49,6 +51,15 @@ Page({
         hot_products:        data.filter(product => (product.flag === '火爆' && product['promotion-url'])),
       })
       wx.setStorageSync('products', data)
+} else {
+  that.setData({
+    items: data,
+    popularity_products: data.filter(product => (product.id === "29")),
+    new_products:        data.filter(product => (product.id === "30")),
+    hot_products:        data.filter(product => (product.id === "32")),
+  })
+  wx.setStorageSync('products', data)
+}
     })
 
     // wx.getNetworkType({
