@@ -92,6 +92,7 @@
 }
 
 .quantity .number {
+  z-index: 1;
   border-top: 1rpx solid lightgrey;
   border-bottom: 1rpx solid lightgrey;
   line-height: 50rpx;
@@ -109,6 +110,7 @@
 }
 
 .billing-btn {
+  z-index:2;
   position: fixed;
   bottom: 0;
   width: 100%;
