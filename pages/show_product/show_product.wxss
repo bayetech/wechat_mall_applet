@@ -42,7 +42,7 @@
 
 .desc-container {
   border-top: 1rpx solid lightgrey;
-  margin-bottom: 90rpx;
+  padding-bottom: 90rpx;
 }
 
 .desc-image {
