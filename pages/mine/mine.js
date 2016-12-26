@@ -100,6 +100,11 @@ Page({
 
   bindLoginMobilecode: function(e) {
     if (!this.bindCheckMobile(this.data.mobile)) { return }
+    wx.showToast({
+      title: '登录中...',
+      icon: 'loading',
+      duration: 5000
+    })
     var data = {mobile: this.data.mobile, mobile_code: e.detail.value.code, name: this.data.userInfo.nickName}
     profile.postCustomerInfo(data, this.infoCallback)
   },
@@ -107,6 +112,11 @@ Page({
   bindLoginPassword: function(e) {
     var mobile = e.detail.value.mobile
     if (!this.bindCheckMobile(mobile)) { return }
+    wx.showToast({
+      title: '登录中...',
+      icon: 'loading',
+      duration: 5000
+    })
     var data = {mobile: mobile, password: e.detail.value.password}
     profile.postCustomerInfo(data, this.infoCallback)
   },
@@ -154,6 +164,7 @@ Page({
         key:"zichan_slides",
         data:data
       })
+      wx.hideToast()
     })
   }
 })
