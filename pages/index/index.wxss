@@ -61,10 +61,9 @@ text {
 }
 
 .cate-container {
-  margin-bottom: 30rpx;
 }
 
 .separate {
-  height: 10rpx;
+  height: 15rpx;
   background-color: #f2f2f2;
 }

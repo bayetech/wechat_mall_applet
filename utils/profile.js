@@ -27,6 +27,7 @@ function postCustomerInfo (data, cb) {
           success: function(res) {
           }
         })
+        wx.hideToast()
         return
       }
       var pages = getCurrentPages()
