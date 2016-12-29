@@ -102,6 +102,8 @@
 
 .quantity .input {
   width: 80rpx;
+  text-align: center;
+  height: 50rpx;
 }
 
 .numbers .price {
