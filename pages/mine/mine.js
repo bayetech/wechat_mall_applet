@@ -100,6 +100,7 @@ Page({
 
   bindLoginMobilecode: function(e) {
     if (!this.bindCheckMobile(this.data.mobile)) { return }
+    if (!(e.detail.value.code && e.detail.value.code.length === 4)) { return }
     wx.showToast({
       title: '登录中...',
       icon: 'loading',
@@ -112,6 +113,14 @@ Page({
   bindLoginPassword: function(e) {
     var mobile = e.detail.value.mobile
     if (!this.bindCheckMobile(mobile)) { return }
+    if (!e.detail.value.password) {
+      wx.showModal({
+        title: '错误',
+        content: '请输入密码'
+      })
+      return
+    }
+
     wx.showToast({
       title: '登录中...',
       icon: 'loading',

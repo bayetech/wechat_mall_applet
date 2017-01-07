@@ -86,7 +86,7 @@ App({
       }
       that.globalData.token = token
       that.request({
-        url: `${that.globalData.API_URL}/sessions/new`,
+        url: `${that.globalData.API_URL}/sessions/login`,
         data: {code: that.globalData.code},
         success: function(res) {
           if (!res.data.token) {
