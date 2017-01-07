@@ -15,7 +15,7 @@ Page({
       title: '巴爷供销社 - ' + params.type,
       categoryType: params.type
     })
-    product.getCategories(params.type, function(result) {
+    product.getCategories(params.typeId, function(result) {
       var data = getApp().store.sync(result.data)
       that.setData({items: data})
       wx.setStorage({

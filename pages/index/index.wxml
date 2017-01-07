@@ -11,7 +11,7 @@
 
     <view class="navs">
       <block wx:for-items="{{navs}}" wx:key="name">
-        <view class="nav-item" catchtap="catchTapCategory" data-type="{{item.typeId}}">
+        <view class="nav-item" catchtap="catchTapCategory" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
           <image src="{{item.icon}}" class="nav-image"/>
           <text>{{item.name}}</text>
         </view>

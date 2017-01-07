@@ -24,7 +24,7 @@ Page({
 
   catchTapCategory: function (e) {
     wx.navigateTo({
-      url: `../category/category?type=${e.currentTarget.dataset.type}`
+      url: `../category/category?type=${e.currentTarget.dataset.type}&typeId=${e.currentTarget.dataset.typeid}`
     })
   },
 
