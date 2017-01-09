@@ -1,4 +1,4 @@
-const product = require('../../utils/product.js')
+const productUtil = require('../../utils/product.js')
 var app = getApp()
 Page({
   data: {
@@ -12,7 +12,18 @@ Page({
     accountType: '' 
   },
 
+  onShareAppMessage: function () {
+    return {
+      title: this.data.product.name,
+      desc: "巴爷供销社 － 高品质购物",
+      path: `pages/show_product/show_product?id=${this.data.product.id}&share=1`
+    }
+  },
+
   onLoad (params) {
+    var that = this
+    var id = params.id
+
     try {
       var res = wx.getSystemInfoSync()
       this.setData({
@@ -26,22 +37,33 @@ Page({
     } catch (e) {
     }
 
-    var allProducts
-    if (params.type) {
-      allProducts = wx.getStorageSync(`cate_${params.type}`)
+    if (!params.share) {
+      productUtil.getProduct(id, function(result){
+        var data = app.store.sync(result.data)
+        that.setData({
+          id: data.id,
+          product: data,
+          title: data.name
+        })
+      })
     } else {
-      allProducts = wx.getStorageSync('products')
-    }
-    var id = params.id
-    var product = allProducts.filter(function(i){
-      return i.id === id
-    })[0]
+      var allProducts
+      if (params.type) {
+        allProducts = wx.getStorageSync(`cate_${params.type}`)
+      } else {
+        allProducts = wx.getStorageSync('products')
+      }
+      var id = params.id
+      var product = allProducts.filter(function(i){
+        return i.id === id
+      })[0]
 
-    this.setData({
-      id: id,
-      product: product,
-      title: product.name
-    })
+      this.setData({
+        id: id,
+        product: product,
+        title: product.name
+      })
+    }
   },
 
   onShow() {

@@ -8,6 +8,14 @@ function getProducts (resolve) {
   })
 }
 
+function getProduct (id, resolve) {
+  app.request({
+    url: `${app.globalData.API_URL}/products/${id}`,
+    success: resolve,
+    fail: function(){}
+  })
+}
+
 function getSlides (resolve) {
   app.request({
     url: `${app.globalData.API_URL}/home_slides`,
@@ -28,6 +36,10 @@ function getCategories (data, resolve, reject) {
 module.exports = {
   getProducts (resolve) {
     return getProducts(resolve)
+  },
+
+  getProduct (id, resolve) {
+    return getProduct(id, resolve)
   },
 
   getSlides (resolve) {
