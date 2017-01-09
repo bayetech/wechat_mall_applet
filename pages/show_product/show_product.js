@@ -9,7 +9,8 @@ Page({
     windowWidth: 375,
     windowHeight: 667,
     pixelRatio: 2,
-    accountType: '' 
+    accountType: '',
+    from_share: false
   },
 
   onShareAppMessage: function () {
@@ -41,6 +42,7 @@ Page({
       productUtil.getProduct(id, function(result){
         var data = app.store.sync(result.data)
         that.setData({
+          from_share: true,
           id: data.id,
           product: data,
           title: data.name
@@ -59,6 +61,7 @@ Page({
       })[0]
 
       this.setData({
+        from_share: false,
         id: id,
         product: product,
         title: product.name
@@ -117,5 +120,11 @@ Page({
       key: 'cartItems',
       data: cartItems
     })
+
+    if (this.data.from_share) {
+      wx.switchTab({
+        url: '../cart/cart'
+      })
+    }
   }
 })

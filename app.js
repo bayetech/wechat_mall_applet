@@ -90,6 +90,7 @@ App({
         data: {code: that.globalData.code},
         success: function(res) {
           if (!res.data.token) {
+            wx.hideToast()
             wx.showModal({
               title: '未登录',
               content: '请前往 “我的” 页面绑定手机号',
