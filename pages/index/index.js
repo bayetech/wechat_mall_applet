@@ -16,6 +16,14 @@ Page({
     promotions: []
   },
 
+  onShareAppMessage: function () {
+    return {
+      title: "巴爷供销社",
+      desc: "商城首页",
+      path: `pages/index/index`
+    }
+  },
+
   bindShowProduct: function (e) {
     wx.navigateTo({
       url: `../show_product/show_product?id=${e.currentTarget.dataset.id}`
