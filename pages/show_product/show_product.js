@@ -37,7 +37,7 @@ Page({
     } catch (e) {
     }
 
-    if (!params.share) {
+    if (params.share) {
       productUtil.getProduct(id, function(result){
         var data = app.store.sync(result.data)
         that.setData({
