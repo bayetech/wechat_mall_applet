@@ -1,5 +1,6 @@
 const jsonApi = require('utils/jsonapi-datastore/dist/jsonapi-datastore.js')
 require('utils/polyfill.js')
+var profileUtil = require('utils/profile.js')
 
 App({
   onLaunch: function () {
