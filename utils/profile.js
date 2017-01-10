@@ -58,6 +58,20 @@ function getPassCode (mobile, cb) {
   })
 }
 
+function postEncryptedData(resolve) {
+  app.request({
+    method: 'POST',
+    url: `${app.globalData.API_URL}/sessions/wechat_user_type`,
+    data: {
+      code: app.globalData.code,
+      encrypted: app.globalData.encrypted,
+      userInfo: app.globalData.userInfo
+    },
+    success: resolve,
+    fail: function(res) {}
+  })
+}
+
 module.exports = {
   getZichanSlides (resolve) {
     return getZichanSlides(resolve)
@@ -67,5 +81,9 @@ module.exports = {
   },
   getPassCode (mobile, cb) {
     return getPassCode(mobile, cb)
+  },
+
+  postEncryptedData (resolve) {
+    return postEncryptedData(resolve)
   }
 }
