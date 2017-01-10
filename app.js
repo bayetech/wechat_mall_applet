@@ -8,8 +8,10 @@ App({
     this.jsonModel = jsonApi.JsonApiDataStoreModel
     this.globalData.code = wx.getStorageSync('code')
 
-    this.getUserInfo(function(res) {
-      that.globalData.wechatUserType = res.data.wechat_user_type
+    this.getUserInfo(function() {
+      profileUtil.postEncryptedData(function(res){
+        that.globalData.wechatUserType = res.data.wechat_user_type
+      })
     })
     this.request({
       url: `${that.globalData.API_URL}/manage_features`,

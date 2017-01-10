@@ -58,7 +58,8 @@ function getPassCode (mobile, cb) {
   })
 }
 
-function postEncryptedData(resolve) {
+function postEncryptedData (resolve) {
+  var app = getApp()
   app.request({
     method: 'POST',
     url: `${app.globalData.API_URL}/sessions/wechat_user_type`,
