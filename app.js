@@ -1,6 +1,5 @@
 const jsonApi = require('utils/jsonapi-datastore/dist/jsonapi-datastore.js')
 require('utils/polyfill.js')
-var profileUtil = require('utils/profile.js')
 
 App({
   onLaunch: function () {
@@ -10,7 +9,7 @@ App({
     this.globalData.code = wx.getStorageSync('code')
 
     this.getUserInfo(function() {
-      profileUtil.postEncryptedData(function(res){
+      that.postEncryptedData(function(res){
         that.globalData.wechatUserType = res.data.wechat_user_type
       })
     })
@@ -124,6 +123,20 @@ App({
     } else {
       that.request(obj)
     }
+  },
+
+  postEncryptedData: function (resolve) {
+    this.request({
+      method: 'POST',
+      url: `${this.globalData.API_URL}/sessions/wechat_user_type`,
+      data: {
+        code: this.globalData.code,
+        encrypted: this.globalData.encrypted,
+        userInfo: this.globalData.userInfo
+      },
+      success: resolve,
+      fail: function(res) {}
+    })
   },
 
   globalData:{
