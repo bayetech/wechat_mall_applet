@@ -8,7 +8,11 @@ App({
     this.jsonModel = jsonApi.JsonApiDataStoreModel
     this.globalData.code = wx.getStorageSync('code')
 
-    this.getUserInfo()
+    this.getUserInfo(function() {
+      that.postEncryptedData(function(res){
+        that.globalData.wechatUserType = res.data.wechat_user_type
+      })
+    })
     this.request({
       url: `${that.globalData.API_URL}/manage_features`,
       success: function(res) { that.globalData.featureManager = res.data }
@@ -121,7 +125,22 @@ App({
     }
   },
 
+  postEncryptedData: function (resolve) {
+    this.request({
+      method: 'POST',
+      url: `${this.globalData.API_URL}/sessions/wechat_user_type`,
+      data: {
+        code: this.globalData.code,
+        encrypted: this.globalData.encrypted,
+        userInfo: this.globalData.userInfo
+      },
+      success: resolve,
+      fail: function(res) {}
+    })
+  },
+
   globalData:{
+    wechatUserType: 'normal',
     featureManager: {},
     userInfo: null,
     currentCustomer: null,

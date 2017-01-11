@@ -1,6 +1,6 @@
 const app = getApp()
 
-function getZichanSlides (resolve) {
+export function getZichanSlides (resolve) {
   app.authRequest({
     url: `${app.globalData.API_URL}/my_assets`,
     header: { 'Content-Type': 'application/json'},
@@ -9,7 +9,7 @@ function getZichanSlides (resolve) {
   })
 }
 
-function postCustomerInfo (data, cb) {
+export function postCustomerInfo (data, cb) {
   data['code'] = app.globalData.code
   data['encrypted'] = app.globalData.encrypted
   app.request({
@@ -45,7 +45,7 @@ function postCustomerInfo (data, cb) {
   })
 }
 
-function getPassCode (mobile, cb) {
+export function getPassCode (mobile, cb) {
   app.request({
     url: `${app.globalData.API_URL}/send_validation_code/send_message`,
     header: { 'Content-Type': 'application/json'},
@@ -58,14 +58,3 @@ function getPassCode (mobile, cb) {
   })
 }
 
-module.exports = {
-  getZichanSlides (resolve) {
-    return getZichanSlides(resolve)
-  },
-  postCustomerInfo (data, resolve) {
-    return postCustomerInfo(data, resolve)
-  },
-  getPassCode (mobile, cb) {
-    return getPassCode(mobile, cb)
-  }
-}
