@@ -49,3 +49,13 @@
   width: 100%;
   display: block;
 }
+
+#codeFloating {
+  position: fixed;
+  bottom: 20%;
+  left: 650rpx;
+  top: 650rpx;
+  background:red;
+  height:100rpx;
+  width:100rpx;
+}

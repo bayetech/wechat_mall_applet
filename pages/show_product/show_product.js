@@ -10,7 +10,17 @@ Page({
     windowHeight: 667,
     pixelRatio: 2,
     accountType: '',
-    from_share: false
+    from_share: false,
+    codeFloatingData: {},
+    codeFloatingStyle: {
+      width: 100,
+      height: 100
+    },
+    codeFloatingState: 'small',
+    codeFloatingPos: {
+      left: 650,
+      top: 650
+    }
   },
 
   onShareAppMessage: function () {
@@ -126,5 +136,61 @@ Page({
         url: '../cart/cart'
       })
     }
+  },
+
+  changeCodeState: function (e) {
+    var ratio = 750 / this.data.windowWidth
+    var eleStyle = this.data.codeFloatingStyle
+    var pos = e.touches[0]
+
+    var eleLeft = pos.clientX - eleStyle.width / ratio / 2
+    var eleTop = pos.clientY - eleStyle.height / ratio / 2
+
+    if (pos.clientX <= eleStyle.width / ratio / 2) {
+      eleLeft = 0
+    } else if (pos.clientX + eleStyle.width / ratio / 2 > this.data.windowWidth) {
+      eleLeft = this.data.windowWidth - eleStyle.width / 2
+    } else if (pos.clientY + eleStyle.height / ratio / 2 > this.data.windowHeight) {
+      eleTop = this.data.windowHeight - eleStyle.height / 2
+    } else if (pos.clientY <= eleStyle.height / ratio / 2) {
+      eleTop = 0
+    }
+
+    eleLeft = eleLeft * ratio
+    eleTop  = eleTop * ratio
+
+    var animation = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'step-start',
+    })
+    animation.left(`${eleLeft}rpx`).top(`${eleTop}rpx`).step()
+    this.setData({
+      codeFloatingData: animation.export(),
+      codeFloatingPos: {left: eleLeft, top: eleTop}
+    })
+  },
+
+  catchScaleCode: function (e) {
+    var animation = wx.createAnimation({
+      duration: 800,
+      timingFunction: 'ease',
+    })
+
+    var state
+    if (this.data.codeFloatingState == "small") {
+      let width = "750rpx"
+      state = 'big'
+      animation.left(0).top('100rpx').width(width).height(width).step()
+    } else {
+      let width = "100rpx"
+      let pos = this.data.codeFloatingPos
+      state = 'small'
+      animation.left(`${pos.left}rpx`).top(`${pos.top}rpx`).width(width).height(width).step()
+    }
+
+    this.setData({
+      codeFloatingData: animation.export(),
+      codeFloatingState: state
+    })
   }
 })

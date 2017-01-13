@@ -36,3 +36,6 @@
     </block>
   </view>
 </view>
+
+<view id="codeFloating" catchtouchmove="changeCodeState" catchtap="catchScaleCode" animation="{{codeFloatingData}}">
+</view>
