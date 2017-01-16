@@ -14,6 +14,13 @@
 
 需要后台 JSON API 应用的配合，我们提供了一个参考的[后台实现](https://github.com/bayetech/wechat_mall_applet_backend)，但您几乎肯定仍然需要自己写一个后端。
 
+# 常见问题
+
+如果遇到问题可以直接提issue:
+
+ - 甄选商品无法显示：rapi-staging.bayekeji.com 是测试服务器，可能会有其他同事新建不完整的测试产品，造成这样的问题
+
+
 # 屏幕截图
 
 ![a](http://although2013.com/images/wechat_applet_1.png)
