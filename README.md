@@ -19,6 +19,7 @@
 如果遇到问题可以直接提issue:
 
  - 甄选商品无法显示：rapi-staging.bayekeji.com 是测试服务器，可能会有其他同事新建不完整的测试产品，造成这样的问题
+ - 如果填写错误的appid，也是没法实现登陆的，因为和服务器端配置的appid不一致，就没法从微信获取用户数据，另外我好像也不能告诉你们这个小程序的appid吧。。。所以你们的确需要自己写一个后端，后端代码开源地址：https://github.com/bayetech/wechat_mall_applet_backend ，仅供参考。
 
 
 # 屏幕截图
