@@ -55,7 +55,12 @@
   bottom: 20%;
   left: 650rpx;
   top: 650rpx;
-  background:red;
-  height:100rpx;
-  width:100rpx;
+  background: transparent;
+  height: 100rpx;
+  width: 100rpx;
+}
+
+#codeFloating image {
+  height: 100rpx;
+  width: 100rpx;
 }

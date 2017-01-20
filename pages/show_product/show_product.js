@@ -11,6 +11,7 @@ Page({
     pixelRatio: 2,
     accountType: '',
     from_share: false,
+
     codeFloatingData: {},
     codeFloatingStyle: {
       width: 100,
@@ -20,7 +21,9 @@ Page({
     codeFloatingPos: {
       left: 650,
       top: 650
-    }
+    },
+    codeFloatingUrl: '',
+    codeFloatingImgStyle: ''
   },
 
   onShareAppMessage: function () {
@@ -77,6 +80,11 @@ Page({
         title: product.name
       })
     }
+
+    var reqPath = {path: `pages/show_product/show_product?id=${this.data.product.id}&share=1`}
+    productUtil.getProductPageQrCode(reqPath, function(resp){
+      that.setData({codeFloatingUrl: resp.data.url})
+    })
   },
 
   onShow() {
@@ -176,13 +184,13 @@ Page({
       timingFunction: 'ease',
     })
 
-    var state
+    var state, width
     if (this.data.codeFloatingState == "small") {
-      let width = "750rpx"
+      width = "750rpx"
       state = 'big'
       animation.left(0).top('100rpx').width(width).height(width).step()
     } else {
-      let width = "100rpx"
+      width = "100rpx"
       let pos = this.data.codeFloatingPos
       state = 'small'
       animation.left(`${pos.left}rpx`).top(`${pos.top}rpx`).width(width).height(width).step()
@@ -190,7 +198,8 @@ Page({
 
     this.setData({
       codeFloatingData: animation.export(),
-      codeFloatingState: state
+      codeFloatingState: state,
+      codeFloatingImgStyle: `width: ${width}; height: ${width};`
     })
   }
 })

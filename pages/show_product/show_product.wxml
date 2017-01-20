@@ -38,4 +38,5 @@
 </view>
 
 <view id="codeFloating" catchtouchmove="changeCodeState" catchtap="catchScaleCode" animation="{{codeFloatingData}}">
+  <image src="{{codeFloatingUrl || '../../images/1.png'}}" style="{{codeFloatingImgStyle}}"></image>
 </view>

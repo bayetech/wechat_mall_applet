@@ -32,6 +32,15 @@ function getCategories (data, resolve, reject) {
   })
 }
 
+function getProductPageQrCode (data, resolve) {
+  app.request({
+    url: `${app.globalData.API_URL}/product_qr_codes/image`,
+    data: data,
+    success: resolve,
+    fail: function() {}
+  })
+}
+
 
 module.exports = {
   getProducts (resolve) {
@@ -48,5 +57,9 @@ module.exports = {
 
   getCategories (data, resolve, reject) {
     return getCategories(data, resolve, reject)
+  },
+
+  getProductPageQrCode (data, resolve) {
+    return getProductPageQrCode(data, resolve)
   }
 }
