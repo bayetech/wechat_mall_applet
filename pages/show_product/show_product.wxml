@@ -37,6 +37,6 @@
   </view>
 </view>
 
-<view id="codeFloating" catchtouchmove="changeCodeState" catchtap="catchScaleCode" animation="{{'codeFloating.data'}}">
+<view id="codeFloating" catchtouchmove="changeCodeState" catchtap="catchScaleCode" animation="{{codeFloating.data}}">
   <image src="{{codeFloating.url}}" style="{{codeFloating.imgStyle}}"></image>
 </view>
