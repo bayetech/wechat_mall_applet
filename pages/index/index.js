@@ -57,9 +57,7 @@ Page({
         })
       },
       fail: function() {},
-      complete: function() {
-        that.getProductsFromServer()
-      }
+      complete: function() {}
     })
 
     wx.getStorage({
@@ -68,10 +66,13 @@ Page({
         that.setData({'slides': res.data})
       },
       fail: function() {},
-      complete: function() {
-        that.getSlidesFromServer()
-      }
+      complete: function() {}
     })
+  },
+
+  onReady: function() {
+    this.getProductsFromServer()
+    this.getSlidesFromServer()
   },
 
   getSlidesFromServer: function() {
