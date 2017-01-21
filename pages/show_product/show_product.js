@@ -12,18 +12,20 @@ Page({
     accountType: '',
     from_share: false,
 
-    codeFloatingData: {},
-    codeFloatingStyle: {
-      width: 100,
-      height: 100
-    },
-    codeFloatingState: 'small',
-    codeFloatingPos: {
-      left: 650,
-      top: 650
-    },
-    codeFloatingUrl: '',
-    codeFloatingImgStyle: ''
+    codeFloating: {
+      data: {},
+      style: {
+        width: 100,
+        height: 100
+      },
+      pos: {
+        left: 650,
+        top: 650
+      },
+      state: 'small',
+      url: '',
+      imgStyle: ''
+    }
   },
 
   onShareAppMessage: function () {
@@ -83,7 +85,7 @@ Page({
 
     var reqPath = {path: `pages/show_product/show_product?id=${this.data.product.id}&share=1`}
     productUtil.getProductPageQrCode(reqPath, function(resp){
-      that.setData({codeFloatingUrl: resp.data.url})
+      that.setData({'codeFloating.url': resp.data.url})
     })
   },
 
@@ -148,7 +150,7 @@ Page({
 
   changeCodeState: function (e) {
     var ratio = 750 / this.data.windowWidth
-    var eleStyle = this.data.codeFloatingStyle
+    var eleStyle = this.data.codeFloating.style
     var pos = e.touches[0]
 
     var eleLeft = pos.clientX - eleStyle.width / ratio / 2
@@ -173,8 +175,8 @@ Page({
     })
     animation.left(`${eleLeft}rpx`).top(`${eleTop}rpx`).step()
     this.setData({
-      codeFloatingData: animation.export(),
-      codeFloatingPos: {left: eleLeft, top: eleTop}
+      'codeFloating.data': animation.export(),
+      'codeFloating.pos': {left: eleLeft, top: eleTop}
     })
   },
 
@@ -185,21 +187,21 @@ Page({
     })
 
     var state, width
-    if (this.data.codeFloatingState == "small") {
+    if (this.data.codeFloating.state == "small") {
       width = "750rpx"
       state = 'big'
       animation.left(0).top('100rpx').width(width).height(width).step()
     } else {
       width = "100rpx"
-      let pos = this.data.codeFloatingPos
+      let pos = this.data.codeFloating.pos
       state = 'small'
       animation.left(`${pos.left}rpx`).top(`${pos.top}rpx`).width(width).height(width).step()
     }
 
     this.setData({
-      codeFloatingData: animation.export(),
-      codeFloatingState: state,
-      codeFloatingImgStyle: `width: ${width}; height: ${width};`
+      'codeFloating.data': animation.export(),
+      'codeFloating.state': state,
+      'codeFloating.imgStyle': `width: ${width}; height: ${width};`
     })
   }
 })
