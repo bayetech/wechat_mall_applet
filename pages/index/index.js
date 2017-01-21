@@ -1,4 +1,4 @@
-const product = require('../../utils/product.js')
+const productUtil = require('../../utils/product.js')
 var app = getApp()
 
 Page({
@@ -36,19 +36,59 @@ Page({
     })
   },
 
+  onPullDownRefresh: function() {
+    this.getSlidesFromServer()
+    this.getProductsFromServer()
+    wx.stopPullDownRefresh()
+  },
+
   onLoad: function() {
     var that = this
 
-    product.getSlides(function(result) {
+    wx.getStorage({
+      key: 'products',
+      success: function(res){
+        var data = res.data
+        that.setData({
+          items: data,
+          popularity_products: data.filter(product => (product.flag === '最热' && product['promotion-url'])),
+          new_products:        data.filter(product => (product.flag === '新品' && product['promotion-url'])),
+          hot_products:        data.filter(product => (product.flag === '火爆' && product['promotion-url'])),
+        })
+      },
+      fail: function() {},
+      complete: function() {
+        that.getProductsFromServer()
+      }
+    })
+
+    wx.getStorage({
+      key: 'indexSlides',
+      success: function(res){
+        that.setData({'slides': res.data})
+      },
+      fail: function() {},
+      complete: function() {
+        that.getSlidesFromServer()
+      }
+    })
+  },
+
+  getSlidesFromServer: function() {
+    var that = this
+    productUtil.getSlides(function(result) {
       var data = app.store.sync(result.data)
       that.setData({'slides': data})
       wx.setStorage({
-        key:"indexSlides",
+        key:'indexSlides',
         data:data
       })
     })
+  },
 
-    product.getProducts(function(result) {
+  getProductsFromServer: function() {
+    var that = this
+    productUtil.getProducts(function(result) {
       var data = app.store.sync(result.data)
       that.setData({
         items: data,
@@ -56,22 +96,10 @@ Page({
         new_products:        data.filter(product => (product.flag === '新品' && product['promotion-url'])),
         hot_products:        data.filter(product => (product.flag === '火爆' && product['promotion-url'])),
       })
-      wx.setStorageSync('products', data)
+      wx.setStorage({
+        key:'products',
+        data:data
+      })
     })
-
-    // wx.getNetworkType({
-    //   success: function(res) {
-    //     var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
-    //     if (networkType) {
-    //     } else {
-    //        cache = wx.getStorageSync('products')
-    //        if (cache) {
-    //          that.setData({'items': cache})
-    //        } else {
-    //          that.setData({'items': []})
-    //        }
-    //     }
-    //   }
-    // })
   }
 })
