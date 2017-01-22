@@ -49,3 +49,17 @@
   width: 100%;
   display: block;
 }
+
+#back-to-home {
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  right: 0;
+  top: 0;
+  border-radius: 50rpx;
+}
+
+#back-to-home image {
+  width: 100rpx;
+  height: 100rpx;
+}

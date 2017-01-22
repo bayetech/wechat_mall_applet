@@ -36,3 +36,7 @@
     </block>
   </view>
 </view>
+
+<navigator id="back-to-home" url="/pages/index/index" open-type="switchTab" hover-class="">
+  <image src="../../images/back_to_home.png"></image>
+</navigator>
