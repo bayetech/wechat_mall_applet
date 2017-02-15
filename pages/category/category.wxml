@@ -1,3 +1,17 @@
+
+<view class="type-select">
+  <view class="btn">商品</view>
+  <view class="btn">店铺</view>
+</view>
+
+
+
+<view wx:if="{{activeType === '商品'}}">
+</view>
+
+
+
+
 <view wx:if="{{!items}}">
   <view class="offline-notice">正在加载中，请稍等...</view>
 </view>
