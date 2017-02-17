@@ -31,8 +31,10 @@ Page({
   },
 
   catchTapCategory: function (e) {
-    wx.navigateTo({
-      url: `../category/category?type=${e.currentTarget.dataset.type}&typeId=${e.currentTarget.dataset.typeid}`
+    var data = e.currentTarget.dataset
+    app.globalData.currentCateType = {typeName: data.type, typeId: data.typeid}
+    wx.switchTab({
+      url: `../category/category`
     })
   },
 

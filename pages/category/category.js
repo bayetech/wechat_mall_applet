@@ -6,38 +6,39 @@ Page({
     title: '',
     items: null,
     accountType: '',
-    categoryType: null
+    categoryType: null,
+    categoryTypeId: null
   },
 
-  onLoad: function(params) {
+  onLoad: function() {
+  },
+
+  onShow() {
     var that = this
-    this.setData({
-      title: '巴爷供销社 - ' + params.type,
-      categoryType: params.type
-    })
-    product.getCategories(params.typeId, function(result) {
+    var cateType = app.globalData.currentCateType
+    this.setData({categoryType: cateType.typeName, categoryTypeId: cateType.typeId})
+    if (app.globalData.currentCustomer) {
+      var accountType = app.globalData.currentCustomer.account_type
+      that.setData({accountType: accountType})
+    }
+
+    product.getCategories(that.data.categoryTypeId, function(result) {
       var data = getApp().store.sync(result.data)
       that.setData({items: data})
       wx.setStorage({
-        key: `cate_${params.type}`,
+        key: `cate_${that.data.categoryType}`,
         data: data
       })
     }, function(fail) {
-      var key = `cate_${params.type}`
+      var key = `cate_${that.data.categoryType}`
       var data = wx.getStorage(key)
       wx.setData({items: data})
     })
   },
 
-  onShow() {
-    if (app.globalData.currentCustomer) {
-      var accountType = app.globalData.currentCustomer.account_type
-      this.setData({accountType: accountType})
-    }
-  },
-
   onReady() {
-    wx.setNavigationBarTitle({ title: this.data.title })
+    var title = '巴爷供销社 - ' + this.data.categoryType
+    wx.setNavigationBarTitle({ title: title})
   },
 
   bindTapProduct: function(e) {
