@@ -1,4 +1,4 @@
-<view class="address-container" wx:if="{{ address.detail_address && address.customer_name && address.customer_mobile }}" bindtap="bindTapAddress">
+<!--<view class="address-container" wx:if="{{ address.detail_address && address.customer_name && address.customer_mobile }}" bindtap="bindTapAddress">
   <view class="receiver">
     <view>
       <text>收货人：{{address.customer_name}}</text>
@@ -13,11 +13,11 @@
 </view>
 <view wx:else bindtap="bindTapAddress">
   <button class="button" type='primary'>填写收货地址</button>
-</view>
+</view>-->
 
-<view class="separate"></view>
+<!--<view class="separate"></view>-->
 
-<view wx:if="{{ coupon }}">
+<!--<view wx:if="{{ coupon }}">
   <view class="use-coupon" bindtap="bindSelectCoupon">
     <view><text>优惠券</text></view>
     <view class="red"><text>使用{{coupon.title}}</text></view>
@@ -28,9 +28,9 @@
     <view><text>优惠券</text></view>
     <view class="red"><text>点击使用优惠券</text></view>
   </view>
-</view>
+</view>-->
 
-<view class="separate"></view>
+<!--<view class="separate"></view>-->
 
 <view class="items-container">
   <block wx:for="{{cartItems}}" wx:for-item="item" wx:key="id">

@@ -114,7 +114,7 @@
 .billing-btn {
   z-index:2;
   position: fixed;
-  bottom: 0;
+  bottom: 100rpx;
   width: 100%;
 }
 
@@ -145,4 +145,8 @@
 
 .use-coupon .red {
   color: red;
+}
+
+.bottom-blank {
+
 }
