@@ -63,3 +63,8 @@
   width: 100rpx;
   height: 100rpx;
 }
+
+.mall_tan_content {
+  position: fixed;
+  bottom: 0;
+}

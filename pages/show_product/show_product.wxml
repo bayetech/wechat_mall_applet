@@ -40,3 +40,36 @@
 <navigator id="back-to-home" url="/pages/index/index" open-type="switchTab" hover-class="">
   <image src="../../images/back_to_home.png"></image>
 </navigator>
+
+
+
+
+<view class="mall_tan_content" animation="{{addProductAnimation}}">
+  <view class="mall_tan_color">
+    <!--<image class="head-img" src="{{product['image-url']}}" mode="aspectFit" />-->
+    <view class="mall_bottom_word">
+      <view>{{product.name}}</view>
+      <view wx:if="{{ accountType === '巴爷' }}">
+        <text id="price">巴爷价：¥{{product['baye-price']}}</text>
+      </view>
+      <view wx:else>
+        <text id="price">¥{{product['member-price']}}</text>
+      </view>
+    </view>
+    <!--<image class="head-img" src="../../images/1.png" mode="aspectFit" />-->
+
+    <view wx:if="{{product['category-id'] === 18}}">
+      <view class="inventory_mold">
+        <text>商品类型</text>
+        <view>
+          <button>普通</button>
+          <button>实体卡</button>
+        </view>
+        <view></view>
+      </view>
+    </view>
+    <view class="mall_tan_num">
+      <text>购买数量：</text>
+    </view>
+  </view>
+</view>

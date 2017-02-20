@@ -10,7 +10,8 @@ Page({
     windowHeight: 667,
     pixelRatio: 2,
     accountType: '',
-    from_share: false
+    from_share: false,
+    addProductAnimation: {}
   },
 
   onShareAppMessage: function () {
@@ -96,6 +97,12 @@ Page({
       }
     }
 
+
+
+    this.popAddProduct()
+
+
+
     var cartItems = wx.getStorageSync('cartItems') || []
 
     var exist = cartItems.filter(function(ele){
@@ -126,5 +133,23 @@ Page({
         url: '../cart/cart'
       })
     }
+  },
+
+  popAddProduct: function () {
+    if (this.count) {
+      this.count = this.count + 1
+    } else {
+      this.count = 1
+    }
+    var animation = wx.createAnimation({
+      duration: 800,
+      timingFunction: 'ease',
+    })
+    var y = this.count % 2 === 0 ? 200 : -200
+    animation.translateY(y).step()
+
+    this.setData({
+      addProductAnimation: animation.export()
+    })
   }
 })
