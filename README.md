@@ -1,5 +1,3 @@
-![扫一扫使用小程序]( https://baye-media.oss-cn-shanghai.aliyuncs.com/uploads/media_files/170109/fe09e491-6df6-43a1-8529-59d88c8df1f1.jpg)
-
 # 简介
 
 这是一个巴爷商城的微信小应用版本，是[巴爷微信商城](https://wechat.bayekeji.com)的简单版本。
